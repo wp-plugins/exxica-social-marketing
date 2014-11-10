@@ -317,7 +317,7 @@ class Exxica_Social_Marketing_Admin
 
 	public function set_default_values()
 	{
-		global $current_user;
+		global $wp, $wpdb, $current_user;
 		get_currentuserinfo();
     	$str = preg_replace( '/^www\./' , '' , get_site_url() );
     	$str = preg_replace('#^https?://#', '', $str );
@@ -334,7 +334,7 @@ class Exxica_Social_Marketing_Admin
 		if( ! get_option( 'exxica_social_marketing_referer') ) {
 		    update_option( 'exxica_social_marketing_referer', $str );
 		}
-		if( ! get_option( 'exxica_social_marketing_api_key' ) ) {
+		if( ! get_option( 'exxica_social_marketing_api_key_'.$current_user->user_login ) ) {
 			update_option('exxica_social_marketing_api_key_'.$current_user->user_login, md5(get_option( 'exxica_social_marketing_account' ) . get_option( 'exxica_social_marketing_referer' ) . get_option( 'exxica_social_marketing_api_key_created' ) ));
 			update_option('exxica_social_marketing_api_key_created_'.$current_user->user_login, time() );
 		}

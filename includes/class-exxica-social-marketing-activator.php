@@ -26,9 +26,10 @@ class Exxica_Social_Marketing_Activator {
 	 * @since    1.0.0
 	 */
 	public static function activate() {
-		global $wpdb; $sql = '';
+		global $wp, $wpdb; 
+		$sql = '';
 		
-		$latest_version = '1.1.2';
+		$latest_version = '1.1.4';
 		$installed_version = get_option('exxica_social_marketing_version', false);
 
 		$smTable = $wpdb->prefix . 'exxica_social_marketing';
