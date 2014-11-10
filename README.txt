@@ -11,7 +11,17 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 A tool that helps you schedule posts and pages on Facebook and Twitter and other social platforms.
 
 == Description ==
-Exxica Social Marketing is a tool that helps you publish your WordPress posts and pages to your selected social platforms. It has been made to help planning and scheduling publications on different social platforms which again increases traffic to your website.
+There’s more and more ways to increase your website traffic, one of them is by using social media. But there are so many to keep track of, and everything takes so much time as you should be posting to Facebook and Twitter and others when your followers are online. If you don’t have the time to be online at all hours, posting the new posts, you may lose followers and money.
+
+That’s why we at Exxica is proud to present a new scheduler for social platforms where you control all of the publications directly from WordPress, giving you an overview of what is being published to what social platforms at all times, as well as a log of previously posted teasings.
+
+Exxica delivers the most powerful plugin for marketing on social media for WordPress. The plugin operates from the administration page where you’re writing a post or page as well as in an overview. In addition you can:
+
+- Publish using different time patterns (such as daily, weekly, monthly, yearly, every 2nd tuesday of each month, and so on)
+- Use different images and texts with each of your publications (to make your posts seem less automatic)
+- Publish on: Facebook, Twitter, Google+, LinkedIn, Instagram and Flickr.
+
+Exxica Social Marketing comes with a trial period of 45 days. This means you can freely use our plugin for up to 45 days without commiting to buy anything.
 
 == Installation ==
 = Automatic installation =
@@ -41,6 +51,14 @@ The settings for Exxica Social Marketing are user specific. So that multiple use
 6. Where to find the settings page.
 
 == Changelog ==
+= 1.1.3 =
+- Added link in dashboard widget to user manual.
+- Updated readme with more useful information.
+
+= 1.1.2 =
+- Minor changes to code to make it fit with WordPress library requirements.
+- Updated some language variables.
+
 = 1.1.1 =
 - Fixed an error when removing publications.
 - Added an overview of publications.
@@ -61,6 +79,12 @@ The settings for Exxica Social Marketing are user specific. So that multiple use
 - Initial release.
 
 == Upgrade Notice ==
+= 1.1.3 =
+Minor UI patch.
+
+= 1.1.2 =
+Minor patch. Lightens footprint of the plugin. Update recommended.
+
 = 1.1.1 =
 This update includes vital improvements to security. Update as soon as possible.
 

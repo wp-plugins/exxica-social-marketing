@@ -4,6 +4,9 @@
  * @author    Gaute Rønningen <gaute@exxica.com>
  * @link      http://exxica.com
  * @copyright 2014 Exxica AS
+ *
+ * @since 1.1.3 Added user manual link.
+ * @since 1.0.0
  */
 ?>
 <style>
@@ -16,7 +19,7 @@
 </style>
 <table class="esm-dash-block">
 	<tbody>
-		<tr><td><?php _e('Do you need help using this plugin?', $this->name); ?><a href="http://exxica.com/using-exxica-social-marketing" target="_blank"><?php _e('Click here', $this->name); ?></a></td></tr>
+		<tr><td colspan="2"><?php _e('Do you need help using this plugin?', $this->name); ?><a href="http://exxica.com/using-exxica-social-marketing" target="_blank"> <?php _e('Click here', $this->name); ?></a><hr class="clear"/></td></tr>
 		<?php if($publishing_today) : ?>
 		<tr><th colspan="2" style="width:50%;text-align:left;"><h4><?php _e('Scheduled', $this->name); ?></h4></th></tr>
 		<?php foreach($publishing_today as $item) : $text = str_split($item['publish_description'],40); ?>
