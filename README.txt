@@ -41,6 +41,11 @@ The settings for Exxica Social Marketing are user specific. So that multiple use
 6. Where to find the settings page.
 
 == Changelog ==
+= 1.1.2 =
+- Minor changes to code to make it fit with WordPress library requirements.
+- Added link in dashboard widget to user manual.
+- Updated some language variables.
+
 = 1.1.1 =
 - Fixed an error when removing publications.
 - Added an overview of publications.
@@ -61,6 +66,9 @@ The settings for Exxica Social Marketing are user specific. So that multiple use
 - Initial release.
 
 == Upgrade Notice ==
+= 1.1.2 =
+Minor patch. Lightens footprint of the plugin. Update recommended.
+
 = 1.1.1 =
 This update includes vital improvements to security. Update as soon as possible.
 
