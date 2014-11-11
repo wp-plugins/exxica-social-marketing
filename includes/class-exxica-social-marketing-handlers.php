@@ -33,18 +33,19 @@ class Exxica_Db_Handler
      * @var      string    $name       The name of this plugin.
      * @var      string    $version    The version of this plugin.
      */
-    public function __construct( $name, $version ) 
+    public function __construct( $name, $version, $post_data ) 
     {
-        $this->name = $name;
-        $this->version = $version;
-		global $wpdb, $wp_query, $current_user;
-		get_currentuserinfo();
+      global $wpdb, $wp_query, $current_user;
 
-		$this->input = $_POST;
-		$this->esm_origin = get_option('exxica_social_marketing_referer');
-        $this->esm_account = get_option( 'exxica_social_marketing_account_'.$current_user->user_login, $this->esm_origin.'/'.$current_user->user_login );
-		$this->esm_accounts_table = $wpdb->prefix.'exxica_social_marketing_accounts';
-	}
+      $this->name = $name;
+      $this->version = $version;
+      $this->input = $post_data;
+  		get_currentuserinfo();
+
+  		$this->esm_origin = get_option('exxica_social_marketing_referer');
+      $this->esm_account = get_option( 'exxica_social_marketing_account_'.$current_user->user_login, $this->esm_origin.'/'.$current_user->user_login );
+  		$this->esm_accounts_table = $wpdb->prefix.'exxica_social_marketing_accounts';
+  	}
 
 	public function inputHasError()
 	{
@@ -97,15 +98,16 @@ class Exxica_Db_Handler
 	{
 		global $wpdb, $wp_query, $current_user;
 		$response = array();
+    $post = $this->input;
 
 		get_currentuserinfo();
 		$table = $this->esm_accounts_table;
 		$exxica_user_name = get_option( 'exxica_social_marketing_account_'.$current_user->user_login );
 
-	    foreach( $this->input['data']['xhr'] as $item ) {
+	    foreach( $post['data']['xhr'] as $item ) {
 	    	if( $item['chan'] == 'Facebook' ) {
 			    $response[] = array( 'channel'=> $item['chan'], 'channel_account' => $item['name'], 'fb_page_id' => $item['id'] );
-		    	$existing = $wpdb->get_row("SELECT * FROM $table WHERE fb_page_id = '".$item['id']."'");
+		    	$existing = $wpdb->get_row( sprintf("SELECT id FROM $table WHERE fb_page_id = '%s' AND exx_account = '%s' AND channel = '%s'", $item['id'], $exxica_user_name, $item['chan']) );
 
 		    	if( is_null( $existing ) ) {
 		    		// Record does not exist, creates new
@@ -132,13 +134,14 @@ class Exxica_Db_Handler
 			    		$wpdb->query( $wpdb->prepare( 
 			        		"
 			        		UPDATE $table
-			        		 SET exx_account=%s, channel=%s, channel_account=%s WHERE fb_page_id=%s
+			        		 SET exx_account=%s, channel=%s, channel_account=%s, fb_page_id=%s WHERE id=%d
 			           		"
 			        		, array(
 			        			$exxica_user_name,
 			        			$item['chan'],
 			        			$item['name'],
-			        			$item['id']
+                    $item['id'],
+			        			$existing->id
 			        		) 
 			        	) );
 				    } catch(Exception $ex) {
@@ -149,7 +152,7 @@ class Exxica_Db_Handler
 			} elseif( $item['chan'] == 'Twitter' ) {
 	    		update_option('exxica_social_marketing_show_channel_twitter_'.$current_user->user_login, 1);
 			    $response[] = array( 'channel'=> $item['chan'], 'channel_account' => $item['name'] );
-		    	$existing = $wpdb->get_row( sprintf("SELECT * FROM $this->esm_accounts_table WHERE channel_account = '%s' AND channel = '%s'", $item['name'], $item['chan']) );
+		    	$existing = $wpdb->get_row( sprintf("SELECT id FROM $this->esm_accounts_table WHERE channel_account = '%s' AND channel = '%s'", $item['name'], $item['chan']) );
 
 		    	if( is_null( $existing ) ) {
 		    		// Record does not exist, creates new
@@ -210,12 +213,12 @@ class Exxica_Process_Handler
      * @var      string    $name       The name of this plugin.
      * @var      string    $version    The version of this plugin.
      */
-    public function __construct( $name, $version ) 
+    public function __construct( $name, $version, $post_data ) 
     {
       $this->name = $name;
       $this->version = $version;
+      $this->data = $post_data;
 
-  		$this->data = $_POST;
   		$this->return = array();
   	}
 

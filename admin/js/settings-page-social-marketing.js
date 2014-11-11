@@ -89,6 +89,16 @@
 			});
 		});
 
+		$('#reinstall').click(function(e) {
+			e.preventDefault();
+			$('#reinstall').addClass('disabled');
+			$.post(FactoryResetAjax.ajaxurl, [{"name":"_wpnonce","value":FactoryResetAjax.nonce}], function(d) { 
+				var da = $.parseJSON(d); 
+				if(da.success) 
+					window.location.reload(true); 
+			});
+		});
+
 		$(document).ready(function() {
 			$('.auth_btn').each(function() {
 				$(this).addClass('disabled');

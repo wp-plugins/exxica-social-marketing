@@ -19,7 +19,7 @@ Exxica delivers the most powerful plugin for marketing on social media for WordP
 
 - Publish using different time patterns (such as daily, weekly, monthly, yearly, every 2nd tuesday of each month, and so on)
 - Use different images and texts with each of your publications (to make your posts seem less automatic)
-- Publish on: Facebook, Twitter, Google+, LinkedIn, Instagram and Flickr.
+- Publish on: Facebook, Twitter, and more.
 
 Exxica Social Marketing comes with a trial period of 45 days. This means you can freely use our plugin for up to 45 days without commiting to buy anything.
 
@@ -51,6 +51,12 @@ The settings for Exxica Social Marketing are user specific. So that multiple use
 6. Where to find the settings page.
 
 == Changelog ==
+= 1.1.5 =
+- Added disclaimer.
+
+= 1.1.4 =
+- Fixed minor SQL bugs.
+
 = 1.1.3 =
 - Added link in dashboard widget to user manual.
 - Updated readme with more useful information.
@@ -79,6 +85,12 @@ The settings for Exxica Social Marketing are user specific. So that multiple use
 - Initial release.
 
 == Upgrade Notice ==
+= 1.1.5 =
+Update as soon as possible.
+
+= 1.1.4 =
+Minor patch.
+
 = 1.1.3 =
 Minor UI patch.
 
