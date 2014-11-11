@@ -15,7 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:       Exxica Social Marketing
  * Description:       A tool that helps you publish your WordPress posts and pages to your selected social platforms. It has been made to help planning and scheduling publications on different social platforms which again increases traffic on your website.
- * Version:           1.1.4.1
+ * Version:           1.1.4.2
  * Author:            Gaute Rønningen
  * Author URI:        http://exxica.com/
  * License:           GPL-2.0+

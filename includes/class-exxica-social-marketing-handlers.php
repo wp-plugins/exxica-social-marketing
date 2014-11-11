@@ -98,15 +98,16 @@ class Exxica_Db_Handler
 	{
 		global $wpdb, $wp_query, $current_user;
 		$response = array();
+    $post = $this->input;
 
 		get_currentuserinfo();
 		$table = $this->esm_accounts_table;
 		$exxica_user_name = get_option( 'exxica_social_marketing_account_'.$current_user->user_login );
 
-	    foreach( $this->input['data']['xhr'] as $item ) {
+	    foreach( $post['data']['xhr'] as $item ) {
 	    	if( $item['chan'] == 'Facebook' ) {
 			    $response[] = array( 'channel'=> $item['chan'], 'channel_account' => $item['name'], 'fb_page_id' => $item['id'] );
-		    	$existing = $wpdb->get_row("SELECT * FROM $table WHERE fb_page_id = '".$item['id']."'");
+		    	$existing = $wpdb->get_row("SELECT * FROM $table WHERE fb_page_id = '".$item['id']."' AND exx_account = '".$exxica_user_name."'" );
 
 		    	if( is_null( $existing ) ) {
 		    		// Record does not exist, creates new

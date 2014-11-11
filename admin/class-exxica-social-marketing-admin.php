@@ -203,12 +203,12 @@ class Exxica_Social_Marketing_Admin
 
 		$secret = md5( $key . '+' . $time );
 		$accTable = $wpdb->prefix . 'exxica_social_marketing_accounts';
-		$facebook_accounts = $wpdb->get_results( "SELECT ID, channel_account AS name, expiry_date FROM $accTable WHERE channel = 'Facebook' AND exx_account = '".$un."'", ARRAY_A );
-		$twitter_accounts = $wpdb->get_results( "SELECT ID, channel_account AS name, expiry_date FROM $accTable WHERE channel = 'Twitter' AND exx_account = '".$un."'", ARRAY_A );
-		$linkedin_accounts = $wpdb->get_results( "SELECT ID, channel_account AS name, expiry_date FROM $accTable WHERE channel = 'LinkedIn' AND exx_account = '".$un."'", ARRAY_A );
-		$google_accounts = $wpdb->get_results( "SELECT ID, channel_account AS name, expiry_date FROM $accTable WHERE channel = 'Google' AND exx_account = '".$un."'", ARRAY_A );
-		$instagram_accounts = $wpdb->get_results( "SELECT ID, channel_account AS name, expiry_date FROM $accTable WHERE channel = 'Instagram' AND exx_account = '".$un."'", ARRAY_A );
-		$flickr_accounts = $wpdb->get_results( "SELECT ID, channel_account AS name, expiry_date FROM $accTable WHERE channel = 'Flickr' AND exx_account = '".$un."'", ARRAY_A );
+		$facebook_accounts = $wpdb->get_results( "SELECT ID, channel_account AS name, expiry_date FROM $accTable WHERE channel = 'Facebook' AND exx_account = '$un'", ARRAY_A );
+		$twitter_accounts = $wpdb->get_results( "SELECT ID, channel_account AS name, expiry_date FROM $accTable WHERE channel = 'Twitter' AND exx_account = '$un'", ARRAY_A );
+		$linkedin_accounts = $wpdb->get_results( "SELECT ID, channel_account AS name, expiry_date FROM $accTable WHERE channel = 'LinkedIn' AND exx_account = '$un'", ARRAY_A );
+		$google_accounts = $wpdb->get_results( "SELECT ID, channel_account AS name, expiry_date FROM $accTable WHERE channel = 'Google' AND exx_account = '$un'", ARRAY_A );
+		$instagram_accounts = $wpdb->get_results( "SELECT ID, channel_account AS name, expiry_date FROM $accTable WHERE channel = 'Instagram' AND exx_account = '$un'", ARRAY_A );
+		$flickr_accounts = $wpdb->get_results( "SELECT ID, channel_account AS name, expiry_date FROM $accTable WHERE channel = 'Flickr' AND exx_account = '$un'", ARRAY_A );
 
 		include_once('partials/exxica-social-marketing-admin-display.php');
 	}

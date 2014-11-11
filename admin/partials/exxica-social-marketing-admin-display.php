@@ -11,7 +11,7 @@
  * @package    Exxica_Social_Marketing
  * @subpackage Exxica_Social_Marketing/partials
  */
-?>
+ ?>
 <table style="width:100%;background-color:#fff;border:1px solid #ddd;padding:10px;">
 	<tbody>
 		<tr>
