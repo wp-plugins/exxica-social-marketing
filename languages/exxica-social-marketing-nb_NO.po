@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Exxica Plugins\n"
-"POT-Creation-Date: 2014-11-11 15:37+0100\n"
-"PO-Revision-Date: 2014-11-11 15:40+0100\n"
+"POT-Creation-Date: 2014-11-11 16:17+0100\n"
+"PO-Revision-Date: 2014-11-11 16:19+0100\n"
 "Last-Translator: Gaute Rønningen <gaute@exxica.com>\n"
 "Language-Team: Gaute Rønningen <gaute@exxica.com>\n"
 "Language: nb_NO\n"
@@ -142,11 +142,19 @@ msgstr ""
 "fjernet ved feil, kan man re-synkronisere hele listen med den som ligger "
 "Exxica serveren ved å trykke på \"Oppdater\"."
 
-#: admin/class-exxica-social-marketing-admin.php:409
+#: admin/class-exxica-social-marketing-admin.php:408
+msgid ""
+"Authorized accounts will have to be renewed every 30 days. This is security "
+"precaution."
+msgstr ""
+"Autoriserte konti må re-autoriseres hver 30. dag. Dette er en "
+"sikkerhetsforanstaltning."
+
+#: admin/class-exxica-social-marketing-admin.php:410
 msgid "Disclaimer"
 msgstr "Ansvarsfraskrivelse"
 
-#: admin/class-exxica-social-marketing-admin.php:410
+#: admin/class-exxica-social-marketing-admin.php:411
 msgid ""
 "Exxica AS disclaims all responsibility and all liability (including through "
 "negligence) for all expenses, losses, damages and costs you might incur as a "
@@ -155,11 +163,11 @@ msgstr ""
 "Exxica AS fraskriver seg alt ansvar for alle tap, skader og kostnader du "
 "kanskje kan lide som følge av bruk av Exxica Sosial Markedsføringsplanlegger."
 
-#: admin/class-exxica-social-marketing-admin.php:412
+#: admin/class-exxica-social-marketing-admin.php:413
 msgid "Cancelling subscription"
 msgstr "Avslutte abonnement"
 
-#: admin/class-exxica-social-marketing-admin.php:413
+#: admin/class-exxica-social-marketing-admin.php:414
 #, php-format
 msgid ""
 "If you want to cancel your subscription, please go to <a href=\"%s\" target="
@@ -170,11 +178,11 @@ msgstr ""
 "vennligst gå til <a href=\"%s\" target=\"_blank\" alt=\"%s\">%s</a> eller "
 "send oss en e-post til <a href=\"%s\" target=\"_blank\">%s</a>."
 
-#: admin/class-exxica-social-marketing-admin.php:417
+#: admin/class-exxica-social-marketing-admin.php:418
 msgid "Flush data"
 msgstr "Rensk data"
 
-#: admin/class-exxica-social-marketing-admin.php:418
+#: admin/class-exxica-social-marketing-admin.php:419
 msgid ""
 "This will flush all datas from your Exxica Social Marketing tables and re-"
 "install the tables with default values, use this <strong>ONLY</strong> as a "
@@ -184,11 +192,11 @@ msgstr ""
 "gjennopprette fabrikkinstillinger, bruk den <strong>BARE</strong> hvis du "
 "ikke ser noen annen utvei."
 
-#: admin/class-exxica-social-marketing-admin.php:419
+#: admin/class-exxica-social-marketing-admin.php:420
 msgid "Re-install tables"
 msgstr "Gjennopprett fabrikkinstillinger "
 
-#: admin/class-exxica-social-marketing-admin.php:430
+#: admin/class-exxica-social-marketing-admin.php:431
 msgid "Social Marketing"
 msgstr "Sosial markedsføring"
 

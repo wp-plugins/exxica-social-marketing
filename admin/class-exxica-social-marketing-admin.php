@@ -405,6 +405,7 @@ class Exxica_Social_Marketing_Admin
 			<li><?php _e('If Exxica Social Marketing are to work properly, at least one account must be authorized through the Exxica server. The accounts will be used by the current user to publish publications to their respective pages.<br/>To start this process you must click the authorization buttons below.', $this->name); ?>
 			<li><?php _e('The authorized accounts are only available to the current user. Other users will have to authorize with their own accounts.', $this->name); ?></li>
 			<li><?php _e('Authorized accounts can be removed from your server. And if they are removed in error, you can re-syncronize your accounts by pressing "Update" atop the account list.', $this->name); ?></li>
+			<li><?php _e('Authorized accounts will have to be renewed every 30 days. This is security precaution.'); ?></li>
 		</ul>
 		<h2><?php _e('Disclaimer', $this->name); ?></h2>
 		<p><?php _e('Exxica AS disclaims all responsibility and all liability (including through negligence) for all expenses, losses, damages and costs you might incur as a result of the use of Exxica Social Marketing Scheduler.', $this->name); ?></p>

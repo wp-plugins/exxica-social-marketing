@@ -11,17 +11,36 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 A tool that helps you schedule posts and pages on Facebook and Twitter and other social platforms.
 
 == Description ==
-There’s more and more ways to increase your website traffic, one of them is by using social media. But there are so many to keep track of, and everything takes so much time as you should be posting to Facebook and Twitter and others when your followers are online. If you don’t have the time to be online at all hours, posting the new posts, you may lose followers and money.
+Timing is all, if you want to maximize the effect of sharing your articles in social media. 
 
-That’s why we at Exxica is proud to present a new scheduler for social platforms where you control all of the publications directly from WordPress, giving you an overview of what is being published to what social platforms at all times, as well as a log of previously posted teasings.
+To share an editorial 
+- on right time of day might rise the traffic to your site with more than 100% 
+- on right time of year might be the crucial in whether it is relevant or not 
+- with right numbers of recurrence might be the difference between spam and success
 
-Exxica delivers the most powerful plugin for marketing on social media for WordPress. The plugin operates from the administration page where you’re writing a post or page as well as in an overview. In addition you can:
+With Exxica Social Marketing, you can plan when you want to share your articles on Facebook and Twitter. You can
+- Plan one or several sharings of each article
+- Share on one or several Twitter accounts
+- Share on one or several Facebook pages you manage
+- Use different picture and text for each sharing
+- Keep complete track of future and past sharings
 
-- Publish using different time patterns (such as daily, weekly, monthly, yearly, every 2nd tuesday of each month, and so on)
-- Use different images and texts with each of your publications (to make your posts seem less automatic)
-- Publish on: Facebook, Twitter, and more.
+= Professional tool =
+Exxica Social Marketing is a professional tool for marketing on social channels. Plan your marketing campaign for each article inside the actual page where you write and edit your article.
 
-Exxica Social Marketing comes with a trial period of 45 days. This means you can freely use our plugin for up to 45 days without commiting to buy anything.
+The overview page keeps track of all past sharings and shows you states of future sharings. You able to plan your sharings just a few minutes in to the future, or for several months or years. The sharing is published on the channel you decide on the exact day and time you decide.
+
+Once you have done the job, you can forget about it and let the computer do the rest. You do not even need to turn your computer on.
+
+Nevertheless, you are of course in charge. You can reorganize your plan whenever it suits you.
+
+= Cooperate and multiuser =
+
+Each user is allowed to share on those channels, accounts and pages he/she has access to from before. Numerous contributors might also be able to share on a common Twitter account or Facebook page. The users are allowed to publish on his/hers personal account or page.
+
+= Trial version =
+
+This plugin is a free 45 days trial version.
 
 == Installation ==
 = Automatic installation =
