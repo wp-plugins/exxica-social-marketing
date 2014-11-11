@@ -14,11 +14,13 @@ A tool that helps you schedule posts and pages on Facebook and Twitter and other
 Timing is all, if you want to maximize the effect of sharing your articles in social media. 
 
 To share an editorial 
+
 - on right time of day might rise the traffic to your site with more than 100% 
 - on right time of year might be the crucial in whether it is relevant or not 
 - with right numbers of recurrence might be the difference between spam and success
 
 With Exxica Social Marketing, you can plan when you want to share your articles on Facebook and Twitter. You can
+
 - Plan one or several sharings of each article
 - Share on one or several Twitter accounts
 - Share on one or several Facebook pages you manage
