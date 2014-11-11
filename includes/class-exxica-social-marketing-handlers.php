@@ -107,7 +107,7 @@ class Exxica_Db_Handler
 	    foreach( $post['data']['xhr'] as $item ) {
 	    	if( $item['chan'] == 'Facebook' ) {
 			    $response[] = array( 'channel'=> $item['chan'], 'channel_account' => $item['name'], 'fb_page_id' => $item['id'] );
-		    	$existing = $wpdb->get_row("SELECT * FROM $table WHERE fb_page_id = '".$item['id']."' AND exx_account = '".$exxica_user_name."'" );
+		    	$existing = $wpdb->get_row( sprintf("SELECT id FROM $table WHERE fb_page_id = '%s' AND exx_account = '%s' AND channel = '%s'", $item['id'], $exxica_user_name, $item['chan']) );
 
 		    	if( is_null( $existing ) ) {
 		    		// Record does not exist, creates new
@@ -134,13 +134,14 @@ class Exxica_Db_Handler
 			    		$wpdb->query( $wpdb->prepare( 
 			        		"
 			        		UPDATE $table
-			        		 SET exx_account=%s, channel=%s, channel_account=%s WHERE fb_page_id=%s
+			        		 SET exx_account=%s, channel=%s, channel_account=%s, fb_page_id=%s WHERE id=%d
 			           		"
 			        		, array(
 			        			$exxica_user_name,
 			        			$item['chan'],
 			        			$item['name'],
-			        			$item['id']
+                    $item['id'],
+			        			$existing->id
 			        		) 
 			        	) );
 				    } catch(Exception $ex) {
@@ -151,7 +152,7 @@ class Exxica_Db_Handler
 			} elseif( $item['chan'] == 'Twitter' ) {
 	    		update_option('exxica_social_marketing_show_channel_twitter_'.$current_user->user_login, 1);
 			    $response[] = array( 'channel'=> $item['chan'], 'channel_account' => $item['name'] );
-		    	$existing = $wpdb->get_row( sprintf("SELECT * FROM $this->esm_accounts_table WHERE channel_account = '%s' AND channel = '%s'", $item['name'], $item['chan']) );
+		    	$existing = $wpdb->get_row( sprintf("SELECT id FROM $this->esm_accounts_table WHERE channel_account = '%s' AND channel = '%s'", $item['name'], $item['chan']) );
 
 		    	if( is_null( $existing ) ) {
 		    		// Record does not exist, creates new

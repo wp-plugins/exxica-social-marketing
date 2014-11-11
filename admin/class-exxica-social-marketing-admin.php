@@ -112,11 +112,17 @@ class Exxica_Social_Marketing_Admin
 			    'nonce'				=> 		wp_create_nonce( 'dbhandlerajax-nonce' ),
 		    )
 		);
+		wp_localize_script( $this->name, 'FactoryResetAjax', array(
+			    'ajaxurl'          	=> 		admin_url('admin-ajax.php?action=factory_reset'),
+			    'nonce'				=> 		wp_create_nonce( 'factoryreset-nonce' ),
+		    )
+		);
 		wp_localize_script( $this->name, 'processAjax', array(
 			    'ajaxurl'          	=> 		admin_url('admin-ajax.php?action=save_license_data'),
 			    'nonce'				=> 		wp_create_nonce( 'processajax-nonce' ),
 		    )
 		);
+
 		wp_localize_script( $this->name, 'exxicaVerifyAjax', array(
 			    'ajaxurl'          	=> 		'http://api.exxica.com/publisher/exxica/verify',
 			    'nonce'				=> 		wp_create_nonce( 'exxicaverifyajax-nonce' ),
@@ -138,7 +144,6 @@ class Exxica_Social_Marketing_Admin
 			    'nonce'				=> 		wp_create_nonce( 'twitterloginajax-nonce' ),
 		    )
 		);
-
 		wp_localize_script( $this->name, 'Language', array(
 				'days_ago'			=>		__(' days ago', $this->name),
 				'expires_in'		=>		__('in about ', $this->name),
@@ -365,6 +370,11 @@ class Exxica_Social_Marketing_Admin
 					'id' => 'esm-help-subscription',	
 					'title' => __('Subscription', $this->name ),
 					'content' => $this->help_text('subscription')
+				),
+				array(
+					'id' => 'esm-help-advanced',	
+					'title' => __('Advanced', $this->name ),
+					'content' => $this->help_text('advanced')
 				)
 			);
 
@@ -396,11 +406,17 @@ class Exxica_Social_Marketing_Admin
 			<li><?php _e('The authorized accounts are only available to the current user. Other users will have to authorize with their own accounts.', $this->name); ?></li>
 			<li><?php _e('Authorized accounts can be removed from your server. And if they are removed in error, you can re-syncronize your accounts by pressing "Update" atop the account list.', $this->name); ?></li>
 		</ul>
+		<h2><?php _e('Disclaimer', $this->name); ?></h2>
+		<p><?php _e('Exxica AS disclaims all responsibility and all liability (including through negligence) for all expenses, losses, damages and costs you might incur as a result of the use of Exxica Social Marketing Scheduler.', $this->name); ?></p>
 		<?php elseif($type == "subscription") : ?>
 		<h2><?php _e('Cancelling subscription', $this->name); ?></h2>
 		<p><?php printf(__('If you want to cancel your subscription, please go to <a href="%s" target="_blank" alt="%s">%s</a> or send us an e-mail at <a href="%s" target="_blank">%s</a>.',$this->name),
 			$sub_cancel_url,$sub_cancel_text,$sub_cancel_text,$sub_cancel_mail_url,$sub_cancel_mail_text
 		); ?></p>
+		<?php elseif($type == "advanced") : ?>
+		<h2><?php _e('Flush data', $this->name); ?></h2>
+		<p><?php _e('This will flush all datas from your Exxica Social Marketing tables and re-install the tables with default values, use this <strong>ONLY</strong> as a last resort.', $this->name); ?></p>
+		<a href="#" id="reinstall" class="button-secondary"><?php _e('Re-install tables', $this->name); ?></a>
 		<?php endif; ?>
 		<?php
 		$out = ob_get_contents();

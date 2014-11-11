@@ -567,4 +567,99 @@ class Exxica_Social_Marketing_Handlers
         echo json_encode( $return );
         die();
     }
+
+    public function factory_reset()
+    {
+        global $wp, $wpdb;
+
+        $success = false;
+        $wpnonce = isset($_REQUEST['_wpnonce']) ? $_REQUEST['_wpnonce'] : false;
+        $error = null;
+
+        if( $wpnonce ) {
+            if( $wpnonce = wp_create_nonce( 'factoryreset-nonce' ) ) {
+                try {
+                    $smTable = $wpdb->prefix . 'exxica_social_marketing';
+                    $accTable = $wpdb->prefix . 'exxica_social_marketing_accounts';
+                    $statTable = $wpdb->prefix . 'exxica_social_marketing_statuses';
+
+                    // Remove general option values
+                    delete_option('exxica_social_marketing_account');
+                    delete_option('exxica_social_marketing_account_');
+                    delete_option('exxica_social_marketing_account_type_');
+                    delete_option('exxica_social_marketing_api_key');
+                    delete_option('exxica_social_marketing_api_key_created');
+                    delete_option('exxica_social_marketing_expiry_');
+                    delete_option('exxica_social_marketing_referer');
+                    delete_option('exxica_social_marketing_show_channel_facebook_');
+                    delete_option('exxica_social_marketing_show_channel_flickr_');
+                    delete_option('exxica_social_marketing_show_channel_google_');
+                    delete_option('exxica_social_marketing_show_channel_instagram_');
+                    delete_option('exxica_social_marketing_show_channel_linkedin_');
+                    delete_option('exxica_social_marketing_show_channel_twitter_');
+                    delete_option('exxica_social_marketing_version');
+
+                    // Remove user specific values
+                    $wp_user_search = $wpdb->get_results("SELECT ID, user_login FROM $wpdb->users ORDER BY ID");
+                    $login = '';
+                    foreach ( $wp_user_search as $userid ) {
+                        $login = stripslashes($userid->user_login);
+                        delete_option('exxica_social_marketing_account_'.$login);
+                        delete_option('exxica_social_marketing_account_type_'.$login);
+                        delete_option('exxica_social_marketing_expiry_'.$login);
+                        delete_option('exxica_social_marketing_show_channel_facebook_'.$login);
+                        delete_option('exxica_social_marketing_show_channel_flickr_'.$login);
+                        delete_option('exxica_social_marketing_show_channel_google_'.$login);
+                        delete_option('exxica_social_marketing_show_channel_instagram_'.$login);
+                        delete_option('exxica_social_marketing_show_channel_instagram_'.$login);
+                        delete_option('exxica_social_marketing_show_channel_twitter_'.$login);
+                    }
+
+                    // Remove all ESM tables
+                    $wpdb->query("DROP TABLE IF EXISTS $smTable;");
+                    $wpdb->query("DROP TABLE IF EXISTS $accTable;");
+                    $wpdb->query("DROP TABLE IF EXISTS $statTable;");
+
+                    // ESM first time setup
+                    $wpdb->query("CREATE TABLE IF NOT EXISTS $smTable(  
+                      `id` int(20) unsigned NOT NULL AUTO_INCREMENT,
+                      `post_id` int(20) NOT NULL,
+                      `exx_account` varchar(128) NOT NULL,
+                      `channel` varchar(64) NOT NULL,
+                      `channel_account` varchar(128) NOT NULL,
+                      `publish_type` varchar(16) NOT NULL,
+                      `publish_localtime` int(20),
+                      `publish_unixtime` int(20) NOT NULL,
+                      `publish_image_url` text NOT NULL,
+                      `publish_article_url` text NOT NULL,
+                      `publish_title` text NOT NULL,
+                      `publish_description` text NOT NULL,
+                      PRIMARY KEY (`id`)
+                    ); ");
+                    $wpdb->query("CREATE TABLE IF NOT EXISTS $accTable(  
+                      `id` int(20) unsigned NOT NULL AUTO_INCREMENT,
+                      `exx_account` varchar(128) NOT NULL,
+                      `channel` varchar(64) NOT NULL,
+                      `channel_account` varchar(128) NOT NULL,
+                      `expiry_date` INT(20) NOT NULL,
+                      `fb_page_id` varchar(128),
+                      PRIMARY KEY (`id`)
+                    ); ");
+                    $wpdb->query("CREATE TABLE IF NOT EXISTS $statTable (
+                      `id` int(20) unsigned NOT NULL AUTO_INCREMENT,
+                      `marketing_id` int(20) unsigned NOT NULL,
+                      `status` int(20) unsigned NOT NULL COMMENT '0 = Ok, 1 = Error',
+                      `message` text,
+                      PRIMARY KEY (`id`)
+                    ); ");
+                    $success = true;
+                } catch(Exception $ex) {
+                    $success = false;
+                    $error = array('message' => $ex->getMessage());
+                }
+            }
+        }
+
+        $this->return_data( array( 'success' => $success, 'error' => $error) );
+    }
 }
