@@ -108,8 +108,8 @@ class Exxica_Social_Marketing_Handlers
      */
     public function load_handlers()
     {
-        $this->channel_handler = new Exxica_Db_Handler($this->name, $this->version);
-        $this->license_handler = new Exxica_Process_Handler($this->name, $this->version);
+        $this->channel_handler = new Exxica_Db_Handler($this->name, $this->version, $_POST);
+        $this->license_handler = new Exxica_Process_Handler($this->name, $this->version, $_POST);
         $this->overview_handler = new Exxica_Overview_Handler($this->name, $this->version);
         $this->postdata_handler = new Exxica_Postdata_Handler($this->name, $this->version);
         $this->loaded = true;

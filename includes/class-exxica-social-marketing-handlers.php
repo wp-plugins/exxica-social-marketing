@@ -33,18 +33,19 @@ class Exxica_Db_Handler
      * @var      string    $name       The name of this plugin.
      * @var      string    $version    The version of this plugin.
      */
-    public function __construct( $name, $version ) 
+    public function __construct( $name, $version, $post_data ) 
     {
-        $this->name = $name;
-        $this->version = $version;
-		global $wpdb, $wp_query, $current_user;
-		get_currentuserinfo();
+      global $wpdb, $wp_query, $current_user;
 
-		$this->input = $_POST;
-		$this->esm_origin = get_option('exxica_social_marketing_referer');
-        $this->esm_account = get_option( 'exxica_social_marketing_account_'.$current_user->user_login, $this->esm_origin.'/'.$current_user->user_login );
-		$this->esm_accounts_table = $wpdb->prefix.'exxica_social_marketing_accounts';
-	}
+      $this->name = $name;
+      $this->version = $version;
+      $this->input = $post_data;
+  		get_currentuserinfo();
+
+  		$this->esm_origin = get_option('exxica_social_marketing_referer');
+      $this->esm_account = get_option( 'exxica_social_marketing_account_'.$current_user->user_login, $this->esm_origin.'/'.$current_user->user_login );
+  		$this->esm_accounts_table = $wpdb->prefix.'exxica_social_marketing_accounts';
+  	}
 
 	public function inputHasError()
 	{
@@ -210,12 +211,12 @@ class Exxica_Process_Handler
      * @var      string    $name       The name of this plugin.
      * @var      string    $version    The version of this plugin.
      */
-    public function __construct( $name, $version ) 
+    public function __construct( $name, $version, $post_data ) 
     {
       $this->name = $name;
       $this->version = $version;
+      $this->data = $post_data;
 
-  		$this->data = $_POST;
   		$this->return = array();
   	}
 
