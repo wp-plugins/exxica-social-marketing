@@ -1,7 +1,7 @@
-=== Exxica Social Marketing ===
+=== Social Marketing Scheduler ===
 Contributors: exxica
 Donate link: http://exxica.com/increase-website-traffic
-Tags: social marketing, marketing, teasing, increase traffic, generate traffic, facebook, twitter
+Tags: social marketing, marketing, teasing, increase traffic, generate traffic, facebook, twitter, social marketing scheduler, scheduler, social marketing planning, planning, sharing, publicating, sharings, publications, social marketing plan, marketing plan, marketing schedule, timing
 Requires at least: 3.5.1
 Tested up to: 4.0
 Stable tag: trunk
@@ -15,20 +15,20 @@ Timing is all, if you want to maximize the effect of sharing your articles in so
 
 To share an editorial 
 
-- on right time of day might rise the traffic to your site with more than 100% 
-- on right time of year might be the crucial in whether it is relevant or not 
-- with right numbers of recurrence might be the difference between spam and success
+- on right time of day might rise the traffic to your site with more than 100%.
+- on right time of year might be the crucial in whether it is relevant or not.
+- with right numbers of recurrence might be the difference between spam and success.
 
-With Exxica Social Marketing, you can plan when you want to share your articles on Facebook and Twitter. You can
+With *Social Marketing Scheduler*, you can plan when you want to share your articles on Facebook and Twitter. You can
 
-- Plan one or several sharings of each article
-- Share on one or several Twitter accounts
-- Share on one or several Facebook pages you manage
-- Use different picture and text for each sharing
-- Keep complete track of future and past sharings
+- Plan one or several sharings of each article.
+- Share on one or several Twitter accounts.
+- Share on one or several Facebook pages you manage.
+- Use different picture and text for each sharing.
+- Keep complete track of future and past sharings.
 
 = Professional tool =
-Exxica Social Marketing is a professional tool for marketing on social channels. Plan your marketing campaign for each article inside the actual page where you write and edit your article.
+*Social Marketing Scheduler* is a professional tool for marketing on social channels. Plan your marketing campaign for each article inside the actual page where you write and edit your article.
 
 The overview page keeps track of all past sharings and shows you states of future sharings. You able to plan your sharings just a few minutes in to the future, or for several months or years. The sharing is published on the channel you decide on the exact day and time you decide.
 
