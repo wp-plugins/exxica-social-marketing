@@ -114,14 +114,15 @@ class Exxica_Db_Handler
 			        try {
 			        	$wpdb->query( $wpdb->prepare( 
 			        		"
-			        		INSERT INTO $table(exx_account, channel, channel_account, fb_page_id)
-			        		 VALUES( %s, %s, %s, %s )
+			        		INSERT INTO $table(exx_account, channel, channel_account, fb_page_id, expiry_date)
+			        		 VALUES( %s, %s, %s, %d, %d )
 			           		"
 			        		, array(
-			        			$exxica_user_name,
-			        			$item['chan'],
-			        			$item['name'],
-			        			$item['id']
+			        			(string)$exxica_user_name,
+			        			(string)$item['chan'],
+			        			(string)$item['name'],
+			        			(int)$item['id'],
+                    (int)strtotime("+1 month")
 			        		) 
 			        	) );
 			        } catch(Exception $ex) {
@@ -134,13 +135,14 @@ class Exxica_Db_Handler
 			    		$wpdb->query( $wpdb->prepare( 
 			        		"
 			        		UPDATE $table
-			        		 SET exx_account=%s, channel=%s, channel_account=%s, fb_page_id=%s WHERE id=%d
+			        		 SET exx_account=%s, channel=%s, channel_account=%s, fb_page_id=%d, expiry_date=%d WHERE id=%d
 			           		"
 			        		, array(
-			        			$exxica_user_name,
-			        			$item['chan'],
-			        			$item['name'],
-                    $item['id'],
+			        			(string)$exxica_user_name,
+			        			(string)$item['chan'],
+			        			(string)$item['name'],
+                    (int)$item['id'],
+                    (int)strtotime("+1 month"),
 			        			$existing->id
 			        		) 
 			        	) );
@@ -150,32 +152,36 @@ class Exxica_Db_Handler
 			        } 
 			    }
 			} elseif( $item['chan'] == 'Twitter' ) {
-	    		update_option('exxica_social_marketing_show_channel_twitter_'.$current_user->user_login, 1);
-			    $response[] = array( 'channel'=> $item['chan'], 'channel_account' => $item['name'] );
-		    	$existing = $wpdb->get_row( sprintf("SELECT id FROM $this->esm_accounts_table WHERE channel_account = '%s' AND channel = '%s'", $item['name'], $item['chan']) );
+          // Don't register if name is blank (occurs on first registration due to temp login variables)
+          if($item['name'] !== '') { 
+  	    		update_option('exxica_social_marketing_show_channel_twitter_'.$current_user->user_login, 1);
+  			    $response[] = array( 'channel'=> $item['chan'], 'channel_account' => $item['name'] );
+  		    	$existing = $wpdb->get_row( sprintf("SELECT id FROM $this->esm_accounts_table WHERE channel_account = '%s' AND channel = '%s'", $item['name'], $item['chan']) );
 
-		    	if( is_null( $existing ) ) {
-		    		// Record does not exist, creates new
-			        try {
-			        	$wpdb->query( $wpdb->prepare( 
-			        		"
-			        		INSERT INTO $table(exx_account, channel, channel_account, expiry_date)
-			        		 VALUES( %s, %s, %s, %d )
-			           		"
-			        		, array(
-			        			$exxica_user_name,
-			        			$item['chan'],
-			        			$item['name'],
-			        			strtotime("+1 month")
-			        		) 
-			        	) );
-			        } catch(Exception $ex) {
-			        	$this->error = array('code' => $ex->getCode(), 'message' => $ex->getMessage(), 'type' => 'Exception');
-			        	$response = false;
-			        } 
-			    } else {
-			    	// No action if it exists
-			    }
+  		    	if( is_null( $existing ) ) {
+  		    		// Record does not exist, creates new
+  			        try {
+  			        	$wpdb->query( $wpdb->prepare( 
+  			        		"
+  			        		INSERT INTO $table(exx_account, channel, channel_account, fb_page_id, expiry_date)
+  			        		 VALUES( %s, %s, %s, %d, %d )
+  			           		"
+  			        		, array(
+  			        			(string)$exxica_user_name,
+  			        			(string)$item['chan'],
+  			        			(string)$item['name'],
+                      (int)$item['id'],
+  			        			(int)strtotime("+1 month")
+  			        		) 
+  			        	) );
+  			        } catch(Exception $ex) {
+  			        	$this->error = array('code' => $ex->getCode(), 'message' => $ex->getMessage(), 'type' => 'Exception');
+  			        	$response = false;
+  			        } 
+  			    } else {
+  			    	// No action if it exists
+  			    }
+          }
 		    }
 	    }
 	    return $response;

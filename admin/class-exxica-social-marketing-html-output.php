@@ -300,6 +300,9 @@ class Exxica_Social_Marketing_Admin_Html_Output
 	}
 	public function generate_script_list_row($post, $item, $i) 
 	{
+		$date_format = get_option( 'exxica_social_marketing_date_format', __( 'm/d/Y', $this->name ) );
+		$time_format = get_option( 'exxica_social_marketing_time_format', __( 'g:i A', $this->name ) );
+
 		$text = str_split($item['publish_description'],20); 
 		$row_color = ($i % 2 == 0) ? ' even' : ' odd'; 
 		if(strtotime('+3 days') > $item['publish_localtime'] && time() < $item['publish_localtime'] ) $row_color .= ' close_to_publish';
@@ -369,7 +372,7 @@ class Exxica_Social_Marketing_Admin_Html_Output
 			<td style="width:2%;text-align:center"><span id="chevron-<?php echo $item['id']; ?>"><div class="dashicons dashicons-arrow-right"></div></span></td>
 			<td style="width:10%;text-align:left;"><span id="channel-name-<?php echo $item['id']; ?>"><?php echo $item['channel']; ?></span></td>
 			<td style="width:43%;text-align:left;"><span id="publish-short-text-<?php echo $item['id']; ?>"><?php echo $text[0].'...'; ?></span></td>
-			<td style="width:30%;text-align:right;"><span id="publish-date-<?php echo $item['id']; ?>"><?php echo $daynames[date('D', $item['publish_localtime'])].date( ' d.m.Y \k\l\. H:i', $item['publish_localtime'] ); ?></span></td>
+			<td style="width:30%;text-align:right;"><span id="publish-date-<?php echo $item['id']; ?>"><?php echo $daynames[date('D', $item['publish_localtime'])].date( ' '.$date_format.' '.$time_format, $item['publish_localtime'] ); ?></span></td>
 			<td style="width:15%;text-align:right;"><?php echo $this->generate_script_actions($post, $item); ?></td>
 		</tr>
 		<?php
@@ -481,6 +484,7 @@ class Exxica_Social_Marketing_Admin_Html_Output
 	    global $wpdb;
 
 		$post_publish_time = strtotime($post->post_date);
+		$date_format = get_option( 'exxica_social_marketing_date_format', __( 'm/d/Y', $this->name ) );
 
 		// Check if post publish time is after publish_localtime
 		if($action == 'create') {
@@ -500,58 +504,12 @@ class Exxica_Social_Marketing_Admin_Html_Output
 						(function ( $ ) {
 							"use strict";
 							$(function () {
+								var $item_id = "<?php echo $item['id']; ?>";
 								$(document).ready(function() {	
-									var $original_data = <?php echo json_encode($original_data); ?>;
-									var $channel = $("#channel-<?php echo $item['id']; ?>");
-									var $text = $("#text-<?php echo $item['id']; ?>");
-									var $channel_name = $("#channel-name-<?php echo $item['id']; ?>");
-									var $publish_short_text = $("#publish-short-text-<?php echo $item['id']; ?>");
-									var $publish_unixtime = $("#publish-date-<?php echo $item['id']; ?>");
-									var $item = $("#sm-item-<?php echo $item['id']; ?>");
-									var $item_edit = $("#sm-item-<?php echo $item['id']; ?>-edit");
-									var $chev = $("#chevron-<?php echo $item['id']; ?>");
-									var $chan = $("#channel-name-<?php echo $item['id']; ?>");
-									var $text_length = $("#text_num_chars-<?php echo $item['id']; ?>");
-									var $text_max_length = $("#text_max_chars-<?php echo $item['id']; ?>");
-
-									var $hour = $("#hour-<?php echo $item['id']; ?>");
-									var $minute = $("#minute-<?php echo $item['id']; ?>");
-									var $one_day = $("#one-time-day-<?php echo $item['id']; ?>");
-									var $one_month = $("#one-time-month-<?php echo $item['id']; ?>");
-									var $one_year = $("#one-time-year-<?php echo $item['id']; ?>");
-									var $one_picked_date = $("#one-time-date-<?php echo $item['id']; ?>");
-
-									var $range_from_day = $("#day-from-<?php echo $item['id']; ?>");
-									var $range_from_month = $("#month-from-<?php echo $item['id']; ?>");
-									var $range_from_year = $("#year-from-<?php echo $item['id']; ?>");
-									var $range_to_day = $("#day-to-<?php echo $item['id']; ?>");
-									var $range_to_month = $("#month-to-<?php echo $item['id']; ?>");
-									var $range_to_year = $("#year-to-<?php echo $item['id']; ?>");
-									var $spinning_wheel = $("#spinning-wheel-<?php echo $item['id']; ?>");
-
-									var $new_changed = $("#new-changed-<?php echo $item['id']; ?>");
-
-									$channel.change(function(e, handler) { $new_changed.attr('value', 1); });
-									$text.change(function(e, handler) { $new_changed.attr('value', 1); });
-									$one_picked_date.change(function(e, handler) { $new_changed.attr('value', 1); });
-									$hour.change(function(e, handler) { $new_changed.attr('value', 1); });
-									$minute.change(function(e, handler) { $new_changed.attr('value', 1); });
-
-									$("input[name=facebook-publish-<?php echo $item['id']; ?>]:checked").change(function(e, handler) { $new_changed.attr('value', 1); });
-									$("#filepath-<?php echo $item['id']; ?>").change(function(e, handler) { $new_changed.attr('value', 1); });
-									$("#pattern-<?php echo $item['id']; ?>").change(function(e, handler) { $new_changed.attr('value', 1); });
-
-									
-									$.datepicker.setDefaults(
-									  	$.extend(
-										    {'dateFormat':'dd.mm.yy'},
-										    $.datepicker.regional['no']
-								  		)
-									);
-
-									$('.datepicker').each(function() {
-										$(this).datepicker();
-									});
+									function setChanged()
+									{
+										$("input#new-changed-"+$item_id).attr('value', 1);
+									}
 
 									function getUTCStamp( date, offset ) 
 									{
@@ -559,6 +517,21 @@ class Exxica_Social_Marketing_Admin_Html_Output
 										
 										return dt;
 									}
+
+									var $original_data = <?php echo json_encode($original_data); ?>;
+
+									$("#channel-"+$item_id).change(function(e, handler) { setChanged(); });
+									$("#text-"+$item_id).change(function(e, handler) { setChanged(); });
+									$("#one-time-date-"+$item_id).change(function(e, handler) { setChanged(); });
+									$("#hour-"+$item_id).change(function(e, handler) { setChanged(); });
+									$("#minute-"+$item_id).change(function(e, handler) { setChanged(); });
+									$("#ampm-"+$item_id).change(function(e, handler) { setChanged(); });
+
+									$("input[name=facebook-publish-"+$item_id+"]").each(function() { $(this).click(function(e, handler) { setChanged(); })});
+									$("input[name=twitter-publish-"+$item_id+"]").each(function() { $(this).click(function(e, handler) { setChanged(); })});
+									$("#filepath-"+$item_id).change(function(e, handler) { setChanged(); });
+									$("#pattern-"+$item_id).change(function(e, handler) { setChanged(); });
+
 								});
 							});
 						})(jQuery);
@@ -731,23 +704,45 @@ class Exxica_Social_Marketing_Admin_Html_Output
 	    global $wpdb, $current_user;
 	    get_currentuserinfo();
     	$accTable = $wpdb->prefix.'exxica_social_marketing_accounts';
-    	if(isset($channels[0]))$accountsFacebook = $wpdb->get_results("SELECT * FROM $accTable WHERE channel = '".$channels[0]."'", ARRAY_A);
-    	if(isset($channels[1])) $accountsTwitter = $wpdb->get_results("SELECT * FROM $accTable WHERE channel = '".$channels[1]."'", ARRAY_A);
-    	if(isset($channels[2])) $accountsLinkedIn = $wpdb->get_results("SELECT * FROM $accTable WHERE channel = '".$channels[2]."'", ARRAY_A);
-    	if(isset($channels[3])) $accountsGoogle = $wpdb->get_results("SELECT * FROM $accTable WHERE channel = '".$channels[3]."'", ARRAY_A);
-    	if(isset($channels[4])) $accountsInstagram = $wpdb->get_results("SELECT * FROM $accTable WHERE channel = '".$channels[4]."'", ARRAY_A);
-    	if(isset($channels[5])) $accountsFlickr = $wpdb->get_results("SELECT * FROM $accTable WHERE channel = '".$channels[5]."'", ARRAY_A);
+    	$login_name = $current_user->user_login;
+    	$exxica_login = get_option("exxica_social_marketing_account_".$login_name);
 
-		$show_channel_facebook = get_option('exxica_social_marketing_show_channel_facebook_'.$current_user->user_login );
-		$show_channel_twitter = get_option('exxica_social_marketing_show_channel_twitter_'.$current_user->user_login);
-		$show_channel_linkedin = get_option('exxica_social_marketing_show_channel_linkedin_'.$current_user->user_login);
-		$show_channel_google = get_option('exxica_social_marketing_show_channel_google_'.$current_user->user_login);
-		$show_channel_instagram = get_option('exxica_social_marketing_show_channel_instagram_'.$current_user->user_login);
-		$show_channel_flickr = get_option('exxica_social_marketing_show_channel_flickr_'.$current_user->user_login);
+		$show_channel_facebook = get_option('exxica_social_marketing_show_channel_facebook_'.$login_name );
+		$show_channel_twitter = get_option('exxica_social_marketing_show_channel_twitter_'.$login_name);
+		$show_channel_linkedin = get_option('exxica_social_marketing_show_channel_linkedin_'.$login_name);
+		$show_channel_google = get_option('exxica_social_marketing_show_channel_google_'.$login_name);
+		$show_channel_instagram = get_option('exxica_social_marketing_show_channel_instagram_'.$login_name);
+		$show_channel_flickr = get_option('exxica_social_marketing_show_channel_flickr_'.$login_name);
+
+    	if(isset($channels[0]) && $show_channel_facebook == 1 ) {
+    		$sqlFacebook = sprintf("SELECT * FROM $accTable WHERE channel = '%s' AND exx_account = '%s'", $channels[0], $exxica_login);
+    		$accountsFacebook = $wpdb->get_results($sqlFacebook, ARRAY_A);
+    	}
+    	if(isset($channels[1]) && $show_channel_twitter == 1 ) {
+    		$sqlTwitter = sprintf("SELECT * FROM $accTable WHERE channel = '%s' AND exx_account = '%s'", $channels[1], $exxica_login);
+    		$accountsTwitter = $wpdb->get_results($sqlTwitter, ARRAY_A);
+    	}
+    	if(isset($channels[2]) && $show_channel_linkedin == 1 ) {
+    		$sqlLinkedIn = sprintf("SELECT * FROM $accTable WHERE channel = '%s' AND exx_account = '%s'", $channels[2], $exxica_login);
+    		$accountsLinkedIn = $wpdb->get_results($sqlLinkedIn, ARRAY_A);
+    	}
+    	if(isset($channels[3]) && $show_channel_google == 1 ) {
+    		$sqlGoogle = sprintf("SELECT * FROM $accTable WHERE channel = '%s' AND exx_account = '%s'", $channels[3], $exxica_login);
+    		$accountsGoogle = $wpdb->get_results($sqlGoogle, ARRAY_A);
+    	}
+    	if(isset($channels[4]) && $show_channel_instagram == 1 ) {
+    		$sqlInstagram = sprintf("SELECT * FROM $accTable WHERE channel = '%s' AND exx_account = '%s'", $channels[4], $exxica_login);
+    		$accountsInstagram = $wpdb->get_results($sqlInstagram, ARRAY_A);
+    	}
+		if(isset($channels[5]) && $show_channel_flickr == 1 ) {
+    		$sqlFlickr = sprintf("SELECT * FROM $accTable WHERE channel = '%s' AND exx_account = '%s'", $channels[5], $exxica_login);
+    		$accountsFlickr = $wpdb->get_results($sqlFlickr, ARRAY_A);
+		}
+
 		ob_start();
 		?>
 
-		<?php if( isset( $accountsFacebook ) && $show_channel_facebook == 1 ) : ?>
+		<?php if( isset( $accountsFacebook ) ) : ?>
 		<div id="accounts-facebook-<?php echo $item['id']; ?>">
 			<label><?php _e('Pages you administer', $this->name); ?></label>
 			<div style="display:table;width:100%;border:thin solid #ddd;background-color: #fff;">
@@ -766,7 +761,7 @@ class Exxica_Social_Marketing_Admin_Html_Output
 			</div>
 		</div>
 		<?php endif; ?>
-		<?php if( isset( $accountsTwitter ) && $show_channel_twitter == 1 ) : ?>
+		<?php if( isset( $accountsTwitter ) ) : ?>
 		<div id="accounts-twitter-<?php echo $item['id']; ?>" style="display:none">
 			<label><?php _e('Accounts you administer', $this->name); ?></label>
 			<div style="display:table;width:100%;border:thin solid #ddd;background-color: #fff;">
@@ -778,14 +773,14 @@ class Exxica_Social_Marketing_Admin_Html_Output
 				<div style="display:table-row;">
 					<div style="display:table-cell;text-align:left;"><?php echo $account['channel_account']; ?></div>
 					<div style="display:table-cell;text-align:center;border-left: thin solid #ddd;">
-						<input id="<?php echo $k; ?>-twitter-publish" type="radio" name="twitter-publish-<?php echo $item['id']; ?>"<?php echo ($item['channel_account'] == $account['channel_account']) ? ' checked' : ''; ?> value="<?php echo $account['channel_account']; ?>">
+						<input id="<?php echo $k; ?>-twitter-publish" type="radio" name="twitter-publish-<?php echo $item['id']; ?>"<?php echo ($item['channel_account'] == $account['fb_page_id']) ? ' checked="checked"' : ''; ?> value="<?php echo $account['fb_page_id']; ?>">
 					</div>
 				</div>
 				<?php endfor; ?>
 			</div>
 		</div>
 		<?php endif; ?>
-		<?php if( isset( $accountsLinkedIn) && $show_channel_linkedin == 1 ) : ?>
+		<?php if( isset( $accountsLinkedIn) ) : ?>
 		<div id="accounts-linkedin-<?php echo $item['id']; ?>" style="display:none">
 			<label><?php _e('Pages you administer', $this->name); ?></label>
 			<div style="display:table;width:100%;border:thin solid #ddd;background-color: #fff;">
@@ -804,7 +799,7 @@ class Exxica_Social_Marketing_Admin_Html_Output
 			</div>												
 		</div>
 		<?php endif; ?>
-		<?php if( isset( $accountsGoogle ) && $show_channel_google == 1 ) : ?>
+		<?php if( isset( $accountsGoogle ) ) : ?>
 		<div id="accounts-google-<?php echo $item['id']; ?>" style="display:none">
 			<label><?php _e('Pages you administer', $this->name); ?></label>
 			<div style="display:table;width:100%;border:thin solid #ddd;background-color: #fff;">
@@ -819,15 +814,12 @@ class Exxica_Social_Marketing_Admin_Html_Output
 					<div style="display:table-cell;text-align:center;border-left: thin solid #ddd;">
 						<input id="<?php echo $k; ?>-google-publish" type="radio" name="google-publish-<?php echo $item['id']; ?>"<?php echo ($item['channel_account'] == $account['channel_account']) ? ' checked' : ''; ?> value="<?php echo $account['name']; ?>">
 					</div>
-					<div style="display:table-cell;text-align:center;border-left: thin solid #ddd;">
-						<input id="<?php echo $k; ?>-google-plus" type="checkbox" name="google-plus-<?php echo $item['id']; ?>"<?php echo ($item['channel_account'] == $account['channel_account']) ? ' checked' : ''; ?> value="<?php echo $account['name']; ?>">
-					</div>
 				</div>
 				<?php endfor; ?>
 			</div>
 		</div>
 		<?php endif; ?>
-		<?php if( isset( $accountsInstagram ) && $show_channel_instagram == 1 ) : ?>
+		<?php if( isset( $accountsInstagram ) ) : ?>
 		<div id="accounts-instagram-<?php echo $item['id']; ?>" style="display:none">
 			<label><?php _e('Accounts you administer', $this->name); ?></label>
 			<div style="display:table;width:100%;border:thin solid #ddd;background-color: #fff;">
@@ -842,15 +834,12 @@ class Exxica_Social_Marketing_Admin_Html_Output
 					<div style="display:table-cell;text-align:center;border-left: thin solid #ddd;">
 						<input id="<?php echo $k; ?>-instagram-publish" type="radio" name="instagram-publish-<?php echo $item['id']; ?>"<?php echo ($item['channel_account'] == $account['channel_account']) ? ' checked' : ''; ?> value="<?php echo $account['name']; ?>">
 					</div>
-					<div style="display:table-cell;text-align:center;border-left: thin solid #ddd;">
-						<input id="<?php echo $k; ?>-instagram-like" type="checkbox" name="instagram-like-<?php echo $item['id']; ?>"<?php echo ($item['channel_account'] == $account['channel_account']) ? ' checked' : ''; ?> value="<?php echo $account['name']; ?>">
-					</div>
 				</div>
 				<?php endfor; ?>
 			</div>
 		</div>
 		<?php endif; ?>
-		<?php if( isset( $accountsFlickr ) && $show_channel_flickr == 1 ) : ?>
+		<?php if( isset( $accountsFlickr ) ) : ?>
 		<div id="accounts-flickr-<?php echo $item['id']; ?>" style="display:none">
 			<label><?php _e('Accounts you administer', $this->name); ?></label>
 			<div style="display:table;width:100%;border:thin solid #ddd;background-color: #fff;">
@@ -918,7 +907,12 @@ class Exxica_Social_Marketing_Admin_Html_Output
 	{
 		// TODO ONE TIME ONLY CONVERTED TO DATEPICKER - DO RANGE AS WELL
 
-		$p_date = date('d.m.Y', $item['publish_localtime']);
+
+		$date_format = get_option( 'exxica_social_marketing_date_format', __( 'm/d/Y', $this->name ) );
+		$time_format = get_option( 'exxica_social_marketing_time_format', __( 'g:i A', $this->name ) );
+		$twentyfour_clock_enabled = get_option( 'exxica_social_marketing_twentyfour_clock_enabled', '1' );
+
+		$p_date = date($date_format, $item['publish_localtime']);
 		$p_day = date('d', $item['publish_localtime']);
 		$p_month = date('m', $item['publish_localtime']);
 		$p_year = date('Y', $item['publish_localtime']);
@@ -996,7 +990,6 @@ class Exxica_Social_Marketing_Admin_Html_Output
 									selected = $(this).find(":selected").val();
 									showPattern(selected);
 								});
-								$("#one-time-date-<?php echo $item['id']; ?>").datepicker("setDate", "<?php echo $p_date; ?>");
 							});
 						});
 					})(jQuery);
@@ -1012,7 +1005,7 @@ class Exxica_Social_Marketing_Admin_Html_Output
 						content: " ";
 					}
 				</style>
-				<select id="pattern-<?php echo $item['id']; ?>" name="pattern">
+				<select id="pattern-<?php echo $item['id']; ?>" name="pattern" disabled="disabled">
 					<optgroup label="<?php _e('Single Events',$this->name); ?>">
 						<option value="single-selected" selected="selected"><?php _e('One-time only',$this->name); ?></option>
 					</optgroup>
@@ -1025,6 +1018,23 @@ class Exxica_Social_Marketing_Admin_Html_Output
 				</select>
 			</div>
 		</div>
+		<script>
+		(function ( $ ) {
+			"use strict";
+			$(function () {
+				$(document).ready(function() {
+					<?php if(__('en_US', $this->name) == 'nb_NO') : ?>
+					$.datepicker.setDefaults($.extend({'dateFormat':'dd.mm.yy'}, $.datepicker.regional['no']));
+					<?php endif; ?>
+
+					$('.datepicker').each(function() {
+						$(this).datepicker();
+					});
+					$("#one-time-date-<?php echo $item['id']; ?>").datepicker("setDate", "<?php echo $p_date; ?>");
+				});
+			});
+		})(jQuery);
+		</script>
 		<div id="wrap-<?php echo $item['id']; ?>">
 			<div id="one-time-event-wrap-<?php echo $item['id']; ?>" style="display:none;" class="wrapping">
 				<div id="one-time-event-<?php echo $item['id']; ?>" style="text-align:left;padding:5px;">
@@ -1032,6 +1042,8 @@ class Exxica_Social_Marketing_Admin_Html_Output
 					<input type="text" id="one-time-date-<?php echo $item['id']; ?>" class="datepicker" name="one-time-date">
 				</div>
 			</div>
+			<?php
+/*
 			<div id="daily-event-wrap-<?php echo $item['id']; ?>" style="display:none;" class="wrapping">
 				<div id="daily-event-<?php echo $item['id']; ?>-patterns" style="text-align:left;padding:5px;">
 					<input id="daily-event-<?php echo $item['id']; ?>-pattern-1" type="radio" name="daily-pattern" value="specified" checked="checked"><?php _e('Every', $this->name); ?> <input type="number" id="daily-event-<?php echo $item['id']; ?>-spec-day" value="1" name="daily-pattern-specified" style="width:60px;"> <?php _e('day', $this->name); ?><br>
@@ -1129,14 +1141,14 @@ class Exxica_Social_Marketing_Admin_Html_Output
 			<div id="event-range-wrap-<?php echo $item['id']; ?>" style="display:none;" class="wrapping">
 				<div id="event-range-<?php echo $item['id']; ?>-from" style="padding:5px;text-align:right;">
 					<label for="date-from-<?php echo $item['id']; ?>"><?php _e('From', $this->name); ?></label><br/>
-					<!--<input id="date-from-<?php echo $item['id']; ?>" name="date-from" class="datepicker">-->
+					<input id="date-from-<?php echo $item['id']; ?>" name="date-from" class="datepicker">
 					<input id="day-from-<?php echo $item['id']; ?>" name="day-from" value="<?php echo $p_day; ?>" size="2" maxlength="2" autocomplete="off" type="text">.
 					<input id="month-from-<?php echo $item['id']; ?>" name="month-from" value="<?php echo $p_month; ?>" size="2" maxlength="2" autocomplete="off" type="text">.
 					<input id="year-from-<?php echo $item['id']; ?>" name="year-from" value="<?php echo $p_year; ?>" size="4" maxlength="4" autocomplete="off" type="text">
 				</div>
 				<div id="event-range-<?php echo $item['id']; ?>-to" style="padding:5px;text-align:right;">
 					<label for="date-to-<?php echo $item['id']; ?>"><?php _e('To', $this->name); ?></label><br/>
-					<!--<input id="date-to-<?php echo $item['id']; ?>" name="date-to" class="datepicker">-->
+					<input id="date-to-<?php echo $item['id']; ?>" name="date-to" class="datepicker">
 					<input id="day-to-<?php echo $item['id']; ?>" name="day-to" value="<?php echo $f_day; ?>" size="2" maxlength="2" autocomplete="off" type="text">.
 					<input id="month-to-<?php echo $item['id']; ?>" name="month-to" value="<?php echo $f_month; ?>" size="2" maxlength="2" autocomplete="off" type="text">.
 					<input id="year-to-<?php echo $item['id']; ?>" name="year-to" value="<?php echo $f_year; ?>" size="4" maxlength="4" autocomplete="off" type="text">
@@ -1144,6 +1156,8 @@ class Exxica_Social_Marketing_Admin_Html_Output
 				<hr/>
 				<p style="font-size:10px;"><?php _e('The <span id="ident_str">daily</span> events can only span over a max of 12 events due to spam limitations.', $this->name); ?></p>
 			</div>
+*/
+			?>
 		</div>
 		
 		<?php
@@ -1256,10 +1270,14 @@ class Exxica_Social_Marketing_Admin_Html_Output
 	}
 	public function generate_script_time_wrap($post, $item)
 	{
+
+		$time_format = get_option( 'exxica_social_marketing_time_format', __( 'g:i A', $this->name ) );
+		$twentyfour_clock_enabled = get_option( 'exxica_social_marketing_twentyfour_clock_enabled', '1' );
+
 		$p_day = date('d', $item['publish_localtime']);
 		$p_month = date('m', $item['publish_localtime']);
 		$p_year = date('Y', $item['publish_localtime']);
-		$p_hour = date('H', $item['publish_localtime']);
+		$p_hour = date( ( $twentyfour_clock_enabled ? 'H' : 'g'), $item['publish_localtime']);
 		$p_minute = date('i', $item['publish_localtime']);
 		$c_day = date('d', time() );
 		$c_month = date('m', time() );
@@ -1272,8 +1290,17 @@ class Exxica_Social_Marketing_Admin_Html_Output
 		<div>
 			<label for="timewrap-<?php echo $item['id']; ?>"><?php _e('Time', $this->name); ?></label>
 			<div id="timewrap-<?php echo $item['id']; ?>">
-				<input id="hour-<?php echo $item['id']; ?>" name="hour" value="<?php echo $p_hour; ?>"  style="text-align:left;" size="2" maxlength="2" autocomplete="off" type="text"> : 
+				<?php if($twentyfour_clock_enabled) : ?>
+				<input id="hour-<?php echo $item['id']; ?>" name="hour" value="<?php echo $p_hour; ?>"  style="text-align:left;" size="2" maxlength="2" autocomplete="off" type="text">:
 				<input id="minute-<?php echo $item['id']; ?>" name="minute" value="<?php echo $p_minute; ?>"  style="text-align:left;" size="2" maxlength="2" autocomplete="off" type="text">
+				<?php else : ?>
+				<input id="hour-<?php echo $item['id']; ?>" name="hour" value="<?php echo $p_hour; ?>"  style="text-align:left;" size="2" maxlength="2" autocomplete="off" type="text">:
+				<input id="minute-<?php echo $item['id']; ?>" name="minute" value="<?php echo $p_minute; ?>"  style="text-align:left;" size="2" maxlength="2" autocomplete="off" type="text">
+				<select name="ampm" id="ampm-<?php echo $item['id']; ?>" class="ampm exxica-select">
+					<option value="am" <?php selected(date('a', $item['publish_localtime']), 'am'); ?>>AM</option>
+					<option value="pm" <?php selected(date('a', $item['publish_localtime']), 'pm'); ?>>PM</option>
+				</select>
+				<?php endif; ?>
 			</div>
 		</div>
 		<hr class="clear"/>
@@ -1328,13 +1355,14 @@ class Exxica_Social_Marketing_Admin_Html_Output
 			(function ( $ ) {
 				"use strict";
 				$(function () {
-					var functions = {
+					var exxica_functions = {
 						d_ids : <?php echo json_encode($d_ids); ?>,
 						table_data : <?php echo json_encode($data); ?>,
 						prepareData : function()
 						{
 							var $changed = parseInt($("#new-changed-new").val());
-							var $data_ids = functions.d_ids;
+							var $data_ids = exxica_functions.d_ids;
+							var $post_data = [];
 
 							var data = [];
 							if( $changed == 1 ) {
@@ -1357,51 +1385,50 @@ class Exxica_Social_Marketing_Admin_Html_Output
 									if(item_id == "new") {
 										action = "create";
 									}
+									var hour = 0;
+									var minute = parseInt($("#minute-"+item_id).val());
+									var ampm = $("#ampm-"+item_id+" :selected").val();
+									if(ampm == "pm") {
+										hour = parseInt($("#hour-"+item_id).val());
+										if(hour !== 12) {
+											hour = hour+12;
+										}
+									} else if(ampm == "am") { 
+										hour = parseInt($("#hour-"+item_id).val());
+										if(hour == 12) {
+											hour = hour-12;
+										}
+									} else {
+										hour = parseInt($("#hour-"+item_id).val());
+									}
+									var one_date = $("#one-time-date-"+item_id).datepicker("getDate");
+									var d = new Date(one_date);
+									var d_local = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate(), hour, minute, 0));
+									var d_utc = new Date(d.getFullYear(), d.getMonth(), d.getDate(), hour, minute, 0);
 
-									var d = new Date($("#one-time-date-"+item_id).datepicker("getDate"));
-									var d_local = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate(), $("#hour-"+item_id).val(), $("#minute-"+item_id).val(), 0));
-									var d_utc = new Date(d.getFullYear(), d.getMonth(), d.getDate(), $("#hour-"+item_id).val(), $("#minute-"+item_id).val(), 0);
+									var local_json = d_local.toJSON();
+									var local_time = Math.round(d_local.getTime() / 1000);
+									var utc_json = d_utc.toJSON();
+									var utc_time = Math.round(d_utc.getTime() / 1000);
 
-									//var d_from = new Date($range_from_year.val(), $range_from_month.val()-1, $range_from_day.val(), $hour.val(), $minute.val(), 0);
-									//var d_to = new Date($range_to_year.val(), $range_to_month.val()-1, $range_to_day.val(), $hour.val(), $minute.val(), 0);
-
-									var post_data = [
+									var $post_data = [
 										{ 'name': "_wpnonce", 'value' : PostHandlerAjax.nonce },
 										{ 'name' : "item_id", 'value' : item_id },
 										{ 'name' : "post_id", 'value' : $("#post-id-"+item_id).val() },
 										{ 'name' : "channel", 'value' : $("#channel-"+item_id).val() },
 										{ 'name' : "text", 'value' : $("#text-"+item_id).val() },
 										{ 'name' : "image_url", 'value' : $("#filepath-"+item_id).val() },
-										{ 'name' : "local_time", 'value' : Math.round(d_local.getTime() / 1000), 'real' : d_local.toJSON() },
-										{ 'name' : "one_time_utc_time", 'value' : Math.round(d_utc.getTime() / 1000), 'real' : d_utc.toJSON() },
-										//{ 'name' : "range_from_utc_time", 'value' : Math.round(d_from.getTime() / 1000), 'real' : d_from.toJSON() },
-										//{ 'name' : "range_to_utc_time", 'value' : Math.round(d_to.getTime() / 1000), 'real' : d_to.toJSON() },
-										{ 'name' : "pattern", 'value' : $("#pattern-"+item_id).val() },
-										{ 'name' : "daily-pattern", 'value' : $("input[name=daily-pattern]:checked").val() },
-										{ 'name' : "daily-pattern-specified", 'value' : $("#daily-event-"+item_id+"-spec-day").val() },
-										{ 'name' : "weekly-pattern-specified", 'value' : $("#weekly-event-"+item_id+"-spec").val() },
-										{ 'name' : "weekday", 'value' : $selected_weekdays },
-										{ 'name' : "monthly-pattern", 'value' : $("input[name=monthly-pattern]:checked").val() },
-										{ 'name' : "monthly-pattern-1-day", 'value' : $("#monthly-event-"+item_id+"-pattern-1-day").val() },
-										{ 'name' : "monthly-pattern-1-month", 'value' : $("#monthly-event-"+item_id+"-pattern-1-month").val() },
-										{ 'name' : "monthly-pattern-2-select-num", 'value' : $("#monthly-event-"+item_id+"-pattern-2-select-num").val() },
-										{ 'name' : "monthly-pattern-2-select-weekday", 'value' : $("#monthly-event-"+item_id+"-pattern-2-select-weekday").val() },
-										{ 'name' : "monthly-pattern-2-month", 'value' : $("#monthly-event-"+item_id+"-pattern-2-month").val() },
-										{ 'name' : "yearly-pattern", 'value' : $("input[name=yearly-pattern]:checked").val() },
-										{ 'name' : "yearly-pattern-frequence", 'value' : $("#yearly-event-"+item_id+"-pattern-year").val() },
-										{ 'name' : "yearly-pattern-1-day", 'value' : $("#yearly-event-"+item_id+"-pattern-1-day").val() },
-										{ 'name' : "yearly-pattern-1-month", 'value' : $("#yearly-event-"+item_id+"-pattern-1-month").val() },
-										{ 'name' : "yearly-select-num", 'value' : $("#yearly-event-"+item_id+"-pattern-2-select-num").val() },
-										{ 'name' : "yearly-select-weekday", 'value' : $("#yearly-event-"+item_id+"-pattern-2-select-weekday").val() },
-										{ 'name' : "yearly-pattern-2-month", 'value' : $("#yearly-event-"+item_id+"-pattern-2-month").val() }
+										{ 'name' : "local_time", 'value' : local_time, 'real' : local_json },
+										{ 'name' : "one_time_utc_time", 'value' : utc_time, 'real' : utc_json },
+										{ 'name' : "pattern", 'value' : $("#pattern-"+item_id).val() }
 									];
 
 									switch( $("#channel-"+item_id).val() ) {
 										case 'Facebook' :
-											post_data.push({ 'name' : "publish_account", 'value' : $("input[name=facebook-publish-"+item_id+"]:checked").val() });
+											$post_data.push({ 'name' : "publish_account", 'value' : $("input[name=facebook-publish-"+item_id+"]:checked").val() });
 											break;
 										case 'Twitter' :
-											post_data.push({ 'name' : "publish_account", 'value' : $("input[name=twitter-publish-"+item_id+"]:checked").val() });
+											$post_data.push({ 'name' : "publish_account", 'value' : $("input[name=twitter-publish-"+item_id+"]:checked").val() });
 											break;
 										default :
 											break;
@@ -1409,7 +1436,7 @@ class Exxica_Social_Marketing_Admin_Html_Output
 
 									var item = { 
 										"doAction" : action, 
-										"post_data" : post_data
+										"post_data" : $post_data
 									};
 
 									data.push(item);
@@ -1423,7 +1450,7 @@ class Exxica_Social_Marketing_Admin_Html_Output
 
 						$('a#esm-button-save-all-changes').click(function(e) {
 							$('#save-changes-spinner').show();
-							var data = functions.prepareData(); var i = 0;
+							var data = exxica_functions.prepareData(); var i = 0;
 							for( i = 0; i < data.length; i++) {
 								var d = data[i];
 
@@ -1457,7 +1484,7 @@ class Exxica_Social_Marketing_Admin_Html_Output
 							<div class="separator"></div>
 							<a href="#" class="media-menu-item" id="sm-btn-add-new"><?php _e( 'Add New', $this->name ); ?></a>
 							<div class="separator"></div>
-							<a class="media-menu-item" id="sm-btn-overview" href="edit.php?page=exxica-social-marketing-overview"><?php _e( 'Show overview', $this->name ); ?></a>
+							<a class="media-menu-item" id="sm-btn-overview" href="edit.php?page=exxica-sm-overview"><?php _e( 'Show overview', $this->name ); ?></a>
 						</div>
 					</div>
 					<div class="esm-frame-title">

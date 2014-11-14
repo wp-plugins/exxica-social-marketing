@@ -15,12 +15,15 @@
 
 		$(function () {
 			$(document).ready(function() {
+
+				<?php if(__('en_US', $this->name) == 'nb_NO') : ?>
 				$.datepicker.setDefaults(
 				  	$.extend(
 					    {'dateFormat':'dd.mm.yy'},
 					    $.datepicker.regional['no']
 			  		)
 				);
+				<?php endif; ?>
 
 				$('.datepicker').each(function() {
 					$(this).datepicker();
@@ -214,9 +217,9 @@
 							<?php endif; ?>
 						</td>
 						<td class="date column-date"<?php if($item['publish_localtime'] < time()) echo ' style="color:#aaa !important;"' ?>>
-							<abbr title="<?php echo date('Y-m-d H:i:s', $item['publish_localtime']); ?>"><?php echo date('d.m.Y', $item['publish_localtime']); ?></abbr>
+							<abbr title="<?php echo date($date_format.' '.$time_format, $item['publish_localtime']); ?>"><?php echo date($date_format, $item['publish_localtime']); ?></abbr>
 							<br/>
-							<?php echo date('\k\l\. H:i', $item['publish_localtime']); ?>
+							<?php echo date($time_format, $item['publish_localtime']); ?>
 						</td>	
 						<td class="image column-image"<?php if($item['publish_localtime'] < time()) echo ' style="color:#aaa !important;"' ?>>
 							<img style="width:auto;max-height:50px;" src="<?php echo $item['publish_image_url']; ?>">
@@ -241,9 +244,33 @@
 										e.preventDefault();
 										$('#spinner').show();
 
-										var d = new Date($('input#publish-date-<?php echo $item["id"]; ?>').datepicker("getDate"));
-										var d_local = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate(), $('#publish-hour-<?php echo $item["id"]; ?>').val(), $('#publish-minute-<?php echo $item["id"]; ?>').val(), 0));
-										var d_utc = new Date(d.getFullYear(), d.getMonth(), d.getDate(), $('#publish-hour-<?php echo $item["id"]; ?>').val(), $('#publish-minute-<?php echo $item["id"]; ?>').val(), 0);
+										var one_date = $('input#publish-date-<?php echo $item["id"]; ?>').datepicker("getDate");
+										var ampm = $("#publish-ampm-<?php echo $item['id']; ?> :selected").val();
+										var hour = '';
+										if(ampm == "pm") {
+											hour = parseInt($('#publish-hour-<?php echo $item["id"]; ?>').val());
+											if(hour !== 12) {
+												hour = hour+12;
+											}
+										} else if(ampm == "am") { 
+											hour = parseInt($('#publish-hour-<?php echo $item["id"]; ?>').val());
+											if(hour == 12) {
+												hour = hour-12;
+											}
+										} else {
+											hour = parseInt($('#publish-hour-<?php echo $item["id"]; ?>').val());
+										}
+										var minute = parseInt($('#publish-minute-<?php echo $item["id"]; ?>').val());
+
+										var d = new Date(one_date);
+										var d_local = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate(), hour, minute, 0));
+										var d_utc = new Date(d.getFullYear(), d.getMonth(), d.getDate(), hour, minute, 0);
+
+										var local_json = d_local.toJSON();
+										var local_time = Math.round(d_local.getTime() / 1000);
+										var utc_json = d_utc.toJSON();
+										var utc_time = Math.round(d_utc.getTime() / 1000);
+
 										var data = [
 											{
 												'name' : 'item_id',
@@ -259,13 +286,11 @@
 											},
 											{
 												'name' : 'publish_localdate',
-												'value' : Math.round(d_local.getTime() / 1000),
-												'real' : d_local.toJSON()
+												'value' : local_time
 											},
 											{
 												'name' : "publish_utcdate",
-												'value' : Math.round(d_utc.getTime() / 1000),
-												'real' : d_utc.toJSON()
+												'value' : utc_time
 											},
 											{
 												'name' : 'channel',
@@ -327,10 +352,19 @@
 								<h4>&nbsp;</h4>
 								<label>
 									<span class="title"><?php _e('Time', $this->name); ?></span>
-									<div class="timestamp-wrap">
-										<input type="number" id="publish-hour-<?php echo $item['id']; ?>" name="publish_hour" class="phour" value="<?php echo date('H', $item['publish_localtime']); ?>" min="0" max="23">:
-										<input type="number" id="publish-minute-<?php echo $item['id']; ?>" name="publish_minute" class="pmin" value="<?php echo date('i', $item['publish_localtime']); ?>" min="0" max="59">
-									</div>
+									<span class="input-text-wrap">
+										<?php if($twentyfour_clock_enabled) : ?>
+											<input type="number" id="publish-hour-<?php echo $item['id']; ?>" name="publish_hour" class="phour" value="<?php echo date('H', $item['publish_localtime']); ?>" min="0" max="23">:
+											<input type="number" id="publish-minute-<?php echo $item['id']; ?>" name="publish_minute" class="pmin" value="<?php echo date('i', $item['publish_localtime']); ?>" min="0" max="59">
+										<?php else : ?>
+											<input type="number" id="publish-hour-<?php echo $item['id']; ?>" name="publish_hour" class="phour" value="<?php echo date('g', $item['publish_localtime']); ?>" min="1" max="12">:
+											<input type="number" id="publish-minute-<?php echo $item['id']; ?>" name="publish_minute" class="pmin" value="<?php echo date('i', $item['publish_localtime']); ?>" min="0" max="59">
+											<select name="ampm" id="publish-ampm-<?php echo $item['id']; ?>" class="pampm exxica-select">
+												<option value="am" <?php selected(date('a', $item['publish_localtime']), 'am'); ?>>AM</option>
+												<option value="pm" <?php selected(date('a', $item['publish_localtime']), 'pm'); ?>>PM</option>
+											</select>
+										<?php endif; ?>
+									</span>
 								</label>
 								<br class="clear">
 							</div>

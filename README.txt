@@ -72,6 +72,13 @@ The settings for Exxica Social Marketing are user specific. So that multiple use
 6. Where to find the settings page.
 
 == Changelog ==
+= 1.1.6 =
+- Added custom date and time formats. Default locale specific.
+- Fixed an SQL bug in account selection.
+- Fixed Twitter issue on first time setup.
+- Fixed a bug in channel selection.
+- Fixed sorting in the dashboard widget.
+
 = 1.1.5 =
 - Added disclaimer.
 
@@ -106,23 +113,26 @@ The settings for Exxica Social Marketing are user specific. So that multiple use
 - Initial release.
 
 == Upgrade Notice ==
+= 1.1.6 =
+Added new functionality and fixed vital security issue. Update as soon as possible.
+
 = 1.1.5 =
-Update as soon as possible.
+Minor patch. Update as soon as possible.
 
 = 1.1.4 =
-Minor patch.
+Minor patch. Update recommended.
 
 = 1.1.3 =
-Minor UI patch.
+Minor patch. Update recommended.
 
 = 1.1.2 =
-Minor patch. Lightens footprint of the plugin. Update recommended.
+Lightens footprint of the plugin. Update recommended.
 
 = 1.1.1 =
 This update includes vital improvements to security. Update as soon as possible.
 
 = 1.1.0 =
-Minor patch.
+Minor patch. Update recommended.
 
 = 1.0.0 =
 Initial release.

@@ -61,7 +61,8 @@ class Exxica_Social_Marketing_Admin
 	 */
 	public function enqueue_styles() 
 	{
-		wp_enqueue_style( $this->name, plugin_dir_url( __FILE__ ) . 'css/exxica-social-marketing-admin.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->name, plugin_dir_url( __FILE__ ) . 'css/exxica-social-marketing-admin.css', array(), $this->version );
+		wp_enqueue_style( $this->name.'-jquery-ui', plugin_dir_url( __FILE__ ) . 'css/jquery-ui.min.css', array(), $this->version );
 	}
 
 	/**
@@ -74,8 +75,11 @@ class Exxica_Social_Marketing_Admin
 
 		wp_enqueue_script( $this->name, plugin_dir_url( __FILE__ ) . 'js/exxica-social-marketing-admin.js', array( 'jquery' ), $this->version, FALSE );
 		wp_enqueue_script( 'jquery-ui-core' );
+		wp_enqueue_script( 'jquery-ui-button' );
+		wp_enqueue_script( 'jquery-ui-widget' );
 		wp_enqueue_script( 'jquery-ui-datepicker' );
-		wp_enqueue_script( $this->name . '-jquery-ui-datepicker-localization-no', plugins_url( 'js/datepicker-no.js', __FILE__ ), array( 'jquery', $this->name . '-jquery-ui-script' ), $this->version );
+		wp_enqueue_script( 'jquery-ui-spinner' );
+		wp_enqueue_script( $this->name . '-jquery-ui-datepicker-localization-no', plugins_url( 'js/datepicker-no.js', __FILE__ ), array( 'jquery-ui-datepicker' ), $this->version );
 
 		if( $hook === 'users_page_exxica-sm-settings' ) 
 			wp_enqueue_script( $this->name . '-settings-script', plugins_url( 'js/settings-page-social-marketing.js', __FILE__ ), array( 'jquery' ), $this->version );
@@ -154,17 +158,26 @@ class Exxica_Social_Marketing_Admin
 
 	public function create_nav_menu() 
 	{
-		$capability = 'manage_options';
+		$capability = 'read';
 		$page_title = __('My social marketing', $this->name);
 		$menu_title = __('My social marketing', $this->name);
 		$menu_slug = 'exxica-sm-settings';
-		$function = array($this, 'display_esm_settings_page');
+		$function = array($this, 'display_esm_user_settings_page');
 
 		add_users_page( $page_title, $menu_title, $capability, $menu_slug, $function );
 
+		$capability = 'manage_options';
+		$page_title = __('Social marketing', $this->name);
+		$menu_title = __('Social marketing', $this->name);
+		$menu_slug = 'exxica-sm-system-settings';
+		$function = array($this, 'display_esm_system_settings_page');
+
+		add_options_page( $page_title, $menu_title, $capability, $menu_slug, $function );
+
+		$capability = 'read';
 		$page_title = __('Exxica Social Marketing Overview', $this->name);
 		$menu_title = __('Marketing Overview', $this->name);
-		$menu_slug = 'exxica-social-marketing-overview';
+		$menu_slug = 'exxica-sm-overview';
 		$function = array($this, 'display_esm_overview_page');
 
 		add_posts_page( $page_title, $menu_title, $capability, $menu_slug, $function );
@@ -174,7 +187,7 @@ class Exxica_Social_Marketing_Admin
 		return floor((max($d1,$d2)-min($d1,$d2))/86400);
 	}
 
-	public function display_esm_settings_page()
+	public function display_esm_user_settings_page()
 	{
 		global $wp, $wpdb, $current_user;
 		get_currentuserinfo();
@@ -218,10 +231,34 @@ class Exxica_Social_Marketing_Admin
 		include_once('partials/exxica-social-marketing-admin-display.php');
 	}
 
+	public function display_esm_system_settings_page()
+	{
+		global $wp, $wpdb;
+
+		if(isset($_POST['_wpnonce'])) {
+			if( $_POST['_wpnonce'] == wp_create_nonce('systemsettings') ) {
+				// Save settings
+				update_option( 'exxica_social_marketing_date_format', $_POST['date_format_custom']);
+				update_option( 'exxica_social_marketing_time_format', $_POST['time_format_custom']);
+				update_option( 'exxica_social_marketing_twentyfour_clock_enabled', $_POST['twentyfour_hour_clock']);
+			}
+		}
+
+		$date_format = get_option( 'exxica_social_marketing_date_format', __( 'm/d/Y', $this->name ) );
+		$time_format = get_option( 'exxica_social_marketing_time_format', __( 'g:i A', $this->name ) );
+		$twentyfour_clock_enabled = get_option( 'exxica_social_marketing_twentyfour_clock_enabled', '1' );
+
+		include_once('partials/exxica-social-marketing-admin-settings.php');
+	}
+
 	public function display_esm_overview_page()
 	{
 		// Set globals
 		global $wp, $wpdb;
+
+		$date_format = get_option( 'exxica_social_marketing_date_format', __( 'm/d/Y', $this->name ) );
+		$time_format = get_option( 'exxica_social_marketing_time_format', __( 'g:i A', $this->name ) );
+		$twentyfour_clock_enabled = get_option( 'exxica_social_marketing_twentyfour_clock_enabled', '1' );
 
 		// Set locals
 		$table = $wpdb->prefix.'exxica_social_marketing';
@@ -315,7 +352,7 @@ class Exxica_Social_Marketing_Admin
 		
 		$table = $wpdb->prefix.'exxica_social_marketing';
 		$five_expired_items = $wpdb->get_results( "SELECT * FROM $table WHERE publish_localtime < ".time()." ORDER BY publish_localtime DESC LIMIT 5", ARRAY_A);
-		$publishing_today = $wpdb->get_results( "SELECT * FROM $table WHERE publish_localtime >= ".time()." AND publish_localtime < ".strtotime('+1 day')." ORDER BY publish_localtime DESC LIMIT 5", ARRAY_A);
+		$publishing_today = $wpdb->get_results( "SELECT * FROM $table WHERE publish_localtime >= ".time()." AND publish_localtime < ".strtotime('+1 day')." ORDER BY publish_localtime ASC LIMIT 5", ARRAY_A);
 
 		include_once('partials/exxica-social-marketing-admin-dashboard-widget.php');
 	}
