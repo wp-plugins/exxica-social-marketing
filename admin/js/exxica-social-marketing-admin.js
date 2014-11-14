@@ -6,7 +6,6 @@
 		function(n){
 			return this.length>n ? this.substr(0,n-1)+'&hellip;' : this;
 		};
-
 		$(document).ready(function() {	
 			
 		});

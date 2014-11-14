@@ -61,7 +61,8 @@ class Exxica_Social_Marketing_Admin
 	 */
 	public function enqueue_styles() 
 	{
-		wp_enqueue_style( $this->name, plugin_dir_url( __FILE__ ) . 'css/exxica-social-marketing-admin.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->name, plugin_dir_url( __FILE__ ) . 'css/exxica-social-marketing-admin.css', array(), $this->version );
+		wp_enqueue_style( $this->name.'-jquery-ui', plugin_dir_url( __FILE__ ) . 'css/jquery-ui.min.css', array(), $this->version );
 	}
 
 	/**
@@ -74,8 +75,11 @@ class Exxica_Social_Marketing_Admin
 
 		wp_enqueue_script( $this->name, plugin_dir_url( __FILE__ ) . 'js/exxica-social-marketing-admin.js', array( 'jquery' ), $this->version, FALSE );
 		wp_enqueue_script( 'jquery-ui-core' );
+		wp_enqueue_script( 'jquery-ui-button' );
+		wp_enqueue_script( 'jquery-ui-widget' );
 		wp_enqueue_script( 'jquery-ui-datepicker' );
-		wp_enqueue_script( $this->name . '-jquery-ui-datepicker-localization-no', plugins_url( 'js/datepicker-no.js', __FILE__ ), array( 'jquery', $this->name . '-jquery-ui-script' ), $this->version );
+		wp_enqueue_script( 'jquery-ui-spinner' );
+		wp_enqueue_script( $this->name . '-jquery-ui-datepicker-localization-no', plugins_url( 'js/datepicker-no.js', __FILE__ ), array( 'jquery-ui-datepicker' ), $this->version );
 
 		if( $hook === 'users_page_exxica-sm-settings' ) 
 			wp_enqueue_script( $this->name . '-settings-script', plugins_url( 'js/settings-page-social-marketing.js', __FILE__ ), array( 'jquery' ), $this->version );
@@ -112,11 +116,17 @@ class Exxica_Social_Marketing_Admin
 			    'nonce'				=> 		wp_create_nonce( 'dbhandlerajax-nonce' ),
 		    )
 		);
+		wp_localize_script( $this->name, 'FactoryResetAjax', array(
+			    'ajaxurl'          	=> 		admin_url('admin-ajax.php?action=factory_reset'),
+			    'nonce'				=> 		wp_create_nonce( 'factoryreset-nonce' ),
+		    )
+		);
 		wp_localize_script( $this->name, 'processAjax', array(
 			    'ajaxurl'          	=> 		admin_url('admin-ajax.php?action=save_license_data'),
 			    'nonce'				=> 		wp_create_nonce( 'processajax-nonce' ),
 		    )
 		);
+
 		wp_localize_script( $this->name, 'exxicaVerifyAjax', array(
 			    'ajaxurl'          	=> 		'http://api.exxica.com/publisher/exxica/verify',
 			    'nonce'				=> 		wp_create_nonce( 'exxicaverifyajax-nonce' ),
@@ -138,7 +148,6 @@ class Exxica_Social_Marketing_Admin
 			    'nonce'				=> 		wp_create_nonce( 'twitterloginajax-nonce' ),
 		    )
 		);
-
 		wp_localize_script( $this->name, 'Language', array(
 				'days_ago'			=>		__(' days ago', $this->name),
 				'expires_in'		=>		__('in about ', $this->name),
@@ -149,17 +158,26 @@ class Exxica_Social_Marketing_Admin
 
 	public function create_nav_menu() 
 	{
-		$capability = 'manage_options';
+		$capability = 'read';
 		$page_title = __('My social marketing', $this->name);
 		$menu_title = __('My social marketing', $this->name);
 		$menu_slug = 'exxica-sm-settings';
-		$function = array($this, 'display_esm_settings_page');
+		$function = array($this, 'display_esm_user_settings_page');
 
 		add_users_page( $page_title, $menu_title, $capability, $menu_slug, $function );
 
+		$capability = 'manage_options';
+		$page_title = __('Social marketing', $this->name);
+		$menu_title = __('Social marketing', $this->name);
+		$menu_slug = 'exxica-sm-system-settings';
+		$function = array($this, 'display_esm_system_settings_page');
+
+		add_options_page( $page_title, $menu_title, $capability, $menu_slug, $function );
+
+		$capability = 'read';
 		$page_title = __('Exxica Social Marketing Overview', $this->name);
 		$menu_title = __('Marketing Overview', $this->name);
-		$menu_slug = 'exxica-social-marketing-overview';
+		$menu_slug = 'exxica-sm-overview';
 		$function = array($this, 'display_esm_overview_page');
 
 		add_posts_page( $page_title, $menu_title, $capability, $menu_slug, $function );
@@ -169,7 +187,7 @@ class Exxica_Social_Marketing_Admin
 		return floor((max($d1,$d2)-min($d1,$d2))/86400);
 	}
 
-	public function display_esm_settings_page()
+	public function display_esm_user_settings_page()
 	{
 		global $wp, $wpdb, $current_user;
 		get_currentuserinfo();
@@ -203,20 +221,44 @@ class Exxica_Social_Marketing_Admin
 
 		$secret = md5( $key . '+' . $time );
 		$accTable = $wpdb->prefix . 'exxica_social_marketing_accounts';
-		$facebook_accounts = $wpdb->get_results( "SELECT ID, channel_account AS name, expiry_date FROM $accTable WHERE channel = 'Facebook' AND exx_account = '".$un."'", ARRAY_A );
-		$twitter_accounts = $wpdb->get_results( "SELECT ID, channel_account AS name, expiry_date FROM $accTable WHERE channel = 'Twitter' AND exx_account = '".$un."'", ARRAY_A );
-		$linkedin_accounts = $wpdb->get_results( "SELECT ID, channel_account AS name, expiry_date FROM $accTable WHERE channel = 'LinkedIn' AND exx_account = '".$un."'", ARRAY_A );
-		$google_accounts = $wpdb->get_results( "SELECT ID, channel_account AS name, expiry_date FROM $accTable WHERE channel = 'Google' AND exx_account = '".$un."'", ARRAY_A );
-		$instagram_accounts = $wpdb->get_results( "SELECT ID, channel_account AS name, expiry_date FROM $accTable WHERE channel = 'Instagram' AND exx_account = '".$un."'", ARRAY_A );
-		$flickr_accounts = $wpdb->get_results( "SELECT ID, channel_account AS name, expiry_date FROM $accTable WHERE channel = 'Flickr' AND exx_account = '".$un."'", ARRAY_A );
+		$facebook_accounts = $wpdb->get_results( "SELECT ID, channel_account AS name, expiry_date FROM $accTable WHERE channel = 'Facebook' AND exx_account = '$un'", ARRAY_A );
+		$twitter_accounts = $wpdb->get_results( "SELECT ID, channel_account AS name, expiry_date FROM $accTable WHERE channel = 'Twitter' AND exx_account = '$un'", ARRAY_A );
+		$linkedin_accounts = $wpdb->get_results( "SELECT ID, channel_account AS name, expiry_date FROM $accTable WHERE channel = 'LinkedIn' AND exx_account = '$un'", ARRAY_A );
+		$google_accounts = $wpdb->get_results( "SELECT ID, channel_account AS name, expiry_date FROM $accTable WHERE channel = 'Google' AND exx_account = '$un'", ARRAY_A );
+		$instagram_accounts = $wpdb->get_results( "SELECT ID, channel_account AS name, expiry_date FROM $accTable WHERE channel = 'Instagram' AND exx_account = '$un'", ARRAY_A );
+		$flickr_accounts = $wpdb->get_results( "SELECT ID, channel_account AS name, expiry_date FROM $accTable WHERE channel = 'Flickr' AND exx_account = '$un'", ARRAY_A );
 
 		include_once('partials/exxica-social-marketing-admin-display.php');
+	}
+
+	public function display_esm_system_settings_page()
+	{
+		global $wp, $wpdb;
+
+		if(isset($_POST['_wpnonce'])) {
+			if( $_POST['_wpnonce'] == wp_create_nonce('systemsettings') ) {
+				// Save settings
+				update_option( 'exxica_social_marketing_date_format', $_POST['date_format_custom']);
+				update_option( 'exxica_social_marketing_time_format', $_POST['time_format_custom']);
+				update_option( 'exxica_social_marketing_twentyfour_clock_enabled', $_POST['twentyfour_hour_clock']);
+			}
+		}
+
+		$date_format = get_option( 'exxica_social_marketing_date_format', __( 'm/d/Y', $this->name ) );
+		$time_format = get_option( 'exxica_social_marketing_time_format', __( 'g:i A', $this->name ) );
+		$twentyfour_clock_enabled = get_option( 'exxica_social_marketing_twentyfour_clock_enabled', '1' );
+
+		include_once('partials/exxica-social-marketing-admin-settings.php');
 	}
 
 	public function display_esm_overview_page()
 	{
 		// Set globals
 		global $wp, $wpdb;
+
+		$date_format = get_option( 'exxica_social_marketing_date_format', __( 'm/d/Y', $this->name ) );
+		$time_format = get_option( 'exxica_social_marketing_time_format', __( 'g:i A', $this->name ) );
+		$twentyfour_clock_enabled = get_option( 'exxica_social_marketing_twentyfour_clock_enabled', '1' );
 
 		// Set locals
 		$table = $wpdb->prefix.'exxica_social_marketing';
@@ -310,7 +352,7 @@ class Exxica_Social_Marketing_Admin
 		
 		$table = $wpdb->prefix.'exxica_social_marketing';
 		$five_expired_items = $wpdb->get_results( "SELECT * FROM $table WHERE publish_localtime < ".time()." ORDER BY publish_localtime DESC LIMIT 5", ARRAY_A);
-		$publishing_today = $wpdb->get_results( "SELECT * FROM $table WHERE publish_localtime >= ".time()." AND publish_localtime < ".strtotime('+1 day')." ORDER BY publish_localtime DESC LIMIT 5", ARRAY_A);
+		$publishing_today = $wpdb->get_results( "SELECT * FROM $table WHERE publish_localtime >= ".time()." AND publish_localtime < ".strtotime('+1 day')." ORDER BY publish_localtime ASC LIMIT 5", ARRAY_A);
 
 		include_once('partials/exxica-social-marketing-admin-dashboard-widget.php');
 	}
@@ -365,6 +407,11 @@ class Exxica_Social_Marketing_Admin
 					'id' => 'esm-help-subscription',	
 					'title' => __('Subscription', $this->name ),
 					'content' => $this->help_text('subscription')
+				),
+				array(
+					'id' => 'esm-help-advanced',	
+					'title' => __('Advanced', $this->name ),
+					'content' => $this->help_text('advanced')
 				)
 			);
 
@@ -395,12 +442,19 @@ class Exxica_Social_Marketing_Admin
 			<li><?php _e('If Exxica Social Marketing are to work properly, at least one account must be authorized through the Exxica server. The accounts will be used by the current user to publish publications to their respective pages.<br/>To start this process you must click the authorization buttons below.', $this->name); ?>
 			<li><?php _e('The authorized accounts are only available to the current user. Other users will have to authorize with their own accounts.', $this->name); ?></li>
 			<li><?php _e('Authorized accounts can be removed from your server. And if they are removed in error, you can re-syncronize your accounts by pressing "Update" atop the account list.', $this->name); ?></li>
+			<li><?php _e('Authorized accounts will have to be renewed every 30 days. This is security precaution.'); ?></li>
 		</ul>
+		<h2><?php _e('Disclaimer', $this->name); ?></h2>
+		<p><?php _e('Exxica AS disclaims all responsibility and all liability (including through negligence) for all expenses, losses, damages and costs you might incur as a result of the use of Exxica Social Marketing Scheduler.', $this->name); ?></p>
 		<?php elseif($type == "subscription") : ?>
 		<h2><?php _e('Cancelling subscription', $this->name); ?></h2>
 		<p><?php printf(__('If you want to cancel your subscription, please go to <a href="%s" target="_blank" alt="%s">%s</a> or send us an e-mail at <a href="%s" target="_blank">%s</a>.',$this->name),
 			$sub_cancel_url,$sub_cancel_text,$sub_cancel_text,$sub_cancel_mail_url,$sub_cancel_mail_text
 		); ?></p>
+		<?php elseif($type == "advanced") : ?>
+		<h2><?php _e('Flush data', $this->name); ?></h2>
+		<p><?php _e('This will flush all datas from your Exxica Social Marketing tables and re-install the tables with default values, use this <strong>ONLY</strong> as a last resort.', $this->name); ?></p>
+		<a href="#" id="reinstall" class="button-secondary"><?php _e('Re-install tables', $this->name); ?></a>
 		<?php endif; ?>
 		<?php
 		$out = ob_get_contents();

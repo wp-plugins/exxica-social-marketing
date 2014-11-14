@@ -1,5 +1,5 @@
 /* Norwegian initialisation for the jQuery UI date picker plugin. */
-/* Written by Naimdjon Takhirov (naimdjon@gmail.com). */
+/* Written by Gaute Rønningen (gaute@exxica.com). */
 
 (function(factory) {
   if (typeof define === "function" && define.amd) {
@@ -18,11 +18,11 @@
     prevText: '&#xAB;',
     nextText: '&#xBB;',
     currentText: 'I dag',
-    monthNames: ['januar', 'februar', 'mars', 'april', 'mai', 'juni', 'juli', 'august', 'september', 'oktober', 'november', 'desember'],
-    monthNamesShort: ['jan', 'feb', 'mar', 'apr', 'mai', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'des'],
-    dayNamesShort: ['søn', 'man', 'tir', 'ons', 'tor', 'fre', 'lør'],
-    dayNames: ['søndag', 'mandag', 'tirsdag', 'onsdag', 'torsdag', 'fredag', 'lørdag'],
-    dayNamesMin: ['sø', 'ma', 'ti', 'on', 'to', 'fr', 'lø'],
+    monthNames: ['Januar', 'Februar', 'Mars', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Desember'],
+    monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Des'],
+    dayNamesShort: ['Søn', 'Man', 'Tir', 'Ons', 'Tor', 'Fre', 'Lør'],
+    dayNames: ['Søndag', 'Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag'],
+    dayNamesMin: ['Sø', 'Ma', 'Ti', 'On', 'To', 'Fr', 'Lø'],
     weekHeader: 'Uke',
     dateFormat: 'dd.mm.yy',
     firstDay: 1,

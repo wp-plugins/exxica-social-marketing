@@ -1,7 +1,7 @@
-=== Exxica Social Marketing ===
+=== Social Marketing Scheduler ===
 Contributors: exxica
 Donate link: http://exxica.com/increase-website-traffic
-Tags: social marketing, marketing, teasing, increase traffic, generate traffic, facebook, twitter
+Tags: social marketing, marketing, teasing, increase traffic, generate traffic, facebook, twitter, social marketing scheduler, scheduler, social marketing planning, planning, sharing, publicating, sharings, publications, social marketing plan, marketing plan, marketing schedule, timing
 Requires at least: 3.5.1
 Tested up to: 4.0
 Stable tag: trunk
@@ -11,17 +11,38 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 A tool that helps you schedule posts and pages on Facebook and Twitter and other social platforms.
 
 == Description ==
-There’s more and more ways to increase your website traffic, one of them is by using social media. But there are so many to keep track of, and everything takes so much time as you should be posting to Facebook and Twitter and others when your followers are online. If you don’t have the time to be online at all hours, posting the new posts, you may lose followers and money.
+Timing is all, if you want to maximize the effect of sharing your articles in social media. 
 
-That’s why we at Exxica is proud to present a new scheduler for social platforms where you control all of the publications directly from WordPress, giving you an overview of what is being published to what social platforms at all times, as well as a log of previously posted teasings.
+To share an editorial 
 
-Exxica delivers the most powerful plugin for marketing on social media for WordPress. The plugin operates from the administration page where you’re writing a post or page as well as in an overview. In addition you can:
+- on right time of day might rise the traffic to your site with more than 100%.
+- on right time of year might be the crucial in whether it is relevant or not.
+- with right numbers of recurrence might be the difference between spam and success.
 
-- Publish using different time patterns (such as daily, weekly, monthly, yearly, every 2nd tuesday of each month, and so on)
-- Use different images and texts with each of your publications (to make your posts seem less automatic)
-- Publish on: Facebook, Twitter, Google+, LinkedIn, Instagram and Flickr.
+With *Social Marketing Scheduler*, you can plan when you want to share your articles on Facebook and Twitter. You can
 
-Exxica Social Marketing comes with a trial period of 45 days. This means you can freely use our plugin for up to 45 days without commiting to buy anything.
+- Plan one or several sharings of each article.
+- Share on one or several Twitter accounts.
+- Share on one or several Facebook pages you manage.
+- Use different picture and text for each sharing.
+- Keep complete track of future and past sharings.
+
+= Professional tool =
+*Social Marketing Scheduler* is a professional tool for marketing on social channels. Plan your marketing campaign for each article inside the actual page where you write and edit your article.
+
+The overview page keeps track of all past sharings and shows you states of future sharings. You able to plan your sharings just a few minutes in to the future, or for several months or years. The sharing is published on the channel you decide on the exact day and time you decide.
+
+Once you have done the job, you can forget about it and let the computer do the rest. You do not even need to turn your computer on.
+
+Nevertheless, you are of course in charge. You can reorganize your plan whenever it suits you.
+
+= Cooperate and multiuser =
+
+Each user is allowed to share on those channels, accounts and pages he/she has access to from before. Numerous contributors might also be able to share on a common Twitter account or Facebook page. The users are allowed to publish on his/hers personal account or page.
+
+= Trial version =
+
+This plugin is a free 45 days trial version.
 
 == Installation ==
 = Automatic installation =
@@ -51,6 +72,19 @@ The settings for Exxica Social Marketing are user specific. So that multiple use
 6. Where to find the settings page.
 
 == Changelog ==
+= 1.1.6 =
+- Added custom date and time formats. Default locale specific.
+- Fixed an SQL bug in account selection.
+- Fixed Twitter issue on first time setup.
+- Fixed a bug in channel selection.
+- Fixed sorting in the dashboard widget.
+
+= 1.1.5 =
+- Added disclaimer.
+
+= 1.1.4 =
+- Fixed minor SQL bugs.
+
 = 1.1.3 =
 - Added link in dashboard widget to user manual.
 - Updated readme with more useful information.
@@ -79,17 +113,26 @@ The settings for Exxica Social Marketing are user specific. So that multiple use
 - Initial release.
 
 == Upgrade Notice ==
+= 1.1.6 =
+Added new functionality and fixed vital security issue. Update as soon as possible.
+
+= 1.1.5 =
+Minor patch. Update as soon as possible.
+
+= 1.1.4 =
+Minor patch. Update recommended.
+
 = 1.1.3 =
-Minor UI patch.
+Minor patch. Update recommended.
 
 = 1.1.2 =
-Minor patch. Lightens footprint of the plugin. Update recommended.
+Lightens footprint of the plugin. Update recommended.
 
 = 1.1.1 =
 This update includes vital improvements to security. Update as soon as possible.
 
 = 1.1.0 =
-Minor patch.
+Minor patch. Update recommended.
 
 = 1.0.0 =
 Initial release.

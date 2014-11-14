@@ -60,7 +60,7 @@ class Exxica_Social_Marketing {
 	public function __construct() {
 
 		$this->plugin_name = 'exxica-social-marketing';
-		$this->version = '1.1.4';
+		$this->version = '1.1.6';
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -165,6 +165,8 @@ class Exxica_Social_Marketing {
 		$this->loader->add_action( 'wp_ajax_destroy_channel_data', $handlers_admin, 'destroy_channel_data' );
 
 		$this->loader->add_action( 'wp_ajax_save_license_data', $handlers_admin, 'save_license_data' );
+
+		$this->loader->add_action( 'wp_ajax_factory_reset', $handlers_admin, 'factory_reset' );
 		
 		$this->loader->add_action( 'wp_ajax_update_overview_data', $handlers_admin, 'update_overview_data' );
 		$this->loader->add_action( 'wp_ajax_destroy_overview_data', $handlers_admin, 'destroy_overview_data' );
