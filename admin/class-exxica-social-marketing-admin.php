@@ -79,7 +79,8 @@ class Exxica_Social_Marketing_Admin
 		wp_enqueue_script( 'jquery-ui-widget' );
 		wp_enqueue_script( 'jquery-ui-datepicker' );
 		wp_enqueue_script( 'jquery-ui-spinner' );
-		wp_enqueue_script( $this->name . '-jquery-ui-datepicker-localization-no', plugins_url( 'js/datepicker-no.js', __FILE__ ), array( 'jquery-ui-datepicker' ), $this->version );
+		if(__('en_US', $this->name) == 'no_NB') 
+			wp_enqueue_script( $this->name . '-jquery-ui-datepicker-localization-no', plugins_url( 'js/datepicker-no.js', __FILE__ ), array( 'jquery-ui-datepicker' ), $this->version );
 
 		if( $hook === 'users_page_exxica-sm-settings' ) 
 			wp_enqueue_script( $this->name . '-settings-script', plugins_url( 'js/settings-page-social-marketing.js', __FILE__ ), array( 'jquery' ), $this->version );
@@ -256,6 +257,7 @@ class Exxica_Social_Marketing_Admin
 		// Set globals
 		global $wp, $wpdb;
 
+		$isLog = false;
 		$date_format = get_option( 'exxica_social_marketing_date_format', __( 'm/d/Y', $this->name ) );
 		$time_format = get_option( 'exxica_social_marketing_time_format', __( 'g:i A', $this->name ) );
 		$twentyfour_clock_enabled = get_option( 'exxica_social_marketing_twentyfour_clock_enabled', '1' );
@@ -320,10 +322,11 @@ class Exxica_Social_Marketing_Admin
 				);
 			}
 		}
-
+		if(isset($_REQUEST['smtype']) && $_REQUEST['smtype'] == 'log')
+			$isLog = true;
 
 		// Fetch updated data from DB
-		if(isset($_REQUEST['smtype']) && $_REQUEST['smtype'] == 'log') {
+		if($isLog) {
 			$sql = "SELECT $table.*, $status_table.`message`, $status_table.`status` FROM $table LEFT JOIN $status_table ON ($table.`id` = $status_table.`marketing_id`) WHERE publish_localtime < ".time()." ORDER BY publish_localtime DESC LIMIT ".$limit." OFFSET ".$offset;
 		} else {
 			$sql = "SELECT $table.*, $status_table.`message`, $status_table.`status` FROM $table LEFT JOIN $status_table ON ($table.`id` = $status_table.`marketing_id`) WHERE publish_localtime >= ".strtotime('-1 day')." ORDER BY publish_localtime ASC LIMIT ".$limit." OFFSET ".$offset;
@@ -335,6 +338,45 @@ class Exxica_Social_Marketing_Admin
 		$shown_page = $page + 1;
 		$last_page = ceil(count($all_items)/$limit);
 
+		$edit_url = "edit.php?page=exxica-sm-overview";
+
+		$paging = array(
+			array(
+				"href" => $edit_url.(($isLog) ? '&smtype=log' : ''),
+				"title" => __('Go to first page', $this->name),
+				"text" => __('«', $this->name),
+				"class" => "first-page".(($page == 0) ? ' disabled' : ''),
+			),
+			array(
+				"href" => $edit_url.(($page !== 0) ? '&page_num='.($page-1) : '').(($isLog) ? '&smtype=log' : ''),
+				"title" => __('Go to previous page', $this->name),
+				"text" => __('‹', $this->name),
+				"class" => "prev-page".(($page == 0) ? ' disabled' : ''),
+			),
+			array(
+				"special" => "show-pages"
+			),
+			array(
+				"href" => $edit_url.'&page_num='.(($page == $last_page-1) ? $last_page-1 : $page+1).(($isLog) ? '&smtype=log' : ''),
+				"title" => __('Go to next page', $this->name),
+				"text" => __('›', $this->name),
+				"class" => "next-page".(($page == $last_page-1) ? ' disabled' : ''),
+			),
+			array(
+				"href" => $edit_url.'&page_num='.($last_page-1).(($isLog) ? '&smtype=log' : ''),
+				"title" => __('Go to last page', $this->name),
+				"text" => __('»', $this->name),
+				"class" => "last-page".(($page == $last_page-1) ? ' disabled' : ''),
+			)
+		);
+
+		if($isLog) {
+			$sched_text = '';
+			$shown_text = sprintf( ( count($sm_items) == 1 ) ? __('%s item shown.', $this->name) : __('%s items shown.', $this->name), count($sm_items) );
+		} else {
+			$sched_text = sprintf( ( count($all_items) == 1 ) ? __('%s item scheduled, ', $this->name) : __('%s items scheduled, ', $this->name), count($all_items) );
+			$shown_text = sprintf( ( count($sm_items) == 1 ) ? __('%s item shown.', $this->name) : __('%s items shown.', $this->name), count($sm_items) );
+		}
 
 		include_once('partials/exxica-social-marketing-admin-overview.php');
 	}

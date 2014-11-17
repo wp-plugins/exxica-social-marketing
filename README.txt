@@ -57,11 +57,6 @@ This plugin is a free 45 days trial version.
 4. Set up the plugin in **User** => **My social marketing**.
 
 == Frequently Asked Questions ==
-= Where can I find the settings page? =
-The settings page can be found under **Users** => **My social marketing**.
-
-= Why not place the settings page in Settings? =
-The settings for Exxica Social Marketing are user specific. So that multiple users can use the plugin without sacrificing their Facebook or Twitter  (or other) account security.
 
 == Screenshots ==
 1. User administration page - with authentication buttons for various social media platforms and the ability to remove unwanted publishing accounts.
@@ -72,6 +67,10 @@ The settings for Exxica Social Marketing are user specific. So that multiple use
 6. Where to find the settings page.
 
 == Changelog ==
+= 1.1.6.1 =
+- Fixed a timestamp issue in the en-US datepicker.
+- Fixed an internationalization issue with the datepicker.
+
 = 1.1.6 =
 - Added custom date and time formats. Default locale specific.
 - Fixed an SQL bug in account selection.
@@ -113,6 +112,9 @@ The settings for Exxica Social Marketing are user specific. So that multiple use
 - Initial release.
 
 == Upgrade Notice ==
+= 1.1.6.1 =
+Fix for en-US timestamp issue. Update recommended.
+
 = 1.1.6 =
 Added new functionality and fixed vital security issue. Update as soon as possible.
 

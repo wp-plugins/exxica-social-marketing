@@ -172,3 +172,10 @@ fieldset.setting-fieldset legend {
 		width: 50%;
 	}
 }
+input[type="text"].exxica-text {
+	width: auto !important;
+}
+select.exxica-select {
+	width: auto !important;
+	vertical-align: top !important;
+}

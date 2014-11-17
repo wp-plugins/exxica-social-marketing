@@ -8,6 +8,7 @@
  * @link      http://exxica.com
  * @copyright 2014 Exxica AS
  */
+
 ?>
 <script type="text/javascript">
 	(function ( $ ) {
@@ -49,8 +50,8 @@
 	<h2><?php _e('Marketing overview', $this->name); ?></h2>
 
 	<ul class="subsubsub">
-		<li><a href="edit.php?page=exxica-social-marketing-overview"><?php _e('Scheduled and published recently', $this->name); ?></a> | </li>
-		<li><a href="edit.php?page=exxica-social-marketing-overview&smtype=log"><?php _e('Publish Log', $this->name); ?></a></li>		
+		<li><a href="<?php echo $edit_url; ?>"><?php _e('Scheduled and published recently', $this->name); ?></a> | </li>
+		<li><a href="<?php echo $edit_url; ?>&smtype=log"><?php _e('Publish Log', $this->name); ?></a></li>		
 	</ul>
 	<form id="sm-filter" method="GET">
 		<?php wp_nonce_field('esmoverviewnonce'); ?>
@@ -66,29 +67,17 @@
 			</div>
 			<div class="tablenav-pages">
 				<span class="displaying-num">
-					<?php 
-						printf(
-							(count($all_items) == 1) ? 
-								__('%s item scheduled, ', $this->name) : 
-								__('%s items scheduled, ', $this->name),
-							count($all_items)
-						);
-
-						printf(
-							(count($sm_items) == 1 ) ?
-								__('%s item shown.', $this->name) :
-								__('%s items shown.', $this->name), 
-							count($sm_items)
-						);
-					?>
+					<?php echo $sched_text; echo $shown_text; ?>
 				</span>
 				<span class="pagination-links">
-					<a href="edit.php?page=exxica-social-marketing-overview" title="Gå til den første siden" class="first-page<?php echo ($page == 0) ? ' disabled' : ''; ?>">«</a>
-					<a href="edit.php?page=exxica-social-marketing-overview<?php if($page !== 0) echo '&page_num='.($page-1); ?>" title="Gå til forrige side" class="prev-page<?php echo ($page == 0) ? ' disabled' : ''; ?>">‹</a>
-					<span class="paging-input"><?php printf(__('%d of ', $this->name), $shown_page); ?><span class="total-pages"><?php echo $last_page; ?></span>
+					<?php foreach($paging as $i) : ?>
+						<?php if(isset($i['special']) && $i['special'] == "show-pages") : ?>
+							<span class="paging-input"><?php printf(__('%d of ', $this->name), $shown_page); ?><span class="total-pages"><?php echo $last_page; ?></span></span>
+						<?php else : ?>
+							<a href="<?php echo $i['href']; ?>" title="<?php echo $i['title']; ?>" class="<?php echo $i['class']; ?>"><?php echo $i['text']; ?></a>
+						<?php endif; ?>
+					<?php endforeach; ?>
 				</span>
-				<a href="edit.php?page=exxica-social-marketing-overview&page_num=<?php echo ($page == $last_page-1) ? $last_page-1 : $page+1; ?>" title="Gå til neste side" class="next-page<?php echo ($page == $last_page-1) ? ' disabled' : ''; ?>">›</a>
-				<a href="edit.php?page=exxica-social-marketing-overview&page_num=<?php echo $last_page-1; ?>" title="Gå til den siste siden" class="last-page<?php echo ($page == $last_page-1) ? ' disabled' : ''; ?>">»</a>
 			</div>
 		</div>
 		<table class="wp-list-table widefat fixed">
@@ -233,7 +222,7 @@
 							$(function () {
 								$(document).ready(function() {
 									$("input#publish-date-<?php echo $item['id']; ?>").datepicker(
-										"setDate", "<?php echo date('d.m.Y', $item['publish_localtime']); ?>"
+										"setDate", "<?php echo date($date_format, $item['publish_localtime']); ?>"
 									);
 									$("a#cancel-<?php echo $item['id']; ?>").click(function(e) {
 										e.preventDefault();
@@ -341,7 +330,7 @@
 								<label>
 									<span class="title"><?php _e('Date', $this->name); ?></span>
 									<span class="input-text-wrap">
-										<input id="publish-date-<?php echo $item['id']; ?>" type="text" name="publish_date" class="pdate datepicker">
+										<input id="publish-date-<?php echo $item['id']; ?>" type="text" name="publish_date" class="datepicker">
 									</span>
 								</label>
 								<br class="clear">
@@ -352,14 +341,14 @@
 								<h4>&nbsp;</h4>
 								<label>
 									<span class="title"><?php _e('Time', $this->name); ?></span>
-									<span class="input-text-wrap">
+									<span>
 										<?php if($twentyfour_clock_enabled) : ?>
-											<input type="number" id="publish-hour-<?php echo $item['id']; ?>" name="publish_hour" class="phour" value="<?php echo date('H', $item['publish_localtime']); ?>" min="0" max="23">:
-											<input type="number" id="publish-minute-<?php echo $item['id']; ?>" name="publish_minute" class="pmin" value="<?php echo date('i', $item['publish_localtime']); ?>" min="0" max="59">
+											<input type="text" id="publish-hour-<?php echo $item['id']; ?>" name="publish_hour" class="exxica-text" value="<?php echo date('H', $item['publish_localtime']); ?>">:
+											<input type="text" id="publish-minute-<?php echo $item['id']; ?>" name="publish_minute" class="exxica-text" value="<?php echo date('i', $item['publish_localtime']); ?>">
 										<?php else : ?>
-											<input type="number" id="publish-hour-<?php echo $item['id']; ?>" name="publish_hour" class="phour" value="<?php echo date('g', $item['publish_localtime']); ?>" min="1" max="12">:
-											<input type="number" id="publish-minute-<?php echo $item['id']; ?>" name="publish_minute" class="pmin" value="<?php echo date('i', $item['publish_localtime']); ?>" min="0" max="59">
-											<select name="ampm" id="publish-ampm-<?php echo $item['id']; ?>" class="pampm exxica-select">
+											<input type="text" id="publish-hour-<?php echo $item['id']; ?>" name="publish_hour" class="exxica-text" value="<?php echo date('g', $item['publish_localtime']); ?>">:
+											<input type="text" id="publish-minute-<?php echo $item['id']; ?>" name="publish_minute" class="exxica-text" value="<?php echo date('i', $item['publish_localtime']); ?>">
+											<select name="ampm" id="publish-ampm-<?php echo $item['id']; ?>" class="exxica-select">
 												<option value="am" <?php selected(date('a', $item['publish_localtime']), 'am'); ?>>AM</option>
 												<option value="pm" <?php selected(date('a', $item['publish_localtime']), 'pm'); ?>>PM</option>
 											</select>
@@ -406,29 +395,17 @@
 
 			<div class="tablenav-pages">
 				<span class="displaying-num">
-					<?php 
-						printf(
-							(count($all_items) == 1) ? 
-								__('%s item scheduled, ', $this->name) : 
-								__('%s items scheduled, ', $this->name),
-							count($all_items)
-						);
-
-						printf(
-							(count($sm_items) == 1 ) ?
-								__('%s item shown.', $this->name) :
-								__('%s items shown.', $this->name), 
-							count($sm_items)
-						);
-					?>
+					<?php echo $sched_text; echo $shown_text; ?>
 				</span>
 				<span class="pagination-links">
-					<a href="edit.php?page=exxica-social-marketing-overview" title="Gå til den første siden" class="first-page<?php echo ($page == 0) ? ' disabled' : ''; ?>">«</a>
-					<a href="edit.php?page=exxica-social-marketing-overview<?php if($page !== 0) echo '&page_num='.($page-1); ?>" title="Gå til forrige side" class="prev-page<?php echo ($page == 0) ? ' disabled' : ''; ?>">‹</a>
-					<span class="paging-input"><?php printf(__('%d of ', $this->name), $shown_page); ?><span class="total-pages"><?php echo $last_page; ?></span>
+					<?php foreach($paging as $i) : ?>
+						<?php if(isset($i['special']) && $i['special'] == "show-pages") : ?>
+							<span class="paging-input"><?php printf(__('%d of ', $this->name), $shown_page); ?><span class="total-pages"><?php echo $last_page; ?></span></span>
+						<?php else : ?>
+							<a href="<?php echo $i['href']; ?>" title="<?php echo $i['title']; ?>" class="<?php echo $i['class']; ?>"><?php echo $i['text']; ?></a>
+						<?php endif; ?>
+					<?php endforeach; ?>
 				</span>
-				<a href="edit.php?page=exxica-social-marketing-overview&page_num=<?php echo ($page == $last_page-1) ? $last_page-1 : $page+1; ?>" title="Gå til neste side" class="next-page<?php echo ($page == $last_page-1) ? ' disabled' : ''; ?>">›</a>
-				<a href="edit.php?page=exxica-social-marketing-overview&page_num=<?php echo $last_page-1; ?>" title="Gå til den siste siden" class="last-page<?php echo ($page == $last_page-1) ? ' disabled' : ''; ?>">»</a>
 			</div>
 		</div>
 	</form>
