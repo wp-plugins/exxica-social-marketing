@@ -67,6 +67,9 @@ This plugin is a free 45 days trial version.
 6. Where to find the settings page.
 
 == Changelog ==
+= 1.1.6.2 =
+- Fixed an issue with channel name on Twitter in the overview.
+
 = 1.1.6.1 =
 - Fixed a timestamp issue in the en-US datepicker.
 - Fixed an internationalization issue with the datepicker.
@@ -112,6 +115,9 @@ This plugin is a free 45 days trial version.
 - Initial release.
 
 == Upgrade Notice ==
+= 1.1.6.2 =
+Minor patch. Update recommended.
+
 = 1.1.6.1 =
 Fix for en-US timestamp issue. Update recommended.
 
