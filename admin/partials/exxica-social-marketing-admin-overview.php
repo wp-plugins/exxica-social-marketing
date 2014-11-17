@@ -99,10 +99,9 @@
 					<?php 
 					$num = 0;
 					foreach($sm_items as $item) : 
-						if($item['channel'] == 'Facebook') {
-							$info = $wpdb->get_results( "SELECT channel_account FROM ".$wpdb->prefix."exxica_social_marketing_accounts WHERE fb_page_id = ".$item['channel_account'] );
-							$i = $info[0];
-						} 
+						$info = $wpdb->get_results( "SELECT channel_account FROM ".$wpdb->prefix."exxica_social_marketing_accounts WHERE fb_page_id = ".$item['channel_account'] );
+						$i = $info[0];
+
 						$query = new WP_Query( array( 'post_type' => 'any', 'posts_per_page' => -1, 'order_by' => 'ID', 'order' => 'ASC' ) );
 						foreach($query->posts as $post) {
 							if($post->ID == $item['post_id']) {
@@ -200,7 +199,7 @@
 							<?php echo $sources[$p->post_type]; ?>
 						</td>
 						<td class="channel column-channel"<?php if($item['publish_localtime'] < time()) echo ' style="color:#aaa !important;"' ?>>
-							<?php echo ($item['channel'] == 'Facebook') ? $i->channel_account : $item['channel_account']; ?> @ <?php echo $item['channel']; ?>
+							<?php echo $i->channel_account; ?> @ <?php echo $item['channel']; ?>
 							<?php if($item['status'] == 1) : ?><br/>
 							<span id="error"><?php echo esc_html($item['message']); ?></span>
 							<?php endif; ?>
