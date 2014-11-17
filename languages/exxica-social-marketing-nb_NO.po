@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Exxica Plugins\n"
-"POT-Creation-Date: 2014-11-14 14:05+0100\n"
-"PO-Revision-Date: 2014-11-14 14:05+0100\n"
+"POT-Creation-Date: 2014-11-17 14:12+0100\n"
+"PO-Revision-Date: 2014-11-17 14:13+0100\n"
 "Last-Translator: Gaute Rønningen <gaute@exxica.com>\n"
 "Language-Team: Gaute Rønningen <gaute@exxica.com>\n"
 "Language: nb_NO\n"
@@ -18,117 +18,179 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: admin/class-exxica-social-marketing-admin.php:152
+#: admin/class-exxica-social-marketing-admin.php:82
+#: admin/partials/exxica-social-marketing-admin-overview.php:20
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-pattern.php:107
+msgid "en_US"
+msgstr "nb_NO"
+
+#: admin/class-exxica-social-marketing-admin.php:153
 msgid " days ago"
 msgstr " dager siden"
 
-#: admin/class-exxica-social-marketing-admin.php:153
+#: admin/class-exxica-social-marketing-admin.php:154
 msgid "in about "
 msgstr "om "
 
-#: admin/class-exxica-social-marketing-admin.php:154
+#: admin/class-exxica-social-marketing-admin.php:155
 msgid " days"
 msgstr " dager"
 
-#: admin/class-exxica-social-marketing-admin.php:162
 #: admin/class-exxica-social-marketing-admin.php:163
+#: admin/class-exxica-social-marketing-admin.php:164
 msgid "My social marketing"
 msgstr "Min sosiale markedsføring"
 
-#: admin/class-exxica-social-marketing-admin.php:170
 #: admin/class-exxica-social-marketing-admin.php:171
+#: admin/class-exxica-social-marketing-admin.php:172
 msgid "Social marketing"
 msgstr "Sosial markedsføring"
 
-#: admin/class-exxica-social-marketing-admin.php:178
+#: admin/class-exxica-social-marketing-admin.php:179
 msgid "Exxica Social Marketing Overview"
 msgstr "Exxica Sosial Markedsføring - Oversikt"
 
-#: admin/class-exxica-social-marketing-admin.php:179
+#: admin/class-exxica-social-marketing-admin.php:180
 msgid "Marketing Overview"
 msgstr "Markedsførings-oversikt"
 
-#: admin/class-exxica-social-marketing-admin.php:196
+#: admin/class-exxica-social-marketing-admin.php:197
 msgid "Free Trial"
 msgstr "Gratis Prøveperiode"
 
-#: admin/class-exxica-social-marketing-admin.php:197
+#: admin/class-exxica-social-marketing-admin.php:198
 msgid "Paid Subscription"
 msgstr "Abonnement"
 
-#: admin/class-exxica-social-marketing-admin.php:198
+#: admin/class-exxica-social-marketing-admin.php:199
 msgid "Lifetime Subscription"
 msgstr "Livstidsabonnement"
 
-#: admin/class-exxica-social-marketing-admin.php:208
+#: admin/class-exxica-social-marketing-admin.php:209
 #, php-format
 msgid "%s days ago"
 msgstr "%s dager siden"
 
-#: admin/class-exxica-social-marketing-admin.php:210
+#: admin/class-exxica-social-marketing-admin.php:211
 #, php-format
 msgid "in %s days"
 msgstr "om %s dager"
 
-#: admin/class-exxica-social-marketing-admin.php:247
-#: admin/class-exxica-social-marketing-admin.php:259
-#: admin/class-exxica-social-marketing-html-output.php:303
-#: admin/class-exxica-social-marketing-html-output.php:487
-#: admin/class-exxica-social-marketing-html-output.php:911
+#: admin/class-exxica-social-marketing-admin.php:248
+#: admin/class-exxica-social-marketing-admin.php:261
+#: admin/class-exxica-social-marketing-html-output.php:146
+#: admin/class-exxica-social-marketing-html-output.php:199
+#: admin/class-exxica-social-marketing-html-output.php:221
+#: admin/class-exxica-social-marketing-html-output.php:319
 #: admin/partials/exxica-social-marketing-admin-settings.php:48
 #: admin/partials/exxica-social-marketing-admin-settings.php:50
 msgid "m/d/Y"
 msgstr "d.m.Y"
 
-#: admin/class-exxica-social-marketing-admin.php:248
-#: admin/class-exxica-social-marketing-admin.php:260
-#: admin/class-exxica-social-marketing-html-output.php:304
-#: admin/class-exxica-social-marketing-html-output.php:912
-#: admin/class-exxica-social-marketing-html-output.php:1274
+#: admin/class-exxica-social-marketing-admin.php:249
+#: admin/class-exxica-social-marketing-admin.php:262
+#: admin/class-exxica-social-marketing-html-output.php:147
+#: admin/class-exxica-social-marketing-html-output.php:222
+#: admin/class-exxica-social-marketing-html-output.php:320
+#: admin/class-exxica-social-marketing-html-output.php:373
 #: admin/partials/exxica-social-marketing-admin-settings.php:72
 #: admin/partials/exxica-social-marketing-admin-settings.php:74
 msgid "g:i A"
 msgstr "H:i"
 
-#: admin/class-exxica-social-marketing-admin.php:267
+#: admin/class-exxica-social-marketing-admin.php:269
 msgid "Post"
 msgstr "Innlegg"
 
-#: admin/class-exxica-social-marketing-admin.php:268
+#: admin/class-exxica-social-marketing-admin.php:270
 msgid "Page"
 msgstr "Side"
 
-#: admin/class-exxica-social-marketing-admin.php:269
+#: admin/class-exxica-social-marketing-admin.php:271
 msgid "Landing Page"
 msgstr "Landingsside"
 
-#: admin/class-exxica-social-marketing-admin.php:270
+#: admin/class-exxica-social-marketing-admin.php:272
 msgid "System Page"
 msgstr "Systemside"
 
 #: admin/class-exxica-social-marketing-admin.php:346
-#: admin/class-exxica-social-marketing-html-output.php:1483
+msgid "Go to first page"
+msgstr "Gå til første side"
+
+#: admin/class-exxica-social-marketing-admin.php:347
+msgid "«"
+msgstr "«"
+
+#: admin/class-exxica-social-marketing-admin.php:352
+msgid "Go to previous page"
+msgstr "Gå til forrige side"
+
+#: admin/class-exxica-social-marketing-admin.php:353
+msgid "‹"
+msgstr "‹"
+
+#: admin/class-exxica-social-marketing-admin.php:361
+msgid "Go to next page"
+msgstr "Gå til neste side"
+
+#: admin/class-exxica-social-marketing-admin.php:362
+msgid "›"
+msgstr "›"
+
+#: admin/class-exxica-social-marketing-admin.php:367
+msgid "Go to last page"
+msgstr "Gå til siste side"
+
+#: admin/class-exxica-social-marketing-admin.php:368
+msgid "»"
+msgstr "»"
+
+#: admin/class-exxica-social-marketing-admin.php:375
+#: admin/class-exxica-social-marketing-admin.php:378
+#, php-format
+msgid "%s item shown."
+msgstr "%s publisering vist."
+
+#: admin/class-exxica-social-marketing-admin.php:375
+#: admin/class-exxica-social-marketing-admin.php:378
+#, php-format
+msgid "%s items shown."
+msgstr "%s publiseringer vist."
+
+#: admin/class-exxica-social-marketing-admin.php:377
+#, php-format
+msgid "%s item scheduled, "
+msgstr "%s publisering planlagt, "
+
+#: admin/class-exxica-social-marketing-admin.php:377
+#, php-format
+msgid "%s items scheduled, "
+msgstr "%s publiseringer planlagt, "
+
+#: admin/class-exxica-social-marketing-admin.php:388
+#: admin/partials/html-output/exxica-social-marketing-admin-html-modal.php:139
 msgid "Exxica Social Marketing"
 msgstr "Exxica Sosial Markedsføring"
 
-#: admin/class-exxica-social-marketing-admin.php:403
-#: admin/class-exxica-social-marketing-admin.php:439
+#: admin/class-exxica-social-marketing-admin.php:445
+#: admin/class-exxica-social-marketing-admin.php:481
 msgid "Information"
 msgstr "Informasjon"
 
-#: admin/class-exxica-social-marketing-admin.php:408
+#: admin/class-exxica-social-marketing-admin.php:450
 msgid "Subscription"
 msgstr "Abonnement"
 
-#: admin/class-exxica-social-marketing-admin.php:413
+#: admin/class-exxica-social-marketing-admin.php:455
 msgid "Advanced"
 msgstr "Avansert"
 
-#: admin/class-exxica-social-marketing-admin.php:433
+#: admin/class-exxica-social-marketing-admin.php:475
 msgid "Cancel Exxica Social Marketing Subsription"
 msgstr "Avslutte abonnement på Exxica Social Marketing"
 
-#: admin/class-exxica-social-marketing-admin.php:441
+#: admin/class-exxica-social-marketing-admin.php:483
 msgid ""
 "The Exxica username is getting generated automatically and is only shown as "
 "information."
@@ -136,7 +198,7 @@ msgstr ""
 "Exxica brukernavnet er generert utifra dine serverinnstillinger og kan "
 "derfor ikke redigeres."
 
-#: admin/class-exxica-social-marketing-admin.php:442
+#: admin/class-exxica-social-marketing-admin.php:484
 msgid ""
 "If Exxica Social Marketing are to work properly, at least one account must "
 "be authorized through the Exxica server. The accounts will be used by the "
@@ -149,7 +211,7 @@ msgstr ""
 ">For å starte denne prosessen må du klikke på de aktive "
 "autoriseringsknappene nedenfor."
 
-#: admin/class-exxica-social-marketing-admin.php:443
+#: admin/class-exxica-social-marketing-admin.php:485
 msgid ""
 "The authorized accounts are only available to the current user. Other users "
 "will have to authorize with their own accounts."
@@ -157,7 +219,7 @@ msgstr ""
 "De synkroniserte kontoene gjelder bare for gjeldende bruker, andre brukere "
 "må synkronisere med sin egen konto."
 
-#: admin/class-exxica-social-marketing-admin.php:444
+#: admin/class-exxica-social-marketing-admin.php:486
 msgid ""
 "Authorized accounts can be removed from your server. And if they are removed "
 "in error, you can re-syncronize your accounts by pressing \"Update\" atop "
@@ -167,7 +229,7 @@ msgstr ""
 "fjernet ved feil, kan man re-synkronisere hele listen med den som ligger "
 "Exxica serveren ved å trykke på \"Oppdater\"."
 
-#: admin/class-exxica-social-marketing-admin.php:445
+#: admin/class-exxica-social-marketing-admin.php:487
 msgid ""
 "Authorized accounts will have to be renewed every 30 days. This is security "
 "precaution."
@@ -175,11 +237,11 @@ msgstr ""
 "Autoriserte konti må re-autoriseres hver 30. dag. Dette er en "
 "sikkerhetsforanstaltning."
 
-#: admin/class-exxica-social-marketing-admin.php:447
+#: admin/class-exxica-social-marketing-admin.php:489
 msgid "Disclaimer"
 msgstr "Ansvarsfraskrivelse"
 
-#: admin/class-exxica-social-marketing-admin.php:448
+#: admin/class-exxica-social-marketing-admin.php:490
 msgid ""
 "Exxica AS disclaims all responsibility and all liability (including through "
 "negligence) for all expenses, losses, damages and costs you might incur as a "
@@ -188,11 +250,11 @@ msgstr ""
 "Exxica AS fraskriver seg alt ansvar for alle tap, skader og kostnader du "
 "kanskje kan lide som følge av bruk av Exxica Sosial Markedsføringsplanlegger."
 
-#: admin/class-exxica-social-marketing-admin.php:450
+#: admin/class-exxica-social-marketing-admin.php:492
 msgid "Cancelling subscription"
 msgstr "Avslutte abonnement"
 
-#: admin/class-exxica-social-marketing-admin.php:451
+#: admin/class-exxica-social-marketing-admin.php:493
 #, php-format
 msgid ""
 "If you want to cancel your subscription, please go to <a href=\"%s\" target="
@@ -203,11 +265,11 @@ msgstr ""
 "vennligst gå til <a href=\"%s\" target=\"_blank\" alt=\"%s\">%s</a> eller "
 "send oss en e-post til <a href=\"%s\" target=\"_blank\">%s</a>."
 
-#: admin/class-exxica-social-marketing-admin.php:455
+#: admin/class-exxica-social-marketing-admin.php:497
 msgid "Flush data"
 msgstr "Rensk data"
 
-#: admin/class-exxica-social-marketing-admin.php:456
+#: admin/class-exxica-social-marketing-admin.php:498
 msgid ""
 "This will flush all datas from your Exxica Social Marketing tables and re-"
 "install the tables with default values, use this <strong>ONLY</strong> as a "
@@ -217,289 +279,41 @@ msgstr ""
 "gjennopprette fabrikkinstillinger, bruk den <strong>BARE</strong> hvis du "
 "ikke ser noen annen utvei."
 
-#: admin/class-exxica-social-marketing-admin.php:457
+#: admin/class-exxica-social-marketing-admin.php:499
 msgid "Re-install tables"
 msgstr "Gjennopprett fabrikkinstillinger "
 
-#: admin/class-exxica-social-marketing-admin.php:468
+#: admin/class-exxica-social-marketing-admin.php:510
 msgid "Social Marketing"
 msgstr "Sosial markedsføring"
 
-#: admin/class-exxica-social-marketing-html-output.php:195
-#: admin/class-exxica-social-marketing-html-output.php:409
-#: admin/class-exxica-social-marketing-html-output.php:615
-#: admin/partials/exxica-social-marketing-admin-overview.php:103
-#: admin/partials/exxica-social-marketing-admin-display.php:136
-msgid "Channel"
-msgstr "Kanal"
-
-#: admin/class-exxica-social-marketing-html-output.php:196
-#: admin/class-exxica-social-marketing-html-output.php:456
-#: admin/class-exxica-social-marketing-html-output.php:897
-#: admin/class-exxica-social-marketing-html-output.php:1499
-msgid "Text"
-msgstr "Tekst"
-
-#: admin/class-exxica-social-marketing-html-output.php:197
-#: admin/partials/exxica-social-marketing-admin-overview.php:104
-msgid "Publish Date"
-msgstr "Dato"
-
-#: admin/class-exxica-social-marketing-html-output.php:198
-#: admin/partials/exxica-social-marketing-admin-display.php:138
-msgid "Actions"
-msgstr "Handlinger"
-
-#: admin/class-exxica-social-marketing-html-output.php:213
-msgid "No publishing options found."
-msgstr "Ingen publikasjoner funnet."
-
-#: admin/class-exxica-social-marketing-html-output.php:275
-#: admin/partials/exxica-social-marketing-admin-overview.php:62
-#: admin/partials/exxica-social-marketing-admin-overview.php:141
-#: admin/partials/exxica-social-marketing-admin-overview.php:197
-#: admin/partials/exxica-social-marketing-admin-overview.php:401
-msgid "Edit"
-msgstr "Rediger"
-
-#: admin/class-exxica-social-marketing-html-output.php:280
-#: admin/class-exxica-social-marketing-html-output.php:282
-#: admin/class-exxica-social-marketing-html-output.php:291
-#: admin/class-exxica-social-marketing-html-output.php:293
-msgid "Remove"
-msgstr "Fjern"
-
-#: admin/class-exxica-social-marketing-html-output.php:285
-msgid "View"
-msgstr "Vis som"
-
-#: admin/class-exxica-social-marketing-html-output.php:286
-#: admin/class-exxica-social-marketing-html-output.php:295
-#: admin/partials/exxica-social-marketing-admin-overview.php:205
-msgid "Duplicate"
-msgstr "Dupliser"
-
-#: admin/class-exxica-social-marketing-html-output.php:312
+#: admin/class-exxica-social-marketing-html-output.php:155
 msgid "Mon"
 msgstr "Man"
 
-#: admin/class-exxica-social-marketing-html-output.php:313
+#: admin/class-exxica-social-marketing-html-output.php:156
 msgid "Tue"
 msgstr "Tir"
 
-#: admin/class-exxica-social-marketing-html-output.php:314
+#: admin/class-exxica-social-marketing-html-output.php:157
 msgid "Wed"
 msgstr "Ons"
 
-#: admin/class-exxica-social-marketing-html-output.php:315
+#: admin/class-exxica-social-marketing-html-output.php:158
 msgid "Thu"
 msgstr "Tor"
 
-#: admin/class-exxica-social-marketing-html-output.php:316
+#: admin/class-exxica-social-marketing-html-output.php:159
 msgid "Fri"
 msgstr "Fre"
 
-#: admin/class-exxica-social-marketing-html-output.php:317
+#: admin/class-exxica-social-marketing-html-output.php:160
 msgid "Sat"
 msgstr "Lør"
 
-#: admin/class-exxica-social-marketing-html-output.php:318
+#: admin/class-exxica-social-marketing-html-output.php:161
 msgid "Sun"
 msgstr "Søn"
-
-#: admin/class-exxica-social-marketing-html-output.php:413
-msgid "Account"
-msgstr "Konto"
-
-#: admin/class-exxica-social-marketing-html-output.php:417
-#: admin/class-exxica-social-marketing-html-output.php:429
-#: admin/class-exxica-social-marketing-html-output.php:434
-#: admin/class-exxica-social-marketing-html-output.php:439
-#: admin/class-exxica-social-marketing-html-output.php:444
-#: admin/class-exxica-social-marketing-html-output.php:449
-msgid "Published on"
-msgstr "Publisert på"
-
-#: admin/class-exxica-social-marketing-html-output.php:460
-#: admin/class-exxica-social-marketing-html-output.php:1255
-#: admin/partials/exxica-social-marketing-admin-overview.php:105
-msgid "Image"
-msgstr "Bilde"
-
-#: admin/class-exxica-social-marketing-html-output.php:468
-msgid "Published"
-msgstr "Publisert"
-
-#: admin/class-exxica-social-marketing-html-output.php:577
-#, php-format
-msgid ""
-"No paired accounts found. You have to <a href=\"%s\">set up</a> the plugin "
-"properly before publishing."
-msgstr ""
-"Ingen samhørende konti funnet. Du må <a href=\"%s\">sette opp</a> Exxica "
-"Sosial Markedsføring skikkelig før du publiserer."
-
-#: admin/class-exxica-social-marketing-html-output.php:747
-#: admin/class-exxica-social-marketing-html-output.php:785
-#: admin/class-exxica-social-marketing-html-output.php:804
-msgid "Pages you administer"
-msgstr "Sider du administrerer"
-
-#: admin/class-exxica-social-marketing-html-output.php:750
-#: admin/class-exxica-social-marketing-html-output.php:769
-#: admin/class-exxica-social-marketing-html-output.php:788
-#: admin/class-exxica-social-marketing-html-output.php:807
-#: admin/class-exxica-social-marketing-html-output.php:827
-#: admin/class-exxica-social-marketing-html-output.php:847
-#: admin/partials/exxica-social-marketing-admin-display.php:135
-msgid "Name"
-msgstr "Navn"
-
-#: admin/class-exxica-social-marketing-html-output.php:751
-#: admin/class-exxica-social-marketing-html-output.php:789
-#: admin/class-exxica-social-marketing-html-output.php:808
-#: admin/class-exxica-social-marketing-html-output.php:828
-#: admin/class-exxica-social-marketing-html-output.php:848
-msgid "Publish"
-msgstr "Publiser"
-
-#: admin/class-exxica-social-marketing-html-output.php:766
-#: admin/class-exxica-social-marketing-html-output.php:824
-#: admin/class-exxica-social-marketing-html-output.php:844
-msgid "Accounts you administer"
-msgstr "Kontoer du administrerer"
-
-#: admin/class-exxica-social-marketing-html-output.php:770
-msgid "Tweet"
-msgstr "Tweet"
-
-#: admin/class-exxica-social-marketing-html-output.php:809
-msgid "+1"
-msgstr "+1"
-
-#: admin/class-exxica-social-marketing-html-output.php:829
-msgid "Like"
-msgstr "Lik"
-
-#: admin/class-exxica-social-marketing-html-output.php:930
-msgid "Time Pattern"
-msgstr "Tidsmønster:"
-
-#: admin/class-exxica-social-marketing-html-output.php:953
-msgid "daily"
-msgstr "daglig"
-
-#: admin/class-exxica-social-marketing-html-output.php:961
-msgid "weekly"
-msgstr "ukentlig"
-
-#: admin/class-exxica-social-marketing-html-output.php:969
-msgid "monthly"
-msgstr "månedlig"
-
-#: admin/class-exxica-social-marketing-html-output.php:977
-msgid "yearly"
-msgstr "årlig"
-
-#: admin/class-exxica-social-marketing-html-output.php:1009
-msgid "Single Events"
-msgstr "Enkle Hendelser"
-
-#: admin/class-exxica-social-marketing-html-output.php:1010
-msgid "One-time only"
-msgstr "Engangsforekomst"
-
-#: admin/class-exxica-social-marketing-html-output.php:1012
-msgid "Repeatable Events"
-msgstr "Avanserte Hendelser"
-
-#: admin/class-exxica-social-marketing-html-output.php:1013
-msgid "Daily"
-msgstr "Daglig"
-
-#: admin/class-exxica-social-marketing-html-output.php:1014
-msgid "Weekly"
-msgstr "Ukentlig"
-
-#: admin/class-exxica-social-marketing-html-output.php:1015
-msgid "Monthly"
-msgstr "Månedlig"
-
-#: admin/class-exxica-social-marketing-html-output.php:1016
-msgid "Yearly"
-msgstr "Årlig"
-
-#: admin/class-exxica-social-marketing-html-output.php:1026
-#: admin/partials/exxica-social-marketing-admin-overview.php:19
-msgid "en_US"
-msgstr "nb_NO"
-
-#: admin/class-exxica-social-marketing-html-output.php:1041
-#: admin/partials/exxica-social-marketing-admin-overview.php:342
-msgid "Date"
-msgstr "Dato:"
-
-#: admin/class-exxica-social-marketing-html-output.php:1263
-msgid "Remove image from publication"
-msgstr "Fjern bilde fra publikasjon"
-
-#: admin/class-exxica-social-marketing-html-output.php:1264
-msgid "Add image to publication"
-msgstr "Legg til bilde til publikasjon"
-
-#: admin/class-exxica-social-marketing-html-output.php:1291
-#: admin/partials/exxica-social-marketing-admin-overview.php:354
-msgid "Time"
-msgstr "Klokkeslett:"
-
-#: admin/class-exxica-social-marketing-html-output.php:1308
-#, php-format
-msgid ""
-"Your scheduled publication might be delayed by up to 15 minutes due to "
-"limitations on our server. Once scheduled your publication will send even if "
-"%s is down."
-msgstr ""
-"Din planlagte publisering kan bli forsinket opp til 15 minutter pga. "
-"begrensninger på server. Når publiseringen først er planlagt vil den sendes "
-"ut selv om %s er nede."
-
-#: admin/class-exxica-social-marketing-html-output.php:1324
-#: admin/partials/exxica-social-marketing-admin-settings.php:95
-msgid "Save changes"
-msgstr "Lagre endringer"
-
-#: admin/class-exxica-social-marketing-html-output.php:1326
-msgid "Discard changes"
-msgstr "Forkast endringer"
-
-#: admin/class-exxica-social-marketing-html-output.php:1485
-msgid "Add New"
-msgstr "Legg til nytt"
-
-#: admin/class-exxica-social-marketing-html-output.php:1487
-msgid "Show overview"
-msgstr "Vis oversikt"
-
-#: admin/class-exxica-social-marketing-html-output.php:1492
-msgid "Publish Date:"
-msgstr "Publiseringsdato:"
-
-#: admin/class-exxica-social-marketing-html-output.php:1494
-#: admin/partials/exxica-social-marketing-admin-overview.php:101
-msgid "Title"
-msgstr "Tittel"
-
-#: admin/class-exxica-social-marketing-html-output.php:1497
-msgid "Excerpt"
-msgstr "Utdrag"
-
-#: admin/class-exxica-social-marketing-html-output.php:1510
-msgid "Discard all changes"
-msgstr "Forkast alle endringer"
-
-#: admin/class-exxica-social-marketing-html-output.php:1512
-msgid "Save all changes"
-msgstr "Lagre alle endringer"
 
 #: admin/class-exxica-social-marketing-handlers.php:218
 #: admin/class-exxica-social-marketing-handlers.php:369
@@ -607,6 +421,11 @@ msgstr "Av"
 msgid "This will only have affect on input fields."
 msgstr "Dette vil bare påvirke innskrivingsfelter."
 
+#: admin/partials/exxica-social-marketing-admin-settings.php:95
+#: admin/partials/html-output/exxica-social-marketing-admin-html-buttons.php:14
+msgid "Save changes"
+msgstr "Lagre endringer"
+
 #: admin/partials/exxica-social-marketing-admin-dashboard-widget.php:22
 msgid "Do you need help using this plugin?"
 msgstr "Trenger du hjelp med å bruke dette tillegget?"
@@ -623,114 +442,137 @@ msgstr "Planlagt i næreste fremtid"
 msgid "Recently published"
 msgstr "Nylig publisert"
 
-#: admin/partials/exxica-social-marketing-admin-overview.php:49
+#: admin/partials/exxica-social-marketing-admin-overview.php:50
 msgid "Marketing overview"
 msgstr "Markedsføringsoversikt"
 
-#: admin/partials/exxica-social-marketing-admin-overview.php:52
+#: admin/partials/exxica-social-marketing-admin-overview.php:53
 msgid "Scheduled and published recently"
 msgstr "Planlagt og publiserte nylig"
 
-#: admin/partials/exxica-social-marketing-admin-overview.php:53
+#: admin/partials/exxica-social-marketing-admin-overview.php:54
 msgid "Publish Log"
 msgstr "Publiseringslogg"
 
-#: admin/partials/exxica-social-marketing-admin-overview.php:59
-#: admin/partials/exxica-social-marketing-admin-overview.php:398
+#: admin/partials/exxica-social-marketing-admin-overview.php:60
+#: admin/partials/exxica-social-marketing-admin-overview.php:387
 msgid "Choose bulk-action"
 msgstr "Velg massehanding"
 
-#: admin/partials/exxica-social-marketing-admin-overview.php:61
-#: admin/partials/exxica-social-marketing-admin-overview.php:400
+#: admin/partials/exxica-social-marketing-admin-overview.php:62
+#: admin/partials/exxica-social-marketing-admin-overview.php:389
 msgid "Bulk-actions"
 msgstr "Massehandlinger"
 
 #: admin/partials/exxica-social-marketing-admin-overview.php:63
-#: admin/partials/exxica-social-marketing-admin-overview.php:402
+#: admin/partials/exxica-social-marketing-admin-overview.php:130
+#: admin/partials/exxica-social-marketing-admin-overview.php:186
+#: admin/partials/exxica-social-marketing-admin-overview.php:390
+msgid "Edit"
+msgstr "Rediger"
+
+#: admin/partials/exxica-social-marketing-admin-overview.php:64
+#: admin/partials/exxica-social-marketing-admin-overview.php:391
 msgid "Delete"
 msgstr "Fjern"
 
-#: admin/partials/exxica-social-marketing-admin-overview.php:65
-#: admin/partials/exxica-social-marketing-admin-overview.php:404
+#: admin/partials/exxica-social-marketing-admin-overview.php:66
+#: admin/partials/exxica-social-marketing-admin-overview.php:393
 msgid "Use"
 msgstr "Bruk"
 
-#: admin/partials/exxica-social-marketing-admin-overview.php:72
-#: admin/partials/exxica-social-marketing-admin-overview.php:412
-#, php-format
-msgid "%s item scheduled, "
-msgstr "%s publisering planlagt, "
-
-#: admin/partials/exxica-social-marketing-admin-overview.php:73
-#: admin/partials/exxica-social-marketing-admin-overview.php:413
-#, php-format
-msgid "%s items scheduled, "
-msgstr "%s publiseringer planlagt, "
-
-#: admin/partials/exxica-social-marketing-admin-overview.php:79
-#: admin/partials/exxica-social-marketing-admin-overview.php:419
-#, php-format
-msgid "%s item shown."
-msgstr "%s publisering vist."
-
-#: admin/partials/exxica-social-marketing-admin-overview.php:80
-#: admin/partials/exxica-social-marketing-admin-overview.php:420
-#, php-format
-msgid "%s items shown."
-msgstr "%s publiseringer vist."
-
-#: admin/partials/exxica-social-marketing-admin-overview.php:88
-#: admin/partials/exxica-social-marketing-admin-overview.php:428
+#: admin/partials/exxica-social-marketing-admin-overview.php:75
+#: admin/partials/exxica-social-marketing-admin-overview.php:403
 #, php-format
 msgid "%d of "
 msgstr "%d av "
 
-#: admin/partials/exxica-social-marketing-admin-overview.php:98
+#: admin/partials/exxica-social-marketing-admin-overview.php:87
 msgid "Select all"
 msgstr "Velg alle"
 
-#: admin/partials/exxica-social-marketing-admin-overview.php:102
+#: admin/partials/exxica-social-marketing-admin-overview.php:90
+#: admin/partials/html-output/exxica-social-marketing-admin-html-modal.php:150
+msgid "Title"
+msgstr "Tittel"
+
+#: admin/partials/exxica-social-marketing-admin-overview.php:91
 msgid "Source"
 msgstr "Kilde"
 
-#: admin/partials/exxica-social-marketing-admin-overview.php:134
+#: admin/partials/exxica-social-marketing-admin-overview.php:92
+#: admin/partials/exxica-social-marketing-admin-display.php:136
+#: admin/partials/html-output/exxica-social-marketing-admin-html-publication-readonly.php:21
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-channel.php:10
+#: admin/partials/html-output/exxica-social-marketing-admin-html-list.php:20
+msgid "Channel"
+msgstr "Kanal"
+
+#: admin/partials/exxica-social-marketing-admin-overview.php:93
+#: admin/partials/html-output/exxica-social-marketing-admin-html-list.php:22
+msgid "Publish Date"
+msgstr "Dato"
+
+#: admin/partials/exxica-social-marketing-admin-overview.php:94
+#: admin/partials/html-output/exxica-social-marketing-admin-html-publication-readonly.php:72
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-image.php:76
+msgid "Image"
+msgstr "Bilde"
+
+#: admin/partials/exxica-social-marketing-admin-overview.php:123
 msgid "Choose"
 msgstr "Velg"
 
-#: admin/partials/exxica-social-marketing-admin-overview.php:197
+#: admin/partials/exxica-social-marketing-admin-overview.php:186
 msgid "Edit this item"
 msgstr "Rediger denne publiseringen"
 
-#: admin/partials/exxica-social-marketing-admin-overview.php:198
-#: admin/partials/exxica-social-marketing-admin-overview.php:319
+#: admin/partials/exxica-social-marketing-admin-overview.php:187
+#: admin/partials/exxica-social-marketing-admin-overview.php:308
 msgid "Quick Edit"
 msgstr "Hurtigredigering"
 
-#: admin/partials/exxica-social-marketing-admin-overview.php:199
+#: admin/partials/exxica-social-marketing-admin-overview.php:188
 msgid "Delete this item"
 msgstr "Slette denne publiseringen"
 
-#: admin/partials/exxica-social-marketing-admin-overview.php:199
+#: admin/partials/exxica-social-marketing-admin-overview.php:188
 msgid "Delete publication"
 msgstr "Fjern publikasjon"
 
-#: admin/partials/exxica-social-marketing-admin-overview.php:321
+#: admin/partials/exxica-social-marketing-admin-overview.php:194
+#: admin/partials/html-output/exxica-social-marketing-admin-html-actions.php:71
+#: admin/partials/html-output/exxica-social-marketing-admin-html-actions.php:73
+msgid "Duplicate"
+msgstr "Dupliser"
+
+#: admin/partials/exxica-social-marketing-admin-overview.php:310
 msgid "Publication text"
 msgstr "Publiseringstekst"
 
-#: admin/partials/exxica-social-marketing-admin-overview.php:373
+#: admin/partials/exxica-social-marketing-admin-overview.php:331
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-pattern.php:122
+msgid "Date"
+msgstr "Dato:"
+
+#: admin/partials/exxica-social-marketing-admin-overview.php:343
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-time.php:11
+msgid "Time"
+msgstr "Klokkeslett:"
+
+#: admin/partials/exxica-social-marketing-admin-overview.php:362
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: admin/partials/exxica-social-marketing-admin-overview.php:374
+#: admin/partials/exxica-social-marketing-admin-overview.php:363
 msgid "Full edit"
 msgstr "Full redigering"
 
-#: admin/partials/exxica-social-marketing-admin-overview.php:376
+#: admin/partials/exxica-social-marketing-admin-overview.php:365
 msgid "Update"
 msgstr "Oppdater"
 
-#: admin/partials/exxica-social-marketing-admin-overview.php:391
+#: admin/partials/exxica-social-marketing-admin-overview.php:380
 msgid "No publications found."
 msgstr "Ingen publikasjoner funnet."
 
@@ -836,9 +678,196 @@ msgstr "Samhørende konti"
 msgid "Refresh"
 msgstr "Oppdater"
 
+#: admin/partials/exxica-social-marketing-admin-display.php:135
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-account.php:15
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-account.php:34
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-account.php:53
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-account.php:72
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-account.php:92
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-account.php:112
+msgid "Name"
+msgstr "Navn"
+
 #: admin/partials/exxica-social-marketing-admin-display.php:137
 msgid "Expiry date"
 msgstr "Utgår"
+
+#: admin/partials/exxica-social-marketing-admin-display.php:138
+#: admin/partials/html-output/exxica-social-marketing-admin-html-list.php:23
+msgid "Actions"
+msgstr "Handlinger"
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-text.php:37
+#: admin/partials/html-output/exxica-social-marketing-admin-html-publication-readonly.php:68
+#: admin/partials/html-output/exxica-social-marketing-admin-html-modal.php:155
+#: admin/partials/html-output/exxica-social-marketing-admin-html-list.php:21
+msgid "Text"
+msgstr "Tekst"
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-account.php:12
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-account.php:50
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-account.php:69
+msgid "Pages you administer"
+msgstr "Sider du administrerer"
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-account.php:16
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-account.php:54
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-account.php:73
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-account.php:93
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-account.php:113
+msgid "Publish"
+msgstr "Publiser"
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-account.php:31
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-account.php:89
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-account.php:109
+msgid "Accounts you administer"
+msgstr "Kontoer du administrerer"
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-account.php:35
+msgid "Tweet"
+msgstr "Tweet"
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-account.php:74
+msgid "+1"
+msgstr "+1"
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-account.php:94
+msgid "Like"
+msgstr "Lik"
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-publication-general.php:106
+#, php-format
+msgid ""
+"No paired accounts found. You have to <a href=\"%s\">set up</a> the plugin "
+"properly before publishing."
+msgstr ""
+"Ingen samhørende konti funnet. Du må <a href=\"%s\">sette opp</a> Exxica "
+"Sosial Markedsføring skikkelig før du publiserer."
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-publication-readonly.php:25
+msgid "Account"
+msgstr "Konto"
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-publication-readonly.php:29
+#: admin/partials/html-output/exxica-social-marketing-admin-html-publication-readonly.php:41
+#: admin/partials/html-output/exxica-social-marketing-admin-html-publication-readonly.php:46
+#: admin/partials/html-output/exxica-social-marketing-admin-html-publication-readonly.php:51
+#: admin/partials/html-output/exxica-social-marketing-admin-html-publication-readonly.php:56
+#: admin/partials/html-output/exxica-social-marketing-admin-html-publication-readonly.php:61
+msgid "Published on"
+msgstr "Publisert på"
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-publication-readonly.php:80
+msgid "Published"
+msgstr "Publisert"
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-modal.php:141
+msgid "Add New"
+msgstr "Legg til nytt"
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-modal.php:143
+msgid "Show overview"
+msgstr "Vis oversikt"
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-modal.php:148
+msgid "Publish Date:"
+msgstr "Publiseringsdato:"
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-modal.php:153
+msgid "Excerpt"
+msgstr "Utdrag"
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-modal.php:166
+msgid "Discard all changes"
+msgstr "Forkast alle endringer"
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-modal.php:168
+msgid "Save all changes"
+msgstr "Lagre alle endringer"
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-pattern.php:11
+msgid "Time Pattern"
+msgstr "Tidsmønster:"
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-pattern.php:34
+msgid "daily"
+msgstr "daglig"
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-pattern.php:42
+msgid "weekly"
+msgstr "ukentlig"
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-pattern.php:50
+msgid "monthly"
+msgstr "månedlig"
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-pattern.php:58
+msgid "yearly"
+msgstr "årlig"
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-pattern.php:90
+msgid "Single Events"
+msgstr "Enkle Hendelser"
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-pattern.php:91
+msgid "One-time only"
+msgstr "Engangsforekomst"
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-pattern.php:93
+msgid "Repeatable Events"
+msgstr "Avanserte Hendelser"
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-pattern.php:94
+msgid "Daily"
+msgstr "Daglig"
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-pattern.php:95
+msgid "Weekly"
+msgstr "Ukentlig"
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-pattern.php:96
+msgid "Monthly"
+msgstr "Månedlig"
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-pattern.php:97
+msgid "Yearly"
+msgstr "Årlig"
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-time.php:28
+#, php-format
+msgid ""
+"Your scheduled publication might be delayed by up to 15 minutes due to "
+"limitations on our server. Once scheduled your publication will send even if "
+"%s is down."
+msgstr ""
+"Din planlagte publisering kan bli forsinket opp til 15 minutter pga. "
+"begrensninger på server. Når publiseringen først er planlagt vil den sendes "
+"ut selv om %s er nede."
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-actions.php:62
+#: admin/partials/html-output/exxica-social-marketing-admin-html-actions.php:64
+msgid "Remove"
+msgstr "Fjern"
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-buttons.php:16
+msgid "Discard changes"
+msgstr "Forkast endringer"
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-image.php:84
+msgid "Remove image from publication"
+msgstr "Fjern bilde fra publikasjon"
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-image.php:85
+msgid "Add image to publication"
+msgstr "Legg til bilde til publikasjon"
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-list.php:38
+msgid "No publishing options found."
+msgstr "Ingen publikasjoner funnet."
+
+#~ msgid "View"
+#~ msgstr "Vis som"
 
 #~ msgid "g:i:s A"
 #~ msgstr "H:i:s"
