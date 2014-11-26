@@ -67,6 +67,9 @@ This plugin is a free 45 days trial version.
 6. Where to find the settings page.
 
 == Changelog ==
+= 1.1.6.3 =
+- Fixed an issue that caused some 404 errors.
+
 = 1.1.6.2 =
 - Fixed an issue with channel name on Twitter in the overview.
 
@@ -115,6 +118,9 @@ This plugin is a free 45 days trial version.
 - Initial release.
 
 == Upgrade Notice ==
+= 1.1.6.3 =
+Minor patch. Update recommended.
+
 = 1.1.6.2 =
 Minor patch. Update recommended.
 

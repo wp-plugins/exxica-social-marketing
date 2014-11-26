@@ -446,9 +446,31 @@ class Exxica_Social_Marketing_Admin
 					'content' => $this->help_text('information')
 				),
 				array(
+					'id' => 'esm-help-disclaimer',	
+					'title' => __('Disclaimer', $this->name ),
+					'content' => $this->help_text('disclaimer')
+				),
+				array(
 					'id' => 'esm-help-subscription',	
 					'title' => __('Subscription', $this->name ),
 					'content' => $this->help_text('subscription')
+				)
+			);
+
+		} else if( "posts_page_exxica-sm-overview" == $hook ) {
+			$d = array(
+				array(
+					'id' => 'esm-help-disclaimer',	
+					'title' => __('Disclaimer', $this->name ),
+					'content' => $this->help_text('disclaimer')
+				)
+			);
+		} else if( "settings_page_exxica-sm-system-settings" == $hook ) {
+			$d = array(
+				array(
+					'id' => 'esm-help-disclaimer',	
+					'title' => __('Disclaimer', $this->name ),
+					'content' => $this->help_text('disclaimer')
 				),
 				array(
 					'id' => 'esm-help-advanced',	
@@ -456,9 +478,6 @@ class Exxica_Social_Marketing_Admin
 					'content' => $this->help_text('advanced')
 				)
 			);
-
-		} else if( "posts_page_exxica-social-marketing-overview" == $hook ) {
-			// TODO
 		}
 
 		$screen = get_current_screen();
@@ -486,6 +505,7 @@ class Exxica_Social_Marketing_Admin
 			<li><?php _e('Authorized accounts can be removed from your server. And if they are removed in error, you can re-syncronize your accounts by pressing "Update" atop the account list.', $this->name); ?></li>
 			<li><?php _e('Authorized accounts will have to be renewed every 30 days. This is security precaution.'); ?></li>
 		</ul>
+		<?php elseif($type == "disclaimer") : ?>
 		<h2><?php _e('Disclaimer', $this->name); ?></h2>
 		<p><?php _e('Exxica AS disclaims all responsibility and all liability (including through negligence) for all expenses, losses, damages and costs you might incur as a result of the use of Exxica Social Marketing Scheduler.', $this->name); ?></p>
 		<?php elseif($type == "subscription") : ?>
