@@ -74,6 +74,20 @@ class Exxica_Db_Handler
 		return $this->input;
 	}
 
+  public function updateStandardChannel()
+  {
+    global $wpdb, $wp_query, $current_user;
+    get_currentuserinfo();
+
+    try {
+      update_option('exxica_social_marketing_standard_account_id_'.$current_user->user_login, $this->input['standard'] );
+      return true;
+    } catch( Exception $ex ) {
+      $this->error = array('code' => $ex->getCode(), 'message' => $ex->getMessage(), 'type' => 'Exception');
+      return false;
+    }
+  }
+
 	public function deleteChannelData()
 	{
 		global $wpdb, $wp_query; 

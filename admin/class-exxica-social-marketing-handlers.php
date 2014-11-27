@@ -115,6 +115,18 @@ class Exxica_Social_Marketing_Handlers
         $this->loaded = true;
     }
 
+    public function update_standard_channel()
+    {
+        $return = array();
+        if( $this->loaded == true ) {
+            $dbh = $this->channel_handler;
+            $return = array( 'success' => true, 'data' => $dbh->updateStandardChannel() );
+        } else {
+            $return = array( 'success' => false );
+        }
+        $this->return_data( $return );
+    }
+
     /**
      * Inserts new channel data.
      *

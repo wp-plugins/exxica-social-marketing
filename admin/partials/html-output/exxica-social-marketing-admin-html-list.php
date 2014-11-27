@@ -12,7 +12,7 @@
 	width: 100%;
 	border-top: 1px solid #ddd;
 }
-</style>
+</style> 
 <table id="sm-table" class="sm-table">
 	<thead>
 		<tr>

@@ -7,7 +7,7 @@
  * @subpackage Exxica_Social_Marketing/partials/html-output
  */
  ?>
- <script type="text/javascript">
+<script type="text/javascript">
 	(function ( $ ) {
 		"use strict";
 		$(function () {
@@ -17,43 +17,41 @@
 				
 				$spinning_wheel.hide();
 
-				$('.sm-item').each(function() {
-					$(this).click(function() {
-						var item_id = <?php echo $item['id']; ?>;
-						var $edit_row = $("#sm-item-"+item_id+"-edit");
-						var $chevron = $("#chevron-"+item_id);
-						var $channel = $("#channel-name-"+item_id);
-						var $len = $("#text_num_chars-"+item_id);
-						var $max_len = $("#text_max_chars-"+item_id);
-						console.log($edit_row.html());
-						if(window.item<?php echo $item['id']; ?>Toggled) {
-							$edit_row.fadeOut( 400, function() {
-								$(this).removeClass('selected');
-								$edit_row.removeClass('selected');
-								$chevron.html('<div class="dashicons dashicons-arrow-right"></div>');
-								$len.html("0");
-								if($channel.val() == "Twitter") {
-									$max_len.html("140");
-								} else {
-									$max_len.html("4000");
-								}
-							});
-							window.item<?php echo $item['id']; ?>Toggled = false;
-						} else {
-							$(this).addClass('selected');
-							$edit_row.addClass('selected');
-							$edit_row.fadeIn( 400, function() {
-								$chevron.html('<div class="dashicons dashicons-arrow-down"></div>');
-								$len.html("<?php echo strlen($item['publish_description']); ?>");
-								if($channel.val() == "Twitter") {
-									$max_len.html("140");
-								} else {
-									$max_len.html("4000");
-								}
-							});
-							window.item<?php echo $item['id']; ?>Toggled = true;
-						}
-					});
+				$("#sm-item-<?php echo $item['id']; ?>").click(function() {
+					var item_id = parseInt(<?php echo $item['id']; ?>);
+					var $edit_row = $("#sm-item-"+item_id+"-edit");
+					var $chevron = $("#chevron-"+item_id);
+					var $channel = $("#channel-name-"+item_id);
+					var $len = $("#text_num_chars-"+item_id);
+					var $max_len = $("#text_max_chars-"+item_id);
+					console.log($edit_row.html());
+					if(window.item<?php echo $item['id']; ?>Toggled) {
+						$edit_row.fadeOut( 400, function() {
+							$(this).removeClass('selected');
+							$edit_row.removeClass('selected');
+							$chevron.html('<div class="dashicons dashicons-arrow-right"></div>');
+							$len.html("0");
+							if($channel.val() == "Twitter") {
+								$max_len.html("140");
+							} else {
+								$max_len.html("4000");
+							}
+						});
+						window.item<?php echo $item['id']; ?>Toggled = false;
+					} else {
+						$(this).addClass('selected');
+						$edit_row.addClass('selected');
+						$edit_row.fadeIn( 400, function() {
+							$chevron.html('<div class="dashicons dashicons-arrow-down"></div>');
+							$len.html("<?php echo strlen($item['publish_description']); ?>");
+							if($channel.val() == "Twitter") {
+								$max_len.html("140");
+							} else {
+								$max_len.html("4000");
+							}
+						});
+						window.item<?php echo $item['id']; ?>Toggled = true;
+					}
 				});
 			});
 		});

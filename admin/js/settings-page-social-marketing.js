@@ -74,32 +74,41 @@
 			});
 		}
 
-		$('#refresh_paired').click(function(e) {
-			e.preventDefault();
-			$('#refresh_paired').addClass('disabled');
-			$.post(exxicaSyncAjax.ajaxurl, $('form#auth').serializeArray(), function( data, status, xhr) {
-				$.post( ChannelHandlerAjax_Insert.ajaxurl, data, function(data, status, xhr) {
-					var channels = $.parseJSON(data);
-					if(channels.success) {
-						window.location.reload(true);
-					} else {
-						$('#refresh_paired').removeClass('disabled');
-					}
+		$(document).ready(function() {
+			$('#refresh_paired').click(function(e) {
+				e.preventDefault();
+				$('#refresh_paired').addClass('disabled');
+				$.post(exxicaSyncAjax.ajaxurl, $('form#auth').serializeArray(), function( data, status, xhr) {
+					$.post( ChannelHandlerAjax_Insert.ajaxurl, data, function(data, status, xhr) {
+						var channels = $.parseJSON(data);
+						if(channels.success) {
+							window.location.reload(true);
+						} else {
+							$('#refresh_paired').removeClass('disabled');
+						}
+					});
 				});
 			});
-		});
 
-		$('#reinstall').click(function(e) {
-			e.preventDefault();
-			$('#reinstall').addClass('disabled');
-			$.post(FactoryResetAjax.ajaxurl, [{"name":"_wpnonce","value":FactoryResetAjax.nonce}], function(d) { 
-				var da = $.parseJSON(d); 
-				if(da.success) 
-					window.location.reload(true); 
+			$("input[name=standard]").each(function() {
+				$(this).change(function(e) {
+					var data = [
+						{
+							'name' : 'standard', 
+							'value' : parseInt($(this).val())
+						}
+					];
+					$.post(ChannelHandlerAjax_Update_Standard.ajaxurl, data, function( data, status, xhr ) {
+						var d = $.parseJSON(data);
+						if(d.success) {
+							window.location.reload(true);
+						} else {
+							console.log(d);
+						}
+					});
+				});
 			});
-		});
 
-		$(document).ready(function() {
 			$('.auth_btn').each(function() {
 				$(this).addClass('disabled');
 			});

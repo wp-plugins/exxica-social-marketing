@@ -3,7 +3,7 @@ Contributors: exxica
 Donate link: http://exxica.com/increase-website-traffic
 Tags: social marketing, marketing, teasing, increase traffic, generate traffic, facebook, twitter, social marketing scheduler, scheduler, social marketing planning, planning, sharing, publicating, sharings, publications, social marketing plan, marketing plan, marketing schedule, timing
 Requires at least: 3.5.1
-Tested up to: 4.0
+Tested up to: 4.0.1
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -49,14 +49,24 @@ This plugin is a free 45 days trial version.
 1. Press **Install** to install this plugin to your WordPress.
 2. Enable the plugin in WP admin.
 3. Set up the plugin in **User** => **My social marketing**.
+4. Optionally set up global variables in **Settings** => **Social marketing**.
 
 = Manual installation =
 1. Download `exxica-social-marketing.zip` from any available source.
 2. Connect to your FTP server and upload and extract the zip-archive to your `/wp-content/plugins/` folder.
 3. Enable the plugin in WP admin.
 4. Set up the plugin in **User** => **My social marketing**.
+5. Optionally set up global variables in **Settings** => **Social marketing**.
 
 == Frequently Asked Questions ==
+= What if I have discovered a bug? =
+If you have discovered a bug or something that you are not happy with, please let us know at support@exxica.com.
+
+= I have authorized, but my settings page is not showing any publishing options, why? =
+Did you remember to press the **Refresh** link? This will sync your server to ours. Enabling your publishing options.
+
+= Why isn't Social Marketing Scheduler available in my language? =
+We only have capacity to translate this plugin for English and Norwegian users. If you wish to contribute, please feel free to do so by using a gettext translator (www.poedit.net) and sending the files to us (.mo and .po).
 
 == Screenshots ==
 1. User administration page - with authentication buttons for various social media platforms and the ability to remove unwanted publishing accounts.
@@ -67,6 +77,14 @@ This plugin is a free 45 days trial version.
 6. Where to find the settings page.
 
 == Changelog ==
+= 1.1.7 =
+- Added functionality to set standard publication account.
+- Fixed an issue with the JavaScript in posts and pages.
+- Updated FAQ
+
+= 1.1.6.3 =
+- Fixed an issue that caused some 404 errors.
+
 = 1.1.6.2 =
 - Fixed an issue with channel name on Twitter in the overview.
 
@@ -115,6 +133,12 @@ This plugin is a free 45 days trial version.
 - Initial release.
 
 == Upgrade Notice ==
+= 1.1.7 =
+Added new functionality and fixed minor issues. Update as soon as possible.
+
+= 1.1.6.3 =
+Minor patch. Update recommended.
+
 = 1.1.6.2 =
 Minor patch. Update recommended.
 

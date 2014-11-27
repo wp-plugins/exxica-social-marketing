@@ -134,15 +134,7 @@
 <div id="esm-modal" class="wp-core-ui" style="display:none;">
 	<div class="media-modal-content">
 		<div class="esm-frame mode-select wp-core-ui">
-			<div class="media-frame-menu">
-				<div class="media-menu">
-					<a href="#" class="media-menu-item active"><?php _e('Exxica Social Marketing', $this->name); ?></a>
-					<div class="separator"></div>
-					<a href="#" class="media-menu-item" id="sm-btn-add-new"><?php _e( 'Add New', $this->name ); ?></a>
-					<div class="separator"></div>
-					<a class="media-menu-item" id="sm-btn-overview" href="edit.php?page=exxica-sm-overview"><?php _e( 'Show overview', $this->name ); ?></a>
-				</div>
-			</div>
+			<?php echo $this->generate_script_modal_menu($post); ?>
 			<div class="esm-frame-title">
 				<span style="font-size:1em;position:relative;float:right;">
 					<?php _e('Publish Date:', $this->name); ?> <span style="font-weight:bold;"><?php echo date('d.m.Y \k\l\. H:i', strtotime($post->post_date)); ?></span>

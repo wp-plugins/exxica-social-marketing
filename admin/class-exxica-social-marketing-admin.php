@@ -85,6 +85,9 @@ class Exxica_Social_Marketing_Admin
 		if( $hook === 'users_page_exxica-sm-settings' ) 
 			wp_enqueue_script( $this->name . '-settings-script', plugins_url( 'js/settings-page-social-marketing.js', __FILE__ ), array( 'jquery' ), $this->version );
 		
+		if( $hook === 'settings_page_exxica-sm-system-settings' ) 
+			wp_enqueue_script( $this->name . '-system-settings-script', plugins_url( 'js/system-settings-page-social-marketing.js', __FILE__ ), array( 'jquery' ), $this->version );
+		
 		wp_enqueue_script( $this->name . '-jquery-validate', plugins_url( 'js/jquery.validate.min.js', __FILE__ ), array( 'jquery' ), $this->version );
 
 		// AJAX setup
@@ -127,6 +130,11 @@ class Exxica_Social_Marketing_Admin
 			    'nonce'				=> 		wp_create_nonce( 'processajax-nonce' ),
 		    )
 		);
+		wp_localize_script( $this->name, 'ChannelHandlerAjax_Update_Standard', array(
+			    'ajaxurl'          	=> 		admin_url('admin-ajax.php?action=update_standard_channel'),
+			    'nonce'				=> 		wp_create_nonce( 'standardchannelajax-nonce' ),
+		    )
+		);
 
 		wp_localize_script( $this->name, 'exxicaVerifyAjax', array(
 			    'ajaxurl'          	=> 		'http://api.exxica.com/publisher/exxica/verify',
@@ -149,6 +157,8 @@ class Exxica_Social_Marketing_Admin
 			    'nonce'				=> 		wp_create_nonce( 'twitterloginajax-nonce' ),
 		    )
 		);
+
+
 		wp_localize_script( $this->name, 'Language', array(
 				'days_ago'			=>		__(' days ago', $this->name),
 				'expires_in'		=>		__('in about ', $this->name),
@@ -211,6 +221,7 @@ class Exxica_Social_Marketing_Admin
 			$license_expiry_text = sprintf(__('in %s days', $this->name), $daysdiff );
 		}
 		
+		$standard_account_id = get_option('exxica_social_marketing_standard_account_id_'.$current_user->user_login);
 
 		$lic_ok = false;
 		$locale = $this->name;
@@ -222,12 +233,12 @@ class Exxica_Social_Marketing_Admin
 
 		$secret = md5( $key . '+' . $time );
 		$accTable = $wpdb->prefix . 'exxica_social_marketing_accounts';
-		$facebook_accounts = $wpdb->get_results( "SELECT ID, channel_account AS name, expiry_date FROM $accTable WHERE channel = 'Facebook' AND exx_account = '$un'", ARRAY_A );
-		$twitter_accounts = $wpdb->get_results( "SELECT ID, channel_account AS name, expiry_date FROM $accTable WHERE channel = 'Twitter' AND exx_account = '$un'", ARRAY_A );
-		$linkedin_accounts = $wpdb->get_results( "SELECT ID, channel_account AS name, expiry_date FROM $accTable WHERE channel = 'LinkedIn' AND exx_account = '$un'", ARRAY_A );
-		$google_accounts = $wpdb->get_results( "SELECT ID, channel_account AS name, expiry_date FROM $accTable WHERE channel = 'Google' AND exx_account = '$un'", ARRAY_A );
-		$instagram_accounts = $wpdb->get_results( "SELECT ID, channel_account AS name, expiry_date FROM $accTable WHERE channel = 'Instagram' AND exx_account = '$un'", ARRAY_A );
-		$flickr_accounts = $wpdb->get_results( "SELECT ID, channel_account AS name, expiry_date FROM $accTable WHERE channel = 'Flickr' AND exx_account = '$un'", ARRAY_A );
+		$facebook_accounts = $wpdb->get_results( "SELECT ID, channel_account AS name, expiry_date, fb_page_id AS account_identifier FROM $accTable WHERE channel = 'Facebook' AND exx_account = '$un'", ARRAY_A );
+		$twitter_accounts = $wpdb->get_results( "SELECT ID, channel_account AS name, expiry_date, fb_page_id AS account_identifier FROM $accTable WHERE channel = 'Twitter' AND exx_account = '$un'", ARRAY_A );
+		$linkedin_accounts = $wpdb->get_results( "SELECT ID, channel_account AS name, expiry_date, fb_page_id AS account_identifier FROM $accTable WHERE channel = 'LinkedIn' AND exx_account = '$un'", ARRAY_A );
+		$google_accounts = $wpdb->get_results( "SELECT ID, channel_account AS name, expiry_date, fb_page_id AS account_identifier FROM $accTable WHERE channel = 'Google' AND exx_account = '$un'", ARRAY_A );
+		$instagram_accounts = $wpdb->get_results( "SELECT ID, channel_account AS name, expiry_date, fb_page_id AS account_identifier FROM $accTable WHERE channel = 'Instagram' AND exx_account = '$un'", ARRAY_A );
+		$flickr_accounts = $wpdb->get_results( "SELECT ID, channel_account AS name, expiry_date, fb_page_id AS account_identifier FROM $accTable WHERE channel = 'Flickr' AND exx_account = '$un'", ARRAY_A );
 
 		include_once('partials/exxica-social-marketing-admin-display.php');
 	}
@@ -446,9 +457,31 @@ class Exxica_Social_Marketing_Admin
 					'content' => $this->help_text('information')
 				),
 				array(
+					'id' => 'esm-help-disclaimer',	
+					'title' => __('Disclaimer', $this->name ),
+					'content' => $this->help_text('disclaimer')
+				),
+				array(
 					'id' => 'esm-help-subscription',	
 					'title' => __('Subscription', $this->name ),
 					'content' => $this->help_text('subscription')
+				)
+			);
+
+		} else if( "posts_page_exxica-sm-overview" == $hook ) {
+			$d = array(
+				array(
+					'id' => 'esm-help-disclaimer',	
+					'title' => __('Disclaimer', $this->name ),
+					'content' => $this->help_text('disclaimer')
+				)
+			);
+		} else if( "settings_page_exxica-sm-system-settings" == $hook ) {
+			$d = array(
+				array(
+					'id' => 'esm-help-disclaimer',	
+					'title' => __('Disclaimer', $this->name ),
+					'content' => $this->help_text('disclaimer')
 				),
 				array(
 					'id' => 'esm-help-advanced',	
@@ -456,9 +489,6 @@ class Exxica_Social_Marketing_Admin
 					'content' => $this->help_text('advanced')
 				)
 			);
-
-		} else if( "posts_page_exxica-social-marketing-overview" == $hook ) {
-			// TODO
 		}
 
 		$screen = get_current_screen();
@@ -486,6 +516,7 @@ class Exxica_Social_Marketing_Admin
 			<li><?php _e('Authorized accounts can be removed from your server. And if they are removed in error, you can re-syncronize your accounts by pressing "Update" atop the account list.', $this->name); ?></li>
 			<li><?php _e('Authorized accounts will have to be renewed every 30 days. This is security precaution.'); ?></li>
 		</ul>
+		<?php elseif($type == "disclaimer") : ?>
 		<h2><?php _e('Disclaimer', $this->name); ?></h2>
 		<p><?php _e('Exxica AS disclaims all responsibility and all liability (including through negligence) for all expenses, losses, damages and costs you might incur as a result of the use of Exxica Social Marketing Scheduler.', $this->name); ?></p>
 		<?php elseif($type == "subscription") : ?>
