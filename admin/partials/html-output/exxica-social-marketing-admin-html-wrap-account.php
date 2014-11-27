@@ -15,11 +15,25 @@
 			<div style="display:table-cell;text-align:left;font-weight:bold;"><?php _e('Name',$this->name); ?></div>
 			<div style="display:table-cell;text-align:center;font-weight:bold;"><?php _e('Publish',$this->name); ?></div>
 		</div>
-		<?php for($k = 0; $k < count($accountsFacebook); $k++ ) : $account = $accountsFacebook[$k]; ?>
+		<?php for($k = 0; $k < count($accountsFacebook); $k++ ) : $account = $accountsFacebook[$k]; $checked = '';
+			if( $item['id'] == 'new') {
+				if($account['fb_page_id'] == $standard_account_id) {
+					$checked = ' checked="checked"';
+				}
+			} else {
+				if($account['fb_page_id'] == $item['channel_account']) {
+					$checked = ' checked="checked"';
+				} else {
+					if($account['fb_page_id'] == $standard_account_id) {
+						$checked = ' checked="checked"';
+					}
+				}
+			}
+		?>
 		<div style="display:table-row;">
 			<div style="display:table-cell;text-align:left;"><?php echo $account['channel_account']; ?></div>
 			<div style="display:table-cell;text-align:center;border-left: thin solid #ddd;">
-				<input id="<?php echo $k; ?>-facebook-publish" type="radio" name="facebook-publish-<?php echo $item['id']; ?>"<?php echo ($item['channel_account'] == $account['fb_page_id']) ? ' checked="checked"' : ''; ?> value="<?php echo $account['fb_page_id']; ?>">
+				<input id="<?php echo $k; ?>-facebook-publish" type="radio" name="facebook-publish-<?php echo $item['id']; ?>" <?php echo $checked; ?> value="<?php echo $account['fb_page_id']; ?>">
 			</div>
 		</div>
 		<?php endfor; ?>
@@ -34,11 +48,25 @@
 			<div style="display:table-cell;text-align:left;font-weight:bold;"><?php _e('Name',$this->name); ?></div>
 			<div style="display:table-cell;text-align:center;font-weight:bold;"><?php _e('Tweet',$this->name); ?></div>
 		</div>
-		<?php for($k = 0; $k < count($accountsTwitter); $k++ ) : $account = $accountsTwitter[$k]; ?>
+		<?php for($k = 0; $k < count($accountsTwitter); $k++ ) : $account = $accountsTwitter[$k]; $checked = '';
+			if( $item['id'] == 'new') {
+				if($account['fb_page_id'] == $standard_account_id) {
+					$checked = ' checked="checked"';
+				}
+			} else {
+				if($account['fb_page_id'] == $item['channel_account']) {
+					$checked = ' checked="checked"';
+				} else {
+					if($account['fb_page_id'] == $standard_account_id) {
+						$checked = ' checked="checked"';
+					}
+				}
+			}
+		?>
 		<div style="display:table-row;">
 			<div style="display:table-cell;text-align:left;"><?php echo $account['channel_account']; ?></div>
 			<div style="display:table-cell;text-align:center;border-left: thin solid #ddd;">
-				<input id="<?php echo $k; ?>-twitter-publish" type="radio" name="twitter-publish-<?php echo $item['id']; ?>"<?php echo ($item['channel_account'] == $account['fb_page_id']) ? ' checked="checked"' : ''; ?> value="<?php echo $account['fb_page_id']; ?>">
+				<input id="<?php echo $k; ?>-twitter-publish" type="radio" name="twitter-publish-<?php echo $item['id']; ?>"<?php echo $checked; ?> value="<?php echo $account['fb_page_id']; ?>">
 			</div>
 		</div>
 		<?php endfor; ?>
@@ -53,11 +81,25 @@
 			<div style="display:table-cell;text-align:left;font-weight:bold;"><?php _e('Name',$this->name); ?></div>
 			<div style="display:table-cell;text-align:center;font-weight:bold;"><?php _e('Publish',$this->name); ?></div>
 		</div>
-		<?php for($k = 0; $k < count($accountsLinkedIn); $k++ ) : $account = $accountsLinkedIn[$k]; ?>
+		<?php for($k = 0; $k < count($accountsLinkedIn); $k++ ) : $account = $accountsLinkedIn[$k]; $checked = '';
+			if( $item['id'] == 'new') {
+				if($account['fb_page_id'] == $standard_account_id) {
+					$checked = ' checked="checked"';
+				}
+			} else {
+				if($account['fb_page_id'] == $item['channel_account']) {
+					$checked = ' checked="checked"';
+				} else {
+					if($account['fb_page_id'] == $standard_account_id) {
+						$checked = ' checked="checked"';
+					}
+				}
+			}
+		?>
 		<div style="display:table-row;">
 			<div style="display:table-cell;text-align:left;"><?php echo $account['channel_account']; ?></div>
 			<div style="display:table-cell;text-align:center;border-left: thin solid #ddd;">
-				<input id="<?php echo $k; ?>-linkedin-publish" type="radio" name="linkedin-publish-<?php echo $item['id']; ?>"<?php echo ($item['channel_account'] == $account['channel_account']) ? ' checked' : ''; ?> value="<?php echo $account['name']; ?>">
+				<input id="<?php echo $k; ?>-linkedin-publish" type="radio" name="linkedin-publish-<?php echo $item['id']; ?>"<?php echo $checked; ?> value="<?php echo $account['name']; ?>">
 			</div>
 		</div>
 		<?php endfor; ?>
@@ -73,11 +115,25 @@
 			<div style="display:table-cell;text-align:center;font-weight:bold;"><?php _e('Publish',$this->name); ?></div>
 			<div style="display:table-cell;text-align:center;font-weight:bold;"><?php _e('+1',$this->name); ?></div>
 		</div>
-		<?php for($k = 0; $k < count($accountsGoogle); $k++ ) : $account = $accountsGoogle[$k]; ?>
+		<?php for($k = 0; $k < count($accountsGoogle); $k++ ) : $account = $accountsGoogle[$k]; $checked = '';
+			if( $item['id'] == 'new') {
+				if($account['fb_page_id'] == $standard_account_id) {
+					$checked = ' checked="checked"';
+				}
+			} else {
+				if($account['fb_page_id'] == $item['channel_account']) {
+					$checked = ' checked="checked"';
+				} else {
+					if($account['fb_page_id'] == $standard_account_id) {
+						$checked = ' checked="checked"';
+					}
+				}
+			}
+		?>
 		<div style="display:table-row;">
 			<div style="display:table-cell;text-align:left;"><?php echo $account['channel_account']; ?></div>
 			<div style="display:table-cell;text-align:center;border-left: thin solid #ddd;">
-				<input id="<?php echo $k; ?>-google-publish" type="radio" name="google-publish-<?php echo $item['id']; ?>"<?php echo ($item['channel_account'] == $account['channel_account']) ? ' checked' : ''; ?> value="<?php echo $account['name']; ?>">
+				<input id="<?php echo $k; ?>-google-publish" type="radio" name="google-publish-<?php echo $item['id']; ?>"<?php echo $checked; ?> value="<?php echo $account['name']; ?>">
 			</div>
 		</div>
 		<?php endfor; ?>
@@ -93,11 +149,25 @@
 			<div style="display:table-cell;text-align:center;font-weight:bold;"><?php _e('Publish',$this->name); ?></div>
 			<div style="display:table-cell;text-align:center;font-weight:bold;"><?php _e('Like',$this->name); ?></div>
 		</div>
-		<?php for($k = 0; $k < count($accountsInstagram); $k++ ) : $account = $accountsInstagram[$k]; ?>
+		<?php for($k = 0; $k < count($accountsInstagram); $k++ ) : $account = $accountsInstagram[$k]; $checked = '';
+			if( $item['id'] == 'new') {
+				if($account['fb_page_id'] == $standard_account_id) {
+					$checked = ' checked="checked"';
+				}
+			} else {
+				if($account['fb_page_id'] == $item['channel_account']) {
+					$checked = ' checked="checked"';
+				} else {
+					if($account['fb_page_id'] == $standard_account_id) {
+						$checked = ' checked="checked"';
+					}
+				}
+			}
+		?>
 		<div style="display:table-row;">
 			<div style="display:table-cell;text-align:left;"><?php echo $account['channel_account']; ?></div>
 			<div style="display:table-cell;text-align:center;border-left: thin solid #ddd;">
-				<input id="<?php echo $k; ?>-instagram-publish" type="radio" name="instagram-publish-<?php echo $item['id']; ?>"<?php echo ($item['channel_account'] == $account['channel_account']) ? ' checked' : ''; ?> value="<?php echo $account['name']; ?>">
+				<input id="<?php echo $k; ?>-instagram-publish" type="radio" name="instagram-publish-<?php echo $item['id']; ?>"<?php echo $checked; ?> value="<?php echo $account['name']; ?>">
 			</div>
 		</div>
 		<?php endfor; ?>
@@ -112,11 +182,25 @@
 			<div style="display:table-cell;text-align:left;font-weight:bold;"><?php _e('Name',$this->name); ?></div>
 			<div style="display:table-cell;text-align:center;font-weight:bold;"><?php _e('Publish',$this->name); ?></div>
 		</div>
-		<?php for($k = 0; $k < count($accountsFlickr); $k++ ) : $account = $accountsFlickr[$k]; ?>
+		<?php for($k = 0; $k < count($accountsFlickr); $k++ ) : $account = $accountsFlickr[$k]; $checked = '';
+			if( $item['id'] == 'new') {
+				if($account['fb_page_id'] == $standard_account_id) {
+					$checked = ' checked="checked"';
+				}
+			} else {
+				if($account['fb_page_id'] == $item['channel_account']) {
+					$checked = ' checked="checked"';
+				} else {
+					if($account['fb_page_id'] == $standard_account_id) {
+						$checked = ' checked="checked"';
+					}
+				}
+			}
+		?>
 		<div style="display:table-row;">
 			<div style="display:table-cell;text-align:left;"><?php echo $account['channel_account']; ?></div>
 			<div style="display:table-cell;text-align:center;border-left: thin solid #ddd;">
-				<input id="<?php echo $k; ?>-flickr-publish" type="radio" name="flickr-publish-<?php echo $item['id']; ?>"<?php echo ($item['channel_account'] == $account['channel_account']) ? ' checked' : ''; ?> value="<?php echo $account['name']; ?>">
+				<input id="<?php echo $k; ?>-flickr-publish" type="radio" name="flickr-publish-<?php echo $item['id']; ?>"<?php echo $checked; ?> value="<?php echo $account['name']; ?>">
 			</div>
 		</div>
 		<?php endfor; ?>

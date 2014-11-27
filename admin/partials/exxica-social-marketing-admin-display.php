@@ -122,246 +122,34 @@
 						</div>
 					</fieldset>
 				</form>
+				<p><?php _e('Remember to click the <strong>Refresh</strong> link below when you have authorized your accounts.', $locale); ?></p>
 			</td>
 		</tr>
 		<tr class="hide_when_locked">
 			<td>
-				<h3><?php _e('Paired accounts', $locale); ?></h3>
-				<fieldset class="setting-fieldset">
-					<a href="#" id="refresh_paired"><span class="exxica-dashicons dashicons dashicons-update"></span><?php _e('Refresh', $locale); ?></a>
-					<table id="paired_accounts" style="width:100%;">
-						<thead>
-							<tr>
-								<th><?php _e('Name', $locale); ?></th>
-								<th><?php _e('Channel', $locale); ?></th>
-								<!--<th><?php _e('Expiry date', $locale); ?></th>-->
-								<th style="text-align:right;"><?php _e('Actions', $locale); ?></th>
-							</tr>
-						</thead>
-						<tbody>
-							<?php foreach($facebook_accounts as $account) : ?>
-							<script type="text/javascript">
-								(function ( $ ) {
-									"use strict";
+				<form id="set_standard" action="#" method="POST">
+					<h3><?php _e('Paired accounts', $locale); ?></h3>
+					<fieldset class="setting-fieldset">
+						<a href="#" id="refresh_paired"><span class="exxica-dashicons dashicons dashicons-update"></span><?php _e('Refresh', $locale); ?></a>
+						<table id="paired_accounts" style="width:100%;">
+							<thead>
+								<tr>
+									<th><?php _e('Name', $locale); ?></th>
+									<th><?php _e('Channel', $locale); ?></th>
+									<!--<th><?php _e('Expiry date', $locale); ?></th>-->
+									<th><?php _e('Set Standard', $locale); ?></th>
+									<th style="text-align:right;"><?php _e('Actions', $locale); ?></th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php foreach($facebook_accounts as $account) : ?>
+								<script type="text/javascript">
+									(function ( $ ) {
+										"use strict";
 
-									$(function () {
-										function doPost( data ) {
-											$.post( ChannelHandlerAjax_Destroy.ajaxurl, data, function( data, status, xhr ) {
-												var d = $.parseJSON(data);
-												if(d.success) {
-													window.location.reload(true);
-												} else {
-													console.log(d);
-												}
-											});
-										}
-										$(document).ready(function() {
-											$("a#<?php echo $account['ID']; ?>.account_remove").click(function(e) {
-												e.preventDefault();
-												var data = [
-													{ 
-														'name' : 'id', 
-														'value' : $("input#account_id_<?php echo $account['ID']; ?>").val() 
-													}
-												];
-												doPost(data);
-											});
-										});
-									});
-								}(jQuery));
-							</script>
-							<tr id="<?php echo $account['ID']; ?>" class="paired_account_row">
-								<td style="text-align:left;"><?php echo $account['name']; ?></td>
-								<td style="text-align:left;">Facebook</td>
-								<!--<td style="text-align:left;"><?php echo date('d.m.Y', $account['expiry_date']); ?></td>-->
-								<td style="text-align:right;">
-									<input type="hidden" id="account_id_<?php echo $account['ID']; ?>" name="account_id" value="<?php echo $account['ID']; ?>">
-									<a id="<?php echo $account['ID']; ?>" class="facebook account_remove" href="#"><span class="exxica-dashicons dashicons dashicons-trash"></span></a>
-								</td>
-							</tr>
-							<?php endforeach; ?>
-							<?php foreach($twitter_accounts as $account) : ?>
-							<script type="text/javascript">
-								(function ( $ ) {
-									"use strict";
-
-									$(function () {
-										function doPost( data ) {
-											$.post( ChannelHandlerAjax_Destroy.ajaxurl, data, function( data, status, xhr ) {
-												var d = $.parseJSON(data);
-												if(d.success) {
-													window.location.reload(true);
-												} else {
-													console.log(d);
-												}
-											});
-										}
-										$(document).ready(function() {
-											$("a#<?php echo $account['ID']; ?>.account_remove").click(function(e) {
-												e.preventDefault();
-												var data = [
-													{ 
-														'name' : 'id', 
-														'value' : $("input#account_id_<?php echo $account['ID']; ?>").val() 
-													}
-												];
-												doPost(data);
-											});
-										});
-									});
-								}(jQuery));
-							</script>
-							<tr id="<?php echo $account['ID']; ?>" class="paired_account_row">
-								<td style="text-align:left;"><?php echo $account['name']; ?></td>
-								<td style="text-align:left;">Twitter</td>
-								<!--<td style="text-align:left;"><?php echo date('d.m.Y', $account['expiry_date']); ?></td>-->
-								<td style="text-align:right;">
-									<input type="hidden" id="account_id_<?php echo $account['ID']; ?>" name="account_id" value="<?php echo $account['ID']; ?>">
-									<a id="<?php echo $account['ID']; ?>" class="twitter account_remove" href="#"><span class="exxica-dashicons dashicons dashicons-trash"></span></a>
-								</td>
-							</tr>
-							<?php endforeach; ?>
-							<?php foreach($linkedin_accounts as $account) : ?>
-							<script type="text/javascript">
-								(function ( $ ) {
-									"use strict";
-
-									$(function () {
-										function doPost( data ) {
-											$.post( ChannelHandlerAjax_Destroy.ajaxurl, data, function( data, status, xhr ) {
-												var d = $.parseJSON(data);
-												if(d.success) {
-													window.location.reload(true);
-												} else {
-													console.log(d);
-												}
-											});
-										}
-										$(document).ready(function() {
-											$("a#<?php echo $account['ID']; ?>.account_remove").click(function(e) {
-												e.preventDefault();
-												var data = [
-													{ 
-														'name' : 'id', 
-														'value' : $("input#account_id_<?php echo $account['ID']; ?>").val() 
-													}
-												];
-												doPost(data);
-											});
-										});
-									});
-								}(jQuery));
-							</script>
-							<tr id="<?php echo $account['ID']; ?>" class="paired_account_row">
-								<td style="text-align:left;"><?php echo $account['name']; ?></td>
-								<td style="text-align:left;">LinkedIn</td>
-								<!--<td style="text-align:left;"><?php echo date('d.m.Y', $account['expiry_date']); ?></td>-->
-								<td style="text-align:right;">
-									<input type="hidden" id="account_id_<?php echo $account['ID']; ?>" name="account_id" value="<?php echo $account['ID']; ?>">
-									<a id="<?php echo $account['ID']; ?>" class="linkedin account_remove" href="#"><span class="exxica-dashicons dashicons dashicons-trash"></span></a>
-								</td>
-							</tr>
-							<?php endforeach; ?>
-							<?php foreach($google_accounts as $account) : ?>
-							<script type="text/javascript">
-								(function ( $ ) {
-									"use strict";
-
-									$(function () {
-										function doPost( data ) {
-											$.post( ChannelHandlerAjax_Destroy.ajaxurl, data, function( data, status, xhr ) {
-												var d = $.parseJSON(data);
-												if(d.success) {
-													window.location.reload(true);
-												} else {
-													console.log(d);
-												}
-											});
-										}
-										$(document).ready(function() {
-											$("a#<?php echo $account['ID']; ?>.account_remove").click(function(e) {
-												e.preventDefault();
-												var data = [
-													{ 
-														'name' : 'id', 
-														'value' : $("input#account_id_<?php echo $account['ID']; ?>").val() 
-													}
-												];
-												doPost(data);
-											});
-										});
-									});
-								}(jQuery));
-							</script>
-							<tr id="<?php echo $account['ID']; ?>" class="paired_account_row">
-								<td style="text-align:left;"><?php echo $account['name']; ?></td>
-								<td style="text-align:left;">Google+</td>
-								<!--<td style="text-align:left;"><?php echo date('d.m.Y', $account['expiry_date']); ?></td>-->
-								<td style="text-align:right;">
-									<input type="hidden" id="account_id_<?php echo $account['ID']; ?>" name="account_id" value="<?php echo $account['ID']; ?>">
-									<a id="<?php echo $account['ID']; ?>" class="google account_remove" href="#"><span class="exxica-dashicons dashicons dashicons-trash"></span></a>
-								</td>
-							</tr>
-							<?php endforeach; ?>
-							<?php foreach($instagram_accounts as $account) : ?>
-							<script type="text/javascript">
-								(function ( $ ) {
-									"use strict";
-
-									$(function () {
-										function doPost( data ) {
-											$.post( ChannelHandlerAjax_Destroy.ajaxurl, data, function( data, status, xhr ) {
-												var d = $.parseJSON(data);
-												if(d.success) {
-													window.location.reload(true);
-												} else {
-													console.log(d);
-												}
-											});
-										}
-										$(document).ready(function() {
-											$("a#<?php echo $account['ID']; ?>.account_remove").click(function(e) {
-												e.preventDefault();
-												var data = [
-													{ 
-														'name' : 'id', 
-														'value' : $("input#account_id_<?php echo $account['ID']; ?>").val() 
-													}
-												];
-												doPost(data);
-											});
-										});
-									});
-								}(jQuery));
-							</script>
-							<tr id="<?php echo $account['ID']; ?>" class="paired_account_row">
-								<td style="text-align:left;"><?php echo $account['name']; ?></td>
-								<td style="text-align:left;">Instagram</td>
-								<!--<td style="text-align:left;"><?php echo date('d.m.Y', $account['expiry_date']); ?></td>-->
-								<td style="text-align:right;">
-									<input type="hidden" id="account_id_<?php echo $account['ID']; ?>" name="account_id" value="<?php echo $account['ID']; ?>">
-									<a id="<?php echo $account['ID']; ?>" class="instagram account_remove" href="#"><span class="exxica-dashicons dashicons dashicons-trash"></span></a>
-								</td>
-							</tr>
-							<?php endforeach; ?>
-							<?php foreach($flickr_accounts as $account) : ?>
-							<script type="text/javascript">
-								(function ( $ ) {
-									"use strict";
-
-									$(function () {
-										function doPost( data ) {
-											$.post( ChannelHandlerAjax_Destroy.ajaxurl, data, function( data, status, xhr ) {
-												var d = $.parseJSON(data);
-												if(d.success) {
-													window.location.reload(true);
-												} else {
-													console.log(d);
-												}
-											});
-										}
-										$(document).ready(function() {
-											$("a#<?php echo $account['ID']; ?>.account_remove").click(function(e) {
+										$(function () {
+											$(document).ready(function() {
+												$("a#<?php echo $account['ID']; ?>.account_remove").click(function(e) {
 													e.preventDefault();
 													var data = [
 														{ 
@@ -369,26 +157,241 @@
 															'value' : $("input#account_id_<?php echo $account['ID']; ?>").val() 
 														}
 													];
-													doPost(data);
+													$.post( ChannelHandlerAjax_Destroy.ajaxurl, data, function( data, status, xhr ) {
+														var d = $.parseJSON(data);
+														if(d.success) {
+															window.location.reload(true);
+														} else {
+															console.log(d);
+														}
+													});
 												});
 											});
 										});
-									});
-								}(jQuery));
-							</script>
-							<tr id="<?php echo $account['ID']; ?>" class="paired_account_row">
-								<td style="text-align:left;"><?php echo $account['name']; ?></td>
-								<td style="text-align:left;">Flickr</td>
-								<!--<td style="text-align:left;"><?php echo date('d.m.Y \k\l\. H:i:s', $account['expiry_date']); ?></td>-->
-								<td style="text-align:right;">
-									<input type="hidden" id="account_id_<?php echo $account['ID']; ?>" name="account_id" value="<?php echo $account['ID']; ?>">
-									<a id="<?php echo $account['ID']; ?>" class="flickr account_remove" href="#"><span class="exxica-dashicons dashicons dashicons-trash"></span></a>
-								</td>
-							</tr>
-							<?php endforeach; ?>
-						</tbody>
-					</table>
-				</fieldset>
+									}(jQuery));
+								</script>
+								<tr id="<?php echo $account['ID']; ?>" class="paired_account_row">
+									<td style="text-align:left;"><?php echo $account['name']; ?></td>
+									<td style="text-align:left;">Facebook</td>
+									<!--<td style="text-align:left;"><?php echo date('d.m.Y', $account['expiry_date']); ?></td>-->
+									<td style="text-align:center">
+										<input type="radio" id="standard_<?php echo $account['ID']; ?>" name="standard" value="<?php echo $account['account_identifier']; ?>"<?php checked($standard_account_id, $account['account_identifier']); ?>>
+									</td>
+									<td style="text-align:right;">
+										<input type="hidden" id="account_id_<?php echo $account['ID']; ?>" name="account_id" value="<?php echo $account['ID']; ?>">
+										<a id="<?php echo $account['ID']; ?>" class="facebook account_remove" href="#"><span class="exxica-dashicons dashicons dashicons-trash"></span></a>
+									</td>
+								</tr>
+								<?php endforeach; ?>
+								<?php foreach($twitter_accounts as $account) : ?>
+								<script type="text/javascript">
+									(function ( $ ) {
+										"use strict";
+
+										$(function () {
+											$(document).ready(function() {
+												$("a#<?php echo $account['ID']; ?>.account_remove").click(function(e) {
+													e.preventDefault();
+													var data = [
+														{ 
+															'name' : 'id', 
+															'value' : $("input#account_id_<?php echo $account['ID']; ?>").val() 
+														}
+													];
+													$.post( ChannelHandlerAjax_Destroy.ajaxurl, data, function( data, status, xhr ) {
+														var d = $.parseJSON(data);
+														if(d.success) {
+															window.location.reload(true);
+														} else {
+															console.log(d);
+														}
+													});
+												});
+											});
+										});
+									}(jQuery));
+								</script>
+								<tr id="<?php echo $account['ID']; ?>" class="paired_account_row">
+									<td style="text-align:left;"><?php echo $account['name']; ?></td>
+									<td style="text-align:left;">Twitter</td>
+									<!--<td style="text-align:left;"><?php echo date('d.m.Y', $account['expiry_date']); ?></td>-->
+									<td style="text-align:center">
+										<input type="radio" id="standard_<?php echo $account['ID']; ?>" name="standard" value="<?php echo $account['account_identifier']; ?>"<?php checked($standard_account_id, $account['account_identifier']); ?>>
+									</td>
+									<td style="text-align:right;">
+										<input type="hidden" id="account_id_<?php echo $account['ID']; ?>" name="account_id" value="<?php echo $account['ID']; ?>">
+										<a id="<?php echo $account['ID']; ?>" class="twitter account_remove" href="#"><span class="exxica-dashicons dashicons dashicons-trash"></span></a>
+									</td>
+								</tr>
+								<?php endforeach; ?>
+								<?php foreach($linkedin_accounts as $account) : ?>
+								<script type="text/javascript">
+									(function ( $ ) {
+										"use strict";
+
+										$(function () {
+											$(document).ready(function() {
+												$("a#<?php echo $account['ID']; ?>.account_remove").click(function(e) {
+													e.preventDefault();
+													var data = [
+														{ 
+															'name' : 'id', 
+															'value' : $("input#account_id_<?php echo $account['ID']; ?>").val() 
+														}
+													];
+													$.post( ChannelHandlerAjax_Destroy.ajaxurl, data, function( data, status, xhr ) {
+														var d = $.parseJSON(data);
+														if(d.success) {
+															window.location.reload(true);
+														} else {
+															console.log(d);
+														}
+													});
+												});
+											});
+										});
+									}(jQuery));
+								</script>
+								<tr id="<?php echo $account['ID']; ?>" class="paired_account_row">
+									<td style="text-align:left;"><?php echo $account['name']; ?></td>
+									<td style="text-align:left;">LinkedIn</td>
+									<!--<td style="text-align:left;"><?php echo date('d.m.Y', $account['expiry_date']); ?></td>-->
+									<td style="text-align:center">
+										<input type="radio" id="standard_<?php echo $account['ID']; ?>" name="standard" value="<?php echo $account['account_identifier']; ?>"<?php checked($standard_account_id, $account['account_identifier']); ?>>
+									</td>
+									<td style="text-align:right;">
+										<input type="hidden" id="account_id_<?php echo $account['ID']; ?>" name="account_id" value="<?php echo $account['ID']; ?>">
+										<a id="<?php echo $account['ID']; ?>" class="linkedin account_remove" href="#"><span class="exxica-dashicons dashicons dashicons-trash"></span></a>
+									</td>
+								</tr>
+								<?php endforeach; ?>
+								<?php foreach($google_accounts as $account) : ?>
+								<script type="text/javascript">
+									(function ( $ ) {
+										"use strict";
+
+										$(function () {
+											$(document).ready(function() {
+												$("a#<?php echo $account['ID']; ?>.account_remove").click(function(e) {
+													e.preventDefault();
+													var data = [
+														{ 
+															'name' : 'id', 
+															'value' : $("input#account_id_<?php echo $account['ID']; ?>").val() 
+														}
+													];
+													$.post( ChannelHandlerAjax_Destroy.ajaxurl, data, function( data, status, xhr ) {
+														var d = $.parseJSON(data);
+														if(d.success) {
+															window.location.reload(true);
+														} else {
+															console.log(d);
+														}
+													});
+												});
+											});
+										});
+									}(jQuery));
+								</script>
+								<tr id="<?php echo $account['ID']; ?>" class="paired_account_row">
+									<td style="text-align:left;"><?php echo $account['name']; ?></td>
+									<td style="text-align:left;">Google+</td>
+									<!--<td style="text-align:left;"><?php echo date('d.m.Y', $account['expiry_date']); ?></td>-->
+									<td style="text-align:center">
+										<input type="radio" id="standard_<?php echo $account['ID']; ?>" name="standard" value="<?php echo $account['account_identifier']; ?>"<?php checked($standard_account_id, $account['account_identifier']); ?>>
+									</td>
+									<td style="text-align:right;">
+										<input type="hidden" id="account_id_<?php echo $account['ID']; ?>" name="account_id" value="<?php echo $account['ID']; ?>">
+										<a id="<?php echo $account['ID']; ?>" class="google account_remove" href="#"><span class="exxica-dashicons dashicons dashicons-trash"></span></a>
+									</td>
+								</tr>
+								<?php endforeach; ?>
+								<?php foreach($instagram_accounts as $account) : ?>
+								<script type="text/javascript">
+									(function ( $ ) {
+										"use strict";
+
+										$(function () {
+											$(document).ready(function() {
+												$("a#<?php echo $account['ID']; ?>.account_remove").click(function(e) {
+													e.preventDefault();
+													var data = [
+														{ 
+															'name' : 'id', 
+															'value' : $("input#account_id_<?php echo $account['ID']; ?>").val() 
+														}
+													];
+													$.post( ChannelHandlerAjax_Destroy.ajaxurl, data, function( data, status, xhr ) {
+														var d = $.parseJSON(data);
+														if(d.success) {
+															window.location.reload(true);
+														} else {
+															console.log(d);
+														}
+													});
+												});
+											});
+										});
+									}(jQuery));
+								</script>
+								<tr id="<?php echo $account['ID']; ?>" class="paired_account_row">
+									<td style="text-align:left;"><?php echo $account['name']; ?></td>
+									<td style="text-align:left;">Instagram</td>
+									<!--<td style="text-align:left;"><?php echo date('d.m.Y', $account['expiry_date']); ?></td>-->
+									<td style="text-align:center">
+										<input type="radio" id="standard_<?php echo $account['ID']; ?>" name="standard" value="<?php echo $account['account_identifier']; ?>"<?php checked($standard_account_id, $account['account_identifier']); ?>>
+									</td>
+									<td style="text-align:right;">
+										<input type="hidden" id="account_id_<?php echo $account['ID']; ?>" name="account_id" value="<?php echo $account['ID']; ?>">
+										<a id="<?php echo $account['ID']; ?>" class="instagram account_remove" href="#"><span class="exxica-dashicons dashicons dashicons-trash"></span></a>
+									</td>
+								</tr>
+								<?php endforeach; ?>
+								<?php foreach($flickr_accounts as $account) : ?>
+								<script type="text/javascript">
+									(function ( $ ) {
+										"use strict";
+
+										$(function () {
+											$(document).ready(function() {
+												$("a#<?php echo $account['ID']; ?>.account_remove").click(function(e) {
+													e.preventDefault();
+													var data = [
+														{ 
+															'name' : 'id', 
+															'value' : $("input#account_id_<?php echo $account['ID']; ?>").val() 
+														}
+													];
+													$.post( ChannelHandlerAjax_Destroy.ajaxurl, data, function( data, status, xhr ) {
+														var d = $.parseJSON(data);
+														if(d.success) {
+															window.location.reload(true);
+														} else {
+															console.log(d);
+														}
+													});
+												});
+											});
+										});
+									}(jQuery));
+								</script>
+								<tr id="<?php echo $account['ID']; ?>" class="paired_account_row">
+									<td style="text-align:left;"><?php echo $account['name']; ?></td>
+									<td style="text-align:left;">Flickr</td>
+									<!--<td style="text-align:left;"><?php echo date('d.m.Y \k\l\. H:i:s', $account['expiry_date']); ?></td>-->
+									<td style="text-align:center">
+										<input type="radio" id="standard_<?php echo $account['ID']; ?>" name="standard" value="<?php echo $account['account_identifier']; ?>"<?php checked($standard_account_id, $account['account_identifier']); ?>>
+									</td>
+									<td style="text-align:right;">
+										<input type="hidden" id="account_id_<?php echo $account['ID']; ?>" name="account_id" value="<?php echo $account['ID']; ?>">
+										<a id="<?php echo $account['ID']; ?>" class="flickr account_remove" href="#"><span class="exxica-dashicons dashicons dashicons-trash"></span></a>
+									</td>
+								</tr>
+								<?php endforeach; ?>
+							</tbody>
+						</table>
+					</fieldset>
+				</form>
 			</td>
 		</tr>
 	</tbody>

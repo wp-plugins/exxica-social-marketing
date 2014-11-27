@@ -58,7 +58,7 @@ class Exxica_Social_Marketing_Public {
 	 */
 	public function enqueue_styles() {
 
-		wp_enqueue_style( $this->name, plugin_dir_url( __FILE__ ) . 'css/exxica-social-marketing-public.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->name.'-public', plugin_dir_url( __FILE__ ) . 'css/exxica-social-marketing-public.css', array(), $this->version, 'all' );
 
 	}
 
@@ -69,7 +69,7 @@ class Exxica_Social_Marketing_Public {
 	 */
 	public function enqueue_scripts() {
 
-		wp_enqueue_script( $this->name, plugin_dir_url( __FILE__ ) . 'js/exxica-social-marketing-public.js', array( 'jquery' ), $this->version, FALSE );
+		wp_enqueue_script( $this->name.'-public', plugin_dir_url( __FILE__ ) . 'js/exxica-social-marketing-public.js', array( 'jquery' ), $this->version, FALSE );
 
 	}
 

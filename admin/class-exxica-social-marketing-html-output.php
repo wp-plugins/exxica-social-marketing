@@ -67,35 +67,6 @@ class Exxica_Social_Marketing_Admin_Html_Output
     	$accountsInstagram = $wpdb->get_results("SELECT * FROM $accTable WHERE channel = '".$channels[4]."' LIMIT 1", ARRAY_A);
     	$accountsFlickr = $wpdb->get_results("SELECT * FROM $accTable WHERE channel = '".$channels[5]."' LIMIT 1", ARRAY_A);
     	$chan = $channels[0];
-		$chanAcc = '';
-    	switch($chan) {
-    		case 'Facebook' :
-    			if( ! is_null( $accountsFacebook ) )
-    				$chanAcc = $accountsFacebook[0]['fb_page_id'];
-    			break;
-    		case 'Twitter' :
-    			if( ! is_null( $accountsTwitter ) )
-    				$chanAcc = $accountsTwitter[0]['fb_page_id'];
-    			break;
-    		case 'LinkedIn' :
-    			if( ! is_null( $accountsLinkedIn ) )
-    				$chanAcc = $accountsLinkedIn[0]['fb_page_id'];
-    			break;
-    		case 'Google' :
-    			if( ! is_null( $accountsGoogle ) )
-    				$chanAcc = $accountsGoogle[0]['fb_page_id'];
-    			break;
-    		case 'Instagram' :
-    			if( ! is_null( $accountsInstagram ) )
-    				$chanAcc = $accountsInstagram[0]['fb_page_id'];
-    			break;
-    		case 'Flickr' :
-    			if( ! is_null( $accountsFlickr ) )
-    				$chanAcc = $accountsFlickr[0]['fb_page_id'];
-    			break;
-    		default :
-    			break;
-    	}
 		$item = array(
 			'id' => "new",
 			'post_id' => $post->ID,
@@ -105,7 +76,7 @@ class Exxica_Social_Marketing_Admin_Html_Output
 			'publish_title' => $post->post_title,
 			'publish_description' => wp_trim_words( $text = $post->post_content, $num_words = 20, $more = '&hellip;' ),
 			'channel' => $chan,
-			'channel_account' => $chanAcc
+			'channel_account' => 0
 		);
 		ob_start();
 
@@ -294,6 +265,8 @@ class Exxica_Social_Marketing_Admin_Html_Output
     		$accountsFlickr = $wpdb->get_results($sqlFlickr, ARRAY_A);
 		}
 
+		$standard_account_id = get_option('exxica_social_marketing_standard_account_id_'.$current_user->user_login);
+		
 		ob_start();
 
 		include('partials/html-output/exxica-social-marketing-admin-html-wrap-account.php');
@@ -424,5 +397,15 @@ class Exxica_Social_Marketing_Admin_Html_Output
 		$out = ob_get_contents();
 		ob_end_clean();
 		echo $out;
+	}
+	public function generate_script_modal_menu($post)
+	{
+		ob_start();
+
+		include('partials/html-output/exxica-social-marketing-admin-html-modal-menu.php');
+
+		$out = ob_get_contents();
+		ob_end_clean();
+		return $out;
 	}
 }
