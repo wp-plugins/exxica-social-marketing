@@ -60,7 +60,7 @@ class Exxica_Social_Marketing {
 	public function __construct() {
 
 		$this->plugin_name = 'exxica-social-marketing';
-		$this->version = '1.1.7';
+		$this->version = '1.1.7.1';
 
 		$this->load_dependencies();
 		$this->set_locale();

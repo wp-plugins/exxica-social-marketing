@@ -77,6 +77,9 @@ We only have capacity to translate this plugin for English and Norwegian users. 
 6. Where to find the settings page.
 
 == Changelog ==
+= 1.1.7.1 =
+- Applied hotfix for faulty refresh paired accounts link.
+
 = 1.1.7 =
 - Added functionality to set standard publication account.
 - Fixed an issue with the JavaScript in posts and pages.
@@ -133,6 +136,9 @@ We only have capacity to translate this plugin for English and Norwegian users. 
 - Initial release.
 
 == Upgrade Notice ==
+= 1.1.7.1 =
+Hotfix for faulty code. Update as soon as possible.
+
 = 1.1.7 =
 Added new functionality and fixed minor issues. Update as soon as possible.
 
