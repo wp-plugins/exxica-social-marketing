@@ -223,7 +223,7 @@ class Exxica_Social_Marketing_Handlers
                     $to_exxica['data'][0]['channel'] = $_POST['channel'];
                     $to_exxica['data'][0]['action'] = $action;
                     $success = $dbh->updateLocalData( $to_exxica );
-                
+
                     if( $success ) {
                         $local_data = $dbh->getLocalData($_POST['post_id']);
                         $post = $dbh->getPostData($_POST['post_id']);
@@ -353,7 +353,7 @@ class Exxica_Social_Marketing_Handlers
                     $the_title = $dbh->getPostTitle();
                     $the_excerpt = $dbh->getExcerpt();
                     $the_message = $dbh->getText();
-                    
+
                     $server_time = $dbh->getTime((int)$_POST['one_time_utc_time']);
                     $client_time = $dbh->getTime((int)$_POST['local_time']);
 
@@ -376,7 +376,7 @@ class Exxica_Social_Marketing_Handlers
                     $to_exxica['data'][0]['action'] = $action;
 
                     $response = $dbh->insertLocalData( $to_exxica );
-                    
+
                     if( $response['success'] ) {
                         $message .= __('Data inserted into Local database. ', $locale );
                         if($action == 'create') $to_exxica['data'][0]['item_id'] = $response['item_id'];
@@ -440,7 +440,7 @@ class Exxica_Social_Marketing_Handlers
                     $the_title = $dbh->getPostTitle();
                     $the_excerpt = $dbh->getExcerpt();
                     $the_message = $dbh->getText();
-                    
+
                     $server_time = $dbh->getTime((int)$_POST['one_time_utc_time']);
                     $client_time = $dbh->getTime((int)$_POST['local_time']);
 
@@ -463,7 +463,7 @@ class Exxica_Social_Marketing_Handlers
                     $to_exxica['data'][0]['action'] = $action;
 
                     $response = $dbh->updateLocalData( $to_exxica );
-                    
+
                     if( $response['success'] ) {
                         $message .= __('Data updated in Local database. ', $locale );
                         if($action == 'create') $to_exxica['data'][0]['item_id'] = $response['item_id'];

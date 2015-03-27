@@ -77,6 +77,9 @@ We only have capacity to translate this plugin for English and Norwegian users. 
 6. Where to find the settings page.
 
 == Changelog ==
+= 1.1.7.2 =
+- Fixed an issue with saving publications. Error appeared due to a value missing during deletion of a publication.
+
 = 1.1.7.1 =
 - Applied hotfix for faulty refresh paired accounts link.
 
@@ -136,6 +139,9 @@ We only have capacity to translate this plugin for English and Norwegian users. 
 - Initial release.
 
 == Upgrade Notice ==
+= 1.1.7.2 =
+Update if you experience problems with the save publication button disappearing.
+
 = 1.1.7.1 =
 Hotfix for faulty code. Update as soon as possible.
 
