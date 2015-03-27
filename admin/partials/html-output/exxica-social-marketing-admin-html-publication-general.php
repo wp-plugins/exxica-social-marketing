@@ -45,7 +45,6 @@
 							function getUTCStamp( date, offset ) 
 							{
 								var dt = new Date( date.getTime() + ( offset * 60 * 1000 ) );
-								
 								return dt;
 							}
 

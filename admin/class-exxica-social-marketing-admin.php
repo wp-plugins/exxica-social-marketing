@@ -61,8 +61,8 @@ class Exxica_Social_Marketing_Admin
 	 */
 	public function enqueue_styles() 
 	{
-		wp_enqueue_style( $this->name, plugin_dir_url( __FILE__ ) . 'css/exxica-social-marketing-admin.css', array(), $this->version );
 		wp_enqueue_style( $this->name.'-jquery-ui', plugin_dir_url( __FILE__ ) . 'css/jquery-ui.min.css', array(), $this->version );
+		wp_enqueue_style( $this->name, plugin_dir_url( __FILE__ ) . 'css/exxica-social-marketing-admin.css', array(), $this->version );
 	}
 
 	/**

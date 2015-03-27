@@ -14,7 +14,7 @@
 			$(document).ready(function() {
 				window.item<?php echo $item['id']; ?>Toggled = false;
 				var $spinning_wheel = $("#spinning-wheel-<?php echo $item['id']; ?>");
-				
+
 				$spinning_wheel.hide();
 
 				$("#sm-item-<?php echo $item['id']; ?>").click(function() {
@@ -24,7 +24,7 @@
 					var $channel = $("#channel-name-"+item_id);
 					var $len = $("#text_num_chars-"+item_id);
 					var $max_len = $("#text_max_chars-"+item_id);
-					console.log($edit_row.html());
+					//console.log($edit_row.html());
 					if(window.item<?php echo $item['id']; ?>Toggled) {
 						$edit_row.fadeOut( 400, function() {
 							$(this).removeClass('selected');

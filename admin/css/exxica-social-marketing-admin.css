@@ -82,7 +82,7 @@ table#paired_accounts {
 }
 .esm-frame-content {
 	position: absolute;
-	top: 90px;
+	top: 120px;
 	left: 200px;
 	right: 10px;
 	bottom: 63px;
@@ -178,4 +178,7 @@ input[type="text"].exxica-text {
 select.exxica-select {
 	width: auto !important;
 	vertical-align: top !important;
+}
+div#esm-frame-toolbar div.media-toolbar-primary {
+	max-width: 100% !important;
 }
