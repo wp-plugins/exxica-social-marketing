@@ -27,7 +27,7 @@
 							'value' : <?php echo $item['publish_unixtime']; ?>
 						},{
 							'name' : 'publish_localtime',
-							'value' : <?php echo $item['publish_localtime']; ?>
+							'value' : <?php echo (isset($item['publish_localtime'])) ? $item['publish_localtime'] : time(); ?>
 						},{
 							'name' : 'post_id',
 							'value' : <?php echo $post->ID; ?>

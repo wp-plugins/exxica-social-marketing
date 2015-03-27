@@ -60,7 +60,7 @@ class Exxica_Social_Marketing {
 	public function __construct() {
 
 		$this->plugin_name = 'exxica-social-marketing';
-		$this->version = '1.1.7';
+		$this->version = '1.1.7.2';
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -100,7 +100,6 @@ class Exxica_Social_Marketing {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-exxica-social-marketing-i18n.php';
 
-		
 		/**
 		 * Exxica Handlers
 		 */
@@ -160,16 +159,16 @@ class Exxica_Social_Marketing {
 		$handlers_admin = new Exxica_Social_Marketing_Handlers( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_init', $handlers_admin, 'load_handlers' );
-		
+
 		$this->loader->add_action( 'wp_ajax_create_channel_data', $handlers_admin, 'create_channel_data' );
 		$this->loader->add_action( 'wp_ajax_destroy_channel_data', $handlers_admin, 'destroy_channel_data' );
-		
+
 		$this->loader->add_action( 'wp_ajax_update_standard_channel', $handlers_admin, 'update_standard_channel' );
 
 		$this->loader->add_action( 'wp_ajax_save_license_data', $handlers_admin, 'save_license_data' );
 
 		$this->loader->add_action( 'wp_ajax_factory_reset', $handlers_admin, 'factory_reset' );
-		
+
 		$this->loader->add_action( 'wp_ajax_update_overview_data', $handlers_admin, 'update_overview_data' );
 		$this->loader->add_action( 'wp_ajax_destroy_overview_data', $handlers_admin, 'destroy_overview_data' );
 

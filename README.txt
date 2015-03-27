@@ -1,9 +1,9 @@
 === Social Marketing Scheduler ===
 Contributors: exxica
-Donate link: http://exxica.com/increase-website-traffic
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4NMH2H3HF3EGU
 Tags: social marketing, marketing, teasing, increase traffic, generate traffic, facebook, twitter, social marketing scheduler, scheduler, social marketing planning, planning, sharing, publicating, sharings, publications, social marketing plan, marketing plan, marketing schedule, timing
 Requires at least: 3.5.1
-Tested up to: 4.0.1
+Tested up to: 4.1
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -11,9 +11,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 A tool that helps you schedule posts and pages on Facebook and Twitter and other social platforms.
 
 == Description ==
-Timing is all, if you want to maximize the effect of sharing your articles in social media. 
+Timing is all, if you want to maximize the effect of sharing your articles in social media.
 
-To share an editorial 
+To share an editorial
 
 - on right time of day might rise the traffic to your site with more than 100%.
 - on right time of year might be the crucial in whether it is relevant or not.
@@ -77,6 +77,12 @@ We only have capacity to translate this plugin for English and Norwegian users. 
 6. Where to find the settings page.
 
 == Changelog ==
+= 1.1.7.2 =
+- Fixed an issue with saving publications. Error appeared due to a value missing during deletion of a publication.
+
+= 1.1.7.1 =
+- Applied hotfix for faulty refresh paired accounts link.
+
 = 1.1.7 =
 - Added functionality to set standard publication account.
 - Fixed an issue with the JavaScript in posts and pages.
@@ -133,6 +139,12 @@ We only have capacity to translate this plugin for English and Norwegian users. 
 - Initial release.
 
 == Upgrade Notice ==
+= 1.1.7.2 =
+Update if you experience problems with the save publication button disappearing.
+
+= 1.1.7.1 =
+Hotfix for faulty code. Update as soon as possible.
+
 = 1.1.7 =
 Added new functionality and fixed minor issues. Update as soon as possible.
 

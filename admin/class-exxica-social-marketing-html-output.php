@@ -53,11 +53,11 @@ class Exxica_Social_Marketing_Admin_Html_Output
 		$this->name = $name;
 		$this->version = $version;
 	}
-	public function generate_script_new_publication($post) 
+	public function generate_script_new_publication($post)
 	{
 		global $wpdb, $current_user;
 		get_currentuserinfo();
-		
+
     	$accTable = $wpdb->prefix.'exxica_social_marketing_accounts';
 		$channels = array( 'Facebook', 'Twitter', 'LinkedIn', 'Google', 'Instagram', 'Flickr' );
     	$accountsFacebook = $wpdb->get_results("SELECT * FROM $accTable WHERE channel = '".$channels[0]."' LIMIT 1", ARRAY_A);
@@ -86,11 +86,10 @@ class Exxica_Social_Marketing_Admin_Html_Output
 		ob_end_clean();
 		return $out;
 	}
-	public function generate_script_list($post) 
-	{ 
+	public function generate_script_list($post)
+	{
 		global $wpdb;
 
-		
     	$mainTable = $wpdb->prefix.'exxica_social_marketing';
     	$data = $wpdb->get_results("SELECT * FROM $mainTable WHERE post_id = $post->ID ORDER BY publish_localtime ASC");
 
@@ -266,7 +265,7 @@ class Exxica_Social_Marketing_Admin_Html_Output
 		}
 
 		$standard_account_id = get_option('exxica_social_marketing_standard_account_id_'.$current_user->user_login);
-		
+
 		ob_start();
 
 		include('partials/html-output/exxica-social-marketing-admin-html-wrap-account.php');
@@ -376,13 +375,23 @@ class Exxica_Social_Marketing_Admin_Html_Output
 		//return $out;
 		return false;
 	}
+	public function generate_script_modal_menu($post)
+	{
+		ob_start();
+
+		include('partials/html-output/exxica-social-marketing-admin-html-modal-menu.php');
+
+		$out = ob_get_contents();
+		ob_end_clean();
+		return $out;
+	}
 	public function add_esm_edit($hook) 
 	{
     	global $post, $wp, $wpdb;
 
     	if(is_null($post)) 
     		return false;
-    			
+
     	$mainTable = $wpdb->prefix.'exxica_social_marketing';
     	$data = $wpdb->get_results("SELECT * FROM $mainTable WHERE post_id = $post->ID ORDER BY publish_localtime ASC");
 		$d_ids = array();
@@ -397,15 +406,5 @@ class Exxica_Social_Marketing_Admin_Html_Output
 		$out = ob_get_contents();
 		ob_end_clean();
 		echo $out;
-	}
-	public function generate_script_modal_menu($post)
-	{
-		ob_start();
-
-		include('partials/html-output/exxica-social-marketing-admin-html-modal-menu.php');
-
-		$out = ob_get_contents();
-		ob_end_clean();
-		return $out;
 	}
 }

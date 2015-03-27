@@ -34,7 +34,7 @@
 							$("input[name=weekday-"+item_id+"]:checked").each( 
 							    function() { 
 							       $selected_weekdays += $(this).val()+';';
-							   	}								
+							   	}
 							);
 
 							var action = "update";
