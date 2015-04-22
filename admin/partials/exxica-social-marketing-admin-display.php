@@ -85,8 +85,8 @@
 										<tr>
 											<td>
 												<select name="os0">
-													<option value="Monthly"><?php _e('Monthly : €19.50 EUR', $locale); ?></option>
-													<option value="Yearly - 2 months free"><?php _e('Yearly - 2 months free : €195.00 EUR', $locale); ?></option>
+													<option value="Monthly"><?php _e('Monthly : €9.99 EUR', $locale); ?></option>
+													<option value="Yearly - 2 months free"><?php _e('Yearly - 2 months free : €99.90 EUR', $locale); ?></option>
 												</select> 
 											</td>
 										</tr>
