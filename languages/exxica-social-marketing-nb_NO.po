@@ -1,20 +1,20 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Exxica Plugins\n"
-"POT-Creation-Date: 2014-11-27 11:35+0100\n"
-"PO-Revision-Date: 2014-11-27 11:35+0100\n"
+"POT-Creation-Date: 2015-04-22 22:12+0100\n"
+"PO-Revision-Date: 2015-04-22 22:13+0100\n"
 "Last-Translator: Gaute Rønningen <gaute@exxica.com>\n"
 "Language-Team: Gaute Rønningen <gaute@exxica.com>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.7.1\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
-"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;"
+"esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;"
+"__ngettext_noop:1,2\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: .\n"
 
@@ -199,59 +199,54 @@ msgstr "Avslutte abonnement på Exxica Social Marketing"
 
 #: admin/class-exxica-social-marketing-admin.php:513
 msgid ""
-"The Exxica username is getting generated automatically and is only shown as "
-"information."
+"The Exxica username is getting generated automatically and is only shown as information."
 msgstr ""
-"Exxica brukernavnet er generert utifra dine serverinnstillinger og kan "
-"derfor ikke redigeres."
+"Exxica brukernavnet er generert utifra dine serverinnstillinger og kan derfor ikke "
+"redigeres."
 
 #: admin/class-exxica-social-marketing-admin.php:514
 msgid ""
-"If Exxica Social Marketing are to work properly, at least one account must "
-"be authorized through the Exxica server. The accounts will be used by the "
-"current user to publish publications to their respective pages.<br/>To start "
-"this process you must click the authorization buttons below."
+"If Exxica Social Marketing are to work properly, at least one account must be authorized "
+"through the Exxica server. The accounts will be used by the current user to publish "
+"publications to their respective pages.<br/>To start this process you must click the "
+"authorization buttons below."
 msgstr ""
-"For at Exxica Sosial Markedsføring skal virke virke som den skal, må ett "
-"visst antall kontoer være synkronisert med Exxica serveren. Disse vil brukes "
-"av gjeldende bruker for å publisere diverse poster til diverse kanaler.<br/"
-">For å starte denne prosessen må du klikke på de aktive "
-"autoriseringsknappene nedenfor."
+"For at Exxica Sosial Markedsføring skal virke virke som den skal, må ett visst antall "
+"kontoer være synkronisert med Exxica serveren. Disse vil brukes av gjeldende bruker for å "
+"publisere diverse poster til diverse kanaler.<br/>For å starte denne prosessen må du "
+"klikke på de aktive autoriseringsknappene nedenfor."
 
 #: admin/class-exxica-social-marketing-admin.php:515
 msgid ""
-"The authorized accounts are only available to the current user. Other users "
-"will have to authorize with their own accounts."
+"The authorized accounts are only available to the current user. Other users will have to "
+"authorize with their own accounts."
 msgstr ""
-"De synkroniserte kontoene gjelder bare for gjeldende bruker, andre brukere "
-"må synkronisere med sin egen konto."
+"De synkroniserte kontoene gjelder bare for gjeldende bruker, andre brukere må "
+"synkronisere med sin egen konto."
 
 #: admin/class-exxica-social-marketing-admin.php:516
 msgid ""
-"Authorized accounts can be removed from your server. And if they are removed "
-"in error, you can re-syncronize your accounts by pressing \"Update\" atop "
-"the account list."
+"Authorized accounts can be removed from your server. And if they are removed in error, "
+"you can re-syncronize your accounts by pressing \"Update\" atop the account list."
 msgstr ""
-"Samhørende konto kan fjernes enkeltvis fra lokal installasjon. Og hvis "
-"fjernet ved feil, kan man re-synkronisere hele listen med den som ligger "
-"Exxica serveren ved å trykke på \"Oppdater\"."
+"Samhørende konto kan fjernes enkeltvis fra lokal installasjon. Og hvis fjernet ved feil, "
+"kan man re-synkronisere hele listen med den som ligger Exxica serveren ved å trykke på "
+"\"Oppdater\"."
 
 #: admin/class-exxica-social-marketing-admin.php:517
 msgid ""
-"Authorized accounts will have to be renewed every 30 days. This is security "
-"precaution."
+"Authorized accounts will have to be renewed every 30 days. This is security precaution."
 msgstr ""
-"Autoriserte konti må re-autoriseres hver 30. dag. Dette er en "
-"sikkerhetsforanstaltning."
+"Autoriserte konti må re-autoriseres hver 30. dag. Dette er en sikkerhetsforanstaltning."
 
 #: admin/class-exxica-social-marketing-admin.php:521
 msgid ""
-"Exxica AS disclaims all responsibility and all liability (including through "
-"negligence) for all expenses, losses, damages and costs you might incur as a "
-"result of the use of Exxica Social Marketing Scheduler."
+"Exxica AS disclaims all responsibility and all liability (including through negligence) "
+"for all expenses, losses, damages and costs you might incur as a result of the use of "
+"Exxica Social Marketing Scheduler."
 msgstr ""
-"Exxica AS fraskriver seg alt ansvar for alle tap, skader og kostnader du "
-"kanskje kan lide som følge av bruk av Exxica Sosial Markedsføringsplanlegger."
+"Exxica AS fraskriver seg alt ansvar for alle tap, skader og kostnader du kanskje kan lide "
+"som følge av bruk av Exxica Sosial Markedsføringsplanlegger."
 
 #: admin/class-exxica-social-marketing-admin.php:523
 msgid "Cancelling subscription"
@@ -260,13 +255,12 @@ msgstr "Avslutte abonnement"
 #: admin/class-exxica-social-marketing-admin.php:524
 #, php-format
 msgid ""
-"If you want to cancel your subscription, please go to <a href=\"%s\" target="
-"\"_blank\" alt=\"%s\">%s</a> or send us an e-mail at <a href=\"%s\" target="
-"\"_blank\">%s</a>."
+"If you want to cancel your subscription, please go to <a href=\"%s\" target=\"_blank\" "
+"alt=\"%s\">%s</a> or send us an e-mail at <a href=\"%s\" target=\"_blank\">%s</a>."
 msgstr ""
-"Hvis du vil avslutte ditt abonnement på Exxica Sosial Markedsføring, "
-"vennligst gå til <a href=\"%s\" target=\"_blank\" alt=\"%s\">%s</a> eller "
-"send oss en e-post til <a href=\"%s\" target=\"_blank\">%s</a>."
+"Hvis du vil avslutte ditt abonnement på Exxica Sosial Markedsføring, vennligst gå til <a "
+"href=\"%s\" target=\"_blank\" alt=\"%s\">%s</a> eller send oss en e-post til <a href=\"%s"
+"\" target=\"_blank\">%s</a>."
 
 #: admin/class-exxica-social-marketing-admin.php:528
 msgid "Flush data"
@@ -274,13 +268,11 @@ msgstr "Rensk data"
 
 #: admin/class-exxica-social-marketing-admin.php:529
 msgid ""
-"This will flush all datas from your Exxica Social Marketing tables and re-"
-"install the tables with default values, use this <strong>ONLY</strong> as a "
-"last resort."
+"This will flush all datas from your Exxica Social Marketing tables and re-install the "
+"tables with default values, use this <strong>ONLY</strong> as a last resort."
 msgstr ""
-"Dette vil renske databasen din for Exxica Social Marketing tabeller og "
-"gjennopprette fabrikkinstillinger, bruk den <strong>BARE</strong> hvis du "
-"ikke ser noen annen utvei."
+"Dette vil renske databasen din for Exxica Social Marketing tabeller og gjennopprette "
+"fabrikkinstillinger, bruk den <strong>BARE</strong> hvis du ikke ser noen annen utvei."
 
 #: admin/class-exxica-social-marketing-admin.php:530
 msgid "Re-install tables"
@@ -365,69 +357,21 @@ msgstr "Lør"
 msgid "Sun"
 msgstr "Søn"
 
-#: admin/partials/exxica-social-marketing-admin-settings.php:26
-msgid "System-wide Social Marketing Settings"
-msgstr "Systemets sosiale markedsføringsinstillinger"
+#: admin/partials/exxica-social-marketing-admin-dashboard-widget.php:22
+msgid "Do you need help using this plugin?"
+msgstr "Trenger du hjelp med å bruke dette tillegget?"
 
-#: admin/partials/exxica-social-marketing-admin-settings.php:28
-msgid "Date &amp; Time related"
-msgstr "Dato og tidsrelatert"
+#: admin/partials/exxica-social-marketing-admin-dashboard-widget.php:22
+msgid "Click here"
+msgstr "Klikk her"
 
-#: admin/partials/exxica-social-marketing-admin-settings.php:30
-msgid "Date format"
-msgstr "Dato format"
+#: admin/partials/exxica-social-marketing-admin-dashboard-widget.php:24
+msgid "Scheduled"
+msgstr "Planlagt i næreste fremtid"
 
-#: admin/partials/exxica-social-marketing-admin-settings.php:34
-#: admin/partials/exxica-social-marketing-admin-settings.php:58
-msgid "Current pattern"
-msgstr "Gjeldende mønster"
-
-#: admin/partials/exxica-social-marketing-admin-settings.php:44
-#: admin/partials/exxica-social-marketing-admin-settings.php:68
-msgid "Custom"
-msgstr "Egendefinert"
-
-#: admin/partials/exxica-social-marketing-admin-settings.php:50
-#: admin/partials/exxica-social-marketing-admin-settings.php:74
-#, php-format
-msgid ""
-"Default: <code>%s</code> - Reference <a href=\"%s\" target=\"_blank\">%s</a>"
-msgstr ""
-"Standard: <code>%s</code> - Referanse <a href=\"%s\" target=\"_blank\">%s</a>"
-
-#: admin/partials/exxica-social-marketing-admin-settings.php:50
-#: admin/partials/exxica-social-marketing-admin-settings.php:74
-msgid "PHP Date"
-msgstr "PHP Dato"
-
-#: admin/partials/exxica-social-marketing-admin-settings.php:54
-msgid "Time format"
-msgstr "Tidsformat"
-
-#: admin/partials/exxica-social-marketing-admin-settings.php:78
-msgid "Clock"
-msgstr "Klokke"
-
-#: admin/partials/exxica-social-marketing-admin-settings.php:82
-msgid "24-hour clock"
-msgstr "24-timers klokke"
-
-#: admin/partials/exxica-social-marketing-admin-settings.php:86
-msgid "On"
-msgstr "På"
-
-#: admin/partials/exxica-social-marketing-admin-settings.php:87
-msgid "Off"
-msgstr "Av"
-
-#: admin/partials/exxica-social-marketing-admin-settings.php:89
-msgid "This will only have affect on input fields."
-msgstr "Dette vil bare påvirke innskrivingsfelter."
-
-#: admin/partials/exxica-social-marketing-admin-settings.php:95
-#: admin/partials/html-output/exxica-social-marketing-admin-html-buttons.php:14
-msgid "Save changes"
-msgstr "Lagre endringer"
+#: admin/partials/exxica-social-marketing-admin-dashboard-widget.php:38
+msgid "Recently published"
+msgstr "Nylig publisert"
 
 #: admin/partials/exxica-social-marketing-admin-display.php:19
 msgid "Social Marketing Settings"
@@ -441,8 +385,8 @@ msgstr "Exxica Brukernavn"
 #: admin/partials/exxica-social-marketing-admin-display.php:24
 msgid "The Exxica username is generated and can not be edited."
 msgstr ""
-"Exxica brukernavnet er generert utifra dine serverinnstillinger og kan "
-"derfor ikke redigeres."
+"Exxica brukernavnet er generert utifra dine serverinnstillinger og kan derfor ikke "
+"redigeres."
 
 #: admin/partials/exxica-social-marketing-admin-display.php:33
 msgid "License Data"
@@ -465,15 +409,13 @@ msgid "Use Exxica Social Marketing for FREE for 45 days"
 msgstr "Bruk Exxica Sosial Markedsføring GRATIS i 45 dager"
 
 #: admin/partials/exxica-social-marketing-admin-display.php:72
-msgid ""
-"<p>Exxica Social Marketing comes with a free trial period of 45 days.</p>"
+msgid "<p>Exxica Social Marketing comes with a free trial period of 45 days.</p>"
 msgstr ""
-"<h3>Alternativ (bare for norske foretak):</h3><p>Manuell bestilling. Trykk "
-"på knappen nedenfor for å sende bestilling.<br/>Når du trykker på knappen "
-"vil den åpne din standard e-post leser.</p>%s<p>Pris ved manuell bestilling "
-"er kr 1990,- NOK/år eks. mva.<br/>Abonnementet vil gjelde fra betaling er "
-"mottatt og ett år frem i tid.</p><h3>Anbefalt Alternativ:</h3><p>Bruk PayPal "
-"automatisk fakturering nedenfor:</p>"
+"<h3>Alternativ (bare for norske foretak):</h3><p>Manuell bestilling. Trykk på knappen "
+"nedenfor for å sende bestilling.<br/>Når du trykker på knappen vil den åpne din standard "
+"e-post leser.</p>%s<p>Pris ved manuell bestilling er kr 1990,- NOK/år eks. mva.<br/"
+">Abonnementet vil gjelde fra betaling er mottatt og ett år frem i tid.</p><h3>Anbefalt "
+"Alternativ:</h3><p>Bruk PayPal automatisk fakturering nedenfor:</p>"
 
 #: admin/partials/exxica-social-marketing-admin-display.php:73
 msgid "Order"
@@ -484,12 +426,12 @@ msgid "Payment options"
 msgstr "Betalingsalternativer"
 
 #: admin/partials/exxica-social-marketing-admin-display.php:88
-msgid "Monthly : €19.50 EUR"
-msgstr "Månedlig : €19,50 EUR"
+msgid "Monthly : €9.99 EUR"
+msgstr "Månedlig : €9,99 EUR"
 
 #: admin/partials/exxica-social-marketing-admin-display.php:89
-msgid "Yearly - 2 months free : €195.00 EUR"
-msgstr "Årlig - 2 måneder gratis : €195,00 EUR"
+msgid "Yearly - 2 months free : €99.90 EUR"
+msgstr "Årlig - 2 måneder gratis : €99,90 EUR"
 
 #: admin/partials/exxica-social-marketing-admin-display.php:106
 msgid "Authorizations"
@@ -525,11 +467,11 @@ msgstr "Flickr"
 
 #: admin/partials/exxica-social-marketing-admin-display.php:125
 msgid ""
-"Remember to click the <strong>Refresh</strong> link below when you have "
-"authorized your accounts."
+"Remember to click the <strong>Refresh</strong> link below when you have authorized your "
+"accounts."
 msgstr ""
-"Husk å klikke på <strong>Oppdater</strong> lenken under etter at du har "
-"autorisert dine publiseringskontoer."
+"Husk å klikke på <strong>Oppdater</strong> lenken under etter at du har autorisert dine "
+"publiseringskontoer."
 
 #: admin/partials/exxica-social-marketing-admin-display.php:131
 msgid "Paired accounts"
@@ -551,9 +493,9 @@ msgstr "Navn"
 
 #: admin/partials/exxica-social-marketing-admin-display.php:138
 #: admin/partials/exxica-social-marketing-admin-overview.php:92
-#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-channel.php:10
 #: admin/partials/html-output/exxica-social-marketing-admin-html-list.php:20
 #: admin/partials/html-output/exxica-social-marketing-admin-html-publication-readonly.php:21
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-channel.php:10
 msgid "Channel"
 msgstr "Kanal"
 
@@ -634,8 +576,8 @@ msgid "Publish Date"
 msgstr "Dato"
 
 #: admin/partials/exxica-social-marketing-admin-overview.php:94
-#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-image.php:76
 #: admin/partials/html-output/exxica-social-marketing-admin-html-publication-readonly.php:72
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-image.php:76
 msgid "Image"
 msgstr "Bilde"
 
@@ -696,64 +638,87 @@ msgstr "Oppdater"
 msgid "No publications found."
 msgstr "Ingen publikasjoner funnet."
 
-#: admin/partials/exxica-social-marketing-admin-dashboard-widget.php:22
-msgid "Do you need help using this plugin?"
-msgstr "Trenger du hjelp med å bruke dette tillegget?"
+#: admin/partials/exxica-social-marketing-admin-settings.php:26
+msgid "System-wide Social Marketing Settings"
+msgstr "Systemets sosiale markedsføringsinstillinger"
 
-#: admin/partials/exxica-social-marketing-admin-dashboard-widget.php:22
-msgid "Click here"
-msgstr "Klikk her"
+#: admin/partials/exxica-social-marketing-admin-settings.php:28
+msgid "Date &amp; Time related"
+msgstr "Dato og tidsrelatert"
 
-#: admin/partials/exxica-social-marketing-admin-dashboard-widget.php:24
-msgid "Scheduled"
-msgstr "Planlagt i næreste fremtid"
+#: admin/partials/exxica-social-marketing-admin-settings.php:30
+msgid "Date format"
+msgstr "Dato format"
 
-#: admin/partials/exxica-social-marketing-admin-dashboard-widget.php:38
-msgid "Recently published"
-msgstr "Nylig publisert"
+#: admin/partials/exxica-social-marketing-admin-settings.php:34
+#: admin/partials/exxica-social-marketing-admin-settings.php:58
+msgid "Current pattern"
+msgstr "Gjeldende mønster"
+
+#: admin/partials/exxica-social-marketing-admin-settings.php:44
+#: admin/partials/exxica-social-marketing-admin-settings.php:68
+msgid "Custom"
+msgstr "Egendefinert"
+
+#: admin/partials/exxica-social-marketing-admin-settings.php:50
+#: admin/partials/exxica-social-marketing-admin-settings.php:74
+#, php-format
+msgid "Default: <code>%s</code> - Reference <a href=\"%s\" target=\"_blank\">%s</a>"
+msgstr "Standard: <code>%s</code> - Referanse <a href=\"%s\" target=\"_blank\">%s</a>"
+
+#: admin/partials/exxica-social-marketing-admin-settings.php:50
+#: admin/partials/exxica-social-marketing-admin-settings.php:74
+msgid "PHP Date"
+msgstr "PHP Dato"
+
+#: admin/partials/exxica-social-marketing-admin-settings.php:54
+msgid "Time format"
+msgstr "Tidsformat"
+
+#: admin/partials/exxica-social-marketing-admin-settings.php:78
+msgid "Clock"
+msgstr "Klokke"
+
+#: admin/partials/exxica-social-marketing-admin-settings.php:82
+msgid "24-hour clock"
+msgstr "24-timers klokke"
+
+#: admin/partials/exxica-social-marketing-admin-settings.php:86
+msgid "On"
+msgstr "På"
+
+#: admin/partials/exxica-social-marketing-admin-settings.php:87
+msgid "Off"
+msgstr "Av"
+
+#: admin/partials/exxica-social-marketing-admin-settings.php:89
+msgid "This will only have affect on input fields."
+msgstr "Dette vil bare påvirke innskrivingsfelter."
+
+#: admin/partials/exxica-social-marketing-admin-settings.php:95
+#: admin/partials/html-output/exxica-social-marketing-admin-html-buttons.php:14
+msgid "Save changes"
+msgstr "Lagre endringer"
 
 #: admin/partials/html-output/exxica-social-marketing-admin-html-actions.php:62
 #: admin/partials/html-output/exxica-social-marketing-admin-html-actions.php:64
 msgid "Remove"
 msgstr "Fjern"
 
-#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-time.php:28
-#, php-format
-msgid ""
-"Your scheduled publication might be delayed by up to 15 minutes due to "
-"limitations on our server. Once scheduled your publication will send even if "
-"%s is down."
-msgstr ""
-"Din planlagte publisering kan bli forsinket opp til 15 minutter pga. "
-"begrensninger på server. Når publiseringen først er planlagt vil den sendes "
-"ut selv om %s er nede."
-
 #: admin/partials/html-output/exxica-social-marketing-admin-html-buttons.php:16
 msgid "Discard changes"
 msgstr "Forkast endringer"
 
-#: admin/partials/html-output/exxica-social-marketing-admin-html-modal.php:140
-msgid "Publish Date:"
-msgstr "Publiseringsdato:"
-
-#: admin/partials/html-output/exxica-social-marketing-admin-html-modal.php:145
-msgid "Excerpt"
-msgstr "Utdrag"
-
-#: admin/partials/html-output/exxica-social-marketing-admin-html-modal.php:147
-#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-text.php:37
 #: admin/partials/html-output/exxica-social-marketing-admin-html-list.php:21
+#: admin/partials/html-output/exxica-social-marketing-admin-html-modal.php:147
 #: admin/partials/html-output/exxica-social-marketing-admin-html-publication-readonly.php:68
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-text.php:37
 msgid "Text"
 msgstr "Tekst"
 
-#: admin/partials/html-output/exxica-social-marketing-admin-html-modal.php:158
-msgid "Discard all changes"
-msgstr "Forkast alle endringer"
-
-#: admin/partials/html-output/exxica-social-marketing-admin-html-modal.php:160
-msgid "Save all changes"
-msgstr "Lagre alle endringer"
+#: admin/partials/html-output/exxica-social-marketing-admin-html-list.php:38
+msgid "No publishing options found."
+msgstr "Ingen publikasjoner funnet."
 
 #: admin/partials/html-output/exxica-social-marketing-admin-html-modal-menu.php:29
 msgid "Add a new publication."
@@ -789,15 +754,57 @@ msgstr "Systemets innstillinger"
 
 #: admin/partials/html-output/exxica-social-marketing-admin-html-modal-menu.php:38
 msgid ""
-"Close your window without discarding changes. If you choose to save the "
-"changes in the view behind, they will be discarded though."
+"Close your window without discarding changes. If you choose to save the changes in the "
+"view behind, they will be discarded though."
 msgstr ""
-"Lukk dette vinduet uten å forkaste endringer. Hvis du lagrer den "
-"bakenforliggende posten, vil de bli forkastet."
+"Lukk dette vinduet uten å forkaste endringer. Hvis du lagrer den bakenforliggende posten, "
+"vil de bli forkastet."
 
 #: admin/partials/html-output/exxica-social-marketing-admin-html-modal-menu.php:38
 msgid "Close window"
 msgstr "Lukk vindu"
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-modal.php:140
+msgid "Publish Date:"
+msgstr "Publiseringsdato:"
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-modal.php:145
+msgid "Excerpt"
+msgstr "Utdrag"
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-modal.php:158
+msgid "Discard all changes"
+msgstr "Forkast alle endringer"
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-modal.php:160
+msgid "Save all changes"
+msgstr "Lagre alle endringer"
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-publication-general.php:106
+#, php-format
+msgid ""
+"No paired accounts found. You have to <a href=\"%s\">set up</a> the plugin properly "
+"before publishing."
+msgstr ""
+"Ingen samhørende konti funnet. Du må <a href=\"%s\">sette opp</a> Exxica Sosial "
+"Markedsføring skikkelig før du publiserer."
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-publication-readonly.php:25
+msgid "Account"
+msgstr "Konto"
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-publication-readonly.php:29
+#: admin/partials/html-output/exxica-social-marketing-admin-html-publication-readonly.php:41
+#: admin/partials/html-output/exxica-social-marketing-admin-html-publication-readonly.php:46
+#: admin/partials/html-output/exxica-social-marketing-admin-html-publication-readonly.php:51
+#: admin/partials/html-output/exxica-social-marketing-admin-html-publication-readonly.php:56
+#: admin/partials/html-output/exxica-social-marketing-admin-html-publication-readonly.php:61
+msgid "Published on"
+msgstr "Publisert på"
+
+#: admin/partials/html-output/exxica-social-marketing-admin-html-publication-readonly.php:80
+msgid "Published"
+msgstr "Publisert"
 
 #: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-account.php:12
 #: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-account.php:78
@@ -830,15 +837,6 @@ msgstr "+1"
 #: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-account.php:150
 msgid "Like"
 msgstr "Lik"
-
-#: admin/partials/html-output/exxica-social-marketing-admin-html-publication-general.php:106
-#, php-format
-msgid ""
-"No paired accounts found. You have to <a href=\"%s\">set up</a> the plugin "
-"properly before publishing."
-msgstr ""
-"Ingen samhørende konti funnet. Du må <a href=\"%s\">sette opp</a> Exxica "
-"Sosial Markedsføring skikkelig før du publiserer."
 
 #: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-image.php:84
 msgid "Remove image from publication"
@@ -896,26 +894,20 @@ msgstr "Månedlig"
 msgid "Yearly"
 msgstr "Årlig"
 
-#: admin/partials/html-output/exxica-social-marketing-admin-html-list.php:38
-msgid "No publishing options found."
-msgstr "Ingen publikasjoner funnet."
+#: admin/partials/html-output/exxica-social-marketing-admin-html-wrap-time.php:28
+#, php-format
+msgid ""
+"Your scheduled publication might be delayed by up to 15 minutes due to limitations on our "
+"server. Once scheduled your publication will send even if %s is down."
+msgstr ""
+"Din planlagte publisering kan bli forsinket opp til 15 minutter pga. begrensninger på "
+"server. Når publiseringen først er planlagt vil den sendes ut selv om %s er nede."
 
-#: admin/partials/html-output/exxica-social-marketing-admin-html-publication-readonly.php:25
-msgid "Account"
-msgstr "Konto"
+#~ msgid "Monthly : €19.50 EUR"
+#~ msgstr "Månedlig : €9,99 EUR"
 
-#: admin/partials/html-output/exxica-social-marketing-admin-html-publication-readonly.php:29
-#: admin/partials/html-output/exxica-social-marketing-admin-html-publication-readonly.php:41
-#: admin/partials/html-output/exxica-social-marketing-admin-html-publication-readonly.php:46
-#: admin/partials/html-output/exxica-social-marketing-admin-html-publication-readonly.php:51
-#: admin/partials/html-output/exxica-social-marketing-admin-html-publication-readonly.php:56
-#: admin/partials/html-output/exxica-social-marketing-admin-html-publication-readonly.php:61
-msgid "Published on"
-msgstr "Publisert på"
-
-#: admin/partials/html-output/exxica-social-marketing-admin-html-publication-readonly.php:80
-msgid "Published"
-msgstr "Publisert"
+#~ msgid "Yearly - 2 months free : €195.00 EUR"
+#~ msgstr "Årlig - 2 måneder gratis : €99,90 EUR"
 
 #~ msgid "View"
 #~ msgstr "Vis som"
@@ -1038,10 +1030,9 @@ msgstr "Publisert"
 #~ msgstr "Til"
 
 #~ msgid ""
-#~ "The <span id=\"ident_str\">daily</span> events can only span over a max "
-#~ "of 12 events due to spam limitations."
-#~ msgstr ""
-#~ "Hendelsen kan ikke legges inn flere enn 12 ganger pga. spam begrensninger."
+#~ "The <span id=\"ident_str\">daily</span> events can only span over a max of 12 events "
+#~ "due to spam limitations."
+#~ msgstr "Hendelsen kan ikke legges inn flere enn 12 ganger pga. spam begrensninger."
 
 #~ msgid "Current pattern <strong>%s</strong> = <strong>%s</strong>"
 #~ msgstr "Gjeldende mønster <strong>%s</strong> = <strong>%s</strong>"
@@ -1050,11 +1041,11 @@ msgstr "Publisert"
 #~ msgstr "Standard: "
 
 #~ msgid ""
-#~ "Reference <a href=\"http://php.net/manual/en/function.date.php\" target="
-#~ "\"_blank\">PHP Date</a>"
+#~ "Reference <a href=\"http://php.net/manual/en/function.date.php\" target=\"_blank\">PHP "
+#~ "Date</a>"
 #~ msgstr ""
-#~ "Referanse <a href=\"http://php.net/manual/en/function.date.php\" target="
-#~ "\"_blank\">PHP Dato</a>"
+#~ "Referanse <a href=\"http://php.net/manual/en/function.date.php\" target=\"_blank\">PHP "
+#~ "Dato</a>"
 
 #~ msgid "Based on locale"
 #~ msgstr "Basert på WordPress"
@@ -1064,17 +1055,15 @@ msgstr "Publisert"
 
 #~ msgid "Social_marketing_help_html"
 #~ msgstr ""
-#~ "<ul><li>Exxica brukernavn blir generert automatisk og vises bare som "
-#~ "informasjon.</li><li>For at Exxica Sosial Markedsføring skal virke virke "
-#~ "som den skal, må ett visst antall kontoer være synkronisert med Exxica "
-#~ "serveren. Disse vil brukes av gjeldende bruker for å publisere diverse "
-#~ "poster til diverse kanaler.<br/>For å starte denne prosessen må du klikke "
-#~ "på de aktive autoriseringsknappene nedenfor.</li><li>De synkroniserte "
-#~ "kontoene gjelder bare for gjeldende bruker, andre brukere må synkronisere "
-#~ "med sin egen konto.</li><li>Samhørende konto kan fjernes enkeltvis fra "
-#~ "lokal installasjon. Og hvis fjernet ved feil, kan man re-synkronisere "
-#~ "hele listen med den som ligger Exxica serveren ved å trykke på \"Oppdater"
-#~ "\".</li></ul>"
+#~ "<ul><li>Exxica brukernavn blir generert automatisk og vises bare som informasjon.</"
+#~ "li><li>For at Exxica Sosial Markedsføring skal virke virke som den skal, må ett visst "
+#~ "antall kontoer være synkronisert med Exxica serveren. Disse vil brukes av gjeldende "
+#~ "bruker for å publisere diverse poster til diverse kanaler.<br/>For å starte denne "
+#~ "prosessen må du klikke på de aktive autoriseringsknappene nedenfor.</li><li>De "
+#~ "synkroniserte kontoene gjelder bare for gjeldende bruker, andre brukere må "
+#~ "synkronisere med sin egen konto.</li><li>Samhørende konto kan fjernes enkeltvis fra "
+#~ "lokal installasjon. Og hvis fjernet ved feil, kan man re-synkronisere hele listen med "
+#~ "den som ligger Exxica serveren ved å trykke på \"Oppdater\".</li></ul>"
 
 #~ msgid "in "
 #~ msgstr "i"
@@ -1083,20 +1072,18 @@ msgstr "Publisert"
 #~ msgstr "Ingen hendelse spesifisert. "
 
 #~ msgid ""
-#~ "Exxica Social Marketing comes with a free trial period of 45 days. If you "
-#~ "choose to subscribe, you will not be charged until after your trial "
-#~ "period is over. You can cancel your subscription at any time within your "
-#~ "trial period and not be charged."
+#~ "Exxica Social Marketing comes with a free trial period of 45 days. If you choose to "
+#~ "subscribe, you will not be charged until after your trial period is over. You can "
+#~ "cancel your subscription at any time within your trial period and not be charged."
 #~ msgstr ""
-#~ "Exxica Sosial Markedsføring kommer med en gratis prøveperiode på 45 "
-#~ "dager. Hvis du velger å abonnere vil du ikke bli fakturert før etter at "
-#~ "din prøveperiode er over. Du kan kansellere ditt abonnement på et hvilket "
-#~ "som helst tidspunkt innenfor prøveperioden og ikke bli fakturert for det."
+#~ "Exxica Sosial Markedsføring kommer med en gratis prøveperiode på 45 dager. Hvis du "
+#~ "velger å abonnere vil du ikke bli fakturert før etter at din prøveperiode er over. Du "
+#~ "kan kansellere ditt abonnement på et hvilket som helst tidspunkt innenfor "
+#~ "prøveperioden og ikke bli fakturert for det."
 
 #~ msgid "Warning: An authorization refresh is required if you do this."
 #~ msgstr ""
-#~ "Advarsel: Hvis fortsetter må du også fornye dine tillatelser på alle "
-#~ "sosiale nettverk."
+#~ "Advarsel: Hvis fortsetter må du også fornye dine tillatelser på alle sosiale nettverk."
 
 #~ msgid "Are you sure you want to continue?"
 #~ msgstr "Er du sikker på at du vil fortsette?"
@@ -1139,8 +1126,8 @@ msgstr "Publisert"
 
 #~ msgid "Upload complete, remember to press \\\"Update profile\\\"."
 #~ msgstr ""
-#~ "Opplasting fullført, husk å trykke på \\\"Oppdater profil\\\" når du er "
-#~ "ferdig med dine profilendringer."
+#~ "Opplasting fullført, husk å trykke på \\\"Oppdater profil\\\" når du er ferdig med "
+#~ "dine profilendringer."
 
 #~ msgid "Update profile"
 #~ msgstr "Oppdater profil"
@@ -1233,13 +1220,13 @@ msgstr "Publisert"
 #~ msgstr "Hvis utfyllt vil fotografens hjemmeside"
 
 #~ msgid ""
-#~ "<p>Thank you for downloading <strong>%s</strong>. An e-mail has been sent "
-#~ "to the address you provided. <br/>If you haven't received it within a few "
-#~ "minutes, please contact our <a href=\"mailto:%s\">%s</a>.</p>"
+#~ "<p>Thank you for downloading <strong>%s</strong>. An e-mail has been sent to the "
+#~ "address you provided. <br/>If you haven't received it within a few minutes, please "
+#~ "contact our <a href=\"mailto:%s\">%s</a>.</p>"
 #~ msgstr ""
-#~ "<p>Takk for at du lastet ned <strong>%s</strong>. Det er sendt en e-post "
-#~ "på adressen du oppga. <br/>Hvis du ikke har mottatt den innen noen få "
-#~ "minutter, kan du kontakte vår <a href=\"mailto:%s\">%s</a> for hjelp.</p>"
+#~ "<p>Takk for at du lastet ned <strong>%s</strong>. Det er sendt en e-post på adressen "
+#~ "du oppga. <br/>Hvis du ikke har mottatt den innen noen få minutter, kan du kontakte "
+#~ "vår <a href=\"mailto:%s\">%s</a> for hjelp.</p>"
 
 #~ msgid "Support Department"
 #~ msgstr "Kundestøtte"
@@ -1582,12 +1569,9 @@ msgstr "Publisert"
 #~ msgid "Sort order"
 #~ msgstr "Sorteringsrekkefølge"
 
-#~ msgid ""
-#~ "Use any alphanumeric letters. (0-9, a-z). You can sort alphabetically as "
-#~ "well."
+#~ msgid "Use any alphanumeric letters. (0-9, a-z). You can sort alphabetically as well."
 #~ msgstr ""
-#~ "Du kan bruke alle alfanumeriske tegn. (0-9, a-å). Du kan sortere "
-#~ "alfabetisk i tillegg."
+#~ "Du kan bruke alle alfanumeriske tegn. (0-9, a-å). Du kan sortere alfabetisk i tillegg."
 
 #~ msgid "Always visible?"
 #~ msgstr "Alltid synlig?"
@@ -1729,19 +1713,16 @@ msgstr "Publisert"
 #~ msgid "What remains to do:"
 #~ msgstr "Hva som gjenstår:"
 
-#~ msgid ""
-#~ "This field is for personal notes only and will never be shown to the "
-#~ "public."
-#~ msgstr ""
-#~ "Dette feltet er bare for personlige notater og vil aldri vises offentlig."
+#~ msgid "This field is for personal notes only and will never be shown to the public."
+#~ msgstr "Dette feltet er bare for personlige notater og vil aldri vises offentlig."
 
 #~ msgid "Exxica_NHL_Title"
 #~ msgstr "Norske Homeopaters Landsforbund"
 
 #~ msgid "Exxica_NHL_Description"
 #~ msgstr ""
-#~ "Dette er Exxicas spesial plugin til Norske Homeopaters Landsforbund. Den "
-#~ "er eksklusivt tilgjengelig på nhl.no."
+#~ "Dette er Exxicas spesial plugin til Norske Homeopaters Landsforbund. Den er eksklusivt "
+#~ "tilgjengelig på nhl.no."
 
 #~ msgid "Enabled"
 #~ msgstr "Aktivert"
@@ -1757,10 +1738,9 @@ msgstr "Publisert"
 
 #~ msgid "Exxica_Content_Marketing_Description"
 #~ msgstr ""
-#~ "Dette er et tillegg som gir deg muligheten til å gi ut diverse "
-#~ "gratismateriell i bytte mot personopplysninger fra en bruker. Disse "
-#~ "opplysngene kan du bruke i markedsføring direkte eller du kan sette opp "
-#~ "en profil av din bruker."
+#~ "Dette er et tillegg som gir deg muligheten til å gi ut diverse gratismateriell i bytte "
+#~ "mot personopplysninger fra en bruker. Disse opplysngene kan du bruke i markedsføring "
+#~ "direkte eller du kan sette opp en profil av din bruker."
 
 #~ msgid "Powered by"
 #~ msgstr "Drevet av"
@@ -1835,15 +1815,12 @@ msgstr "Publisert"
 #~ msgstr "Takk for at du lastet ned <strong>%s</strong>."
 
 #~ msgid ""
-#~ "You will find more reading material related to %s at <a href=\"%s\" "
-#~ "target=\"_blank\">%s</a>."
-#~ msgstr ""
-#~ "Du vil finne mer stoff relatert til %s på <a href=\"%s\" target=\"_blank"
-#~ "\">%s</a>."
-
-#~ msgid ""
-#~ "You will find more reading material at <a href=\"%s\" target=\"_blank\">"
+#~ "You will find more reading material related to %s at <a href=\"%s\" target=\"_blank\">"
 #~ "%s</a>."
+#~ msgstr ""
+#~ "Du vil finne mer stoff relatert til %s på <a href=\"%s\" target=\"_blank\">%s</a>."
+
+#~ msgid "You will find more reading material at <a href=\"%s\" target=\"_blank\">%s</a>."
 #~ msgstr "Du vil finne mer stoff på <a href=\"%s\" target=\"_blank\">%s</a>."
 
 #~ msgid "Best regards"
