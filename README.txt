@@ -85,6 +85,9 @@ You cannot delete them after their time has expired (and they are published) bec
 6. Where to find the settings page.
 
 == Changelog ==
+= 1.1.8.2 =
+- Hotfix for bug in cURL.
+
 = 1.1.8.1 =
 - Added check for PHP cURL.
 - Updated FAQ.
@@ -151,6 +154,9 @@ You cannot delete them after their time has expired (and they are published) bec
 - Initial release.
 
 == Upgrade Notice ==
+= 1.1.8.2 =
+Hotfix for bug in cURL. Update recommended.
+
 = 1.1.8.1 =
 Added requirement. Update recommended.
 
