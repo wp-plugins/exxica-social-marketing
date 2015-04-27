@@ -44,6 +44,8 @@ Each user is allowed to share on those channels, accounts and pages he/she has a
 
 This plugin is a free 45 days trial version.
 
+After that it's €9.99/month.
+
 == Installation ==
 = Automatic installation =
 1. Press **Install** to install this plugin to your WordPress.
@@ -59,14 +61,20 @@ This plugin is a free 45 days trial version.
 5. Optionally set up global variables in **Settings** => **Social marketing**.
 
 == Frequently Asked Questions ==
+= What is the requirements of my server? =
+Our plugin uses PHP cURL (http://php.net/manual/en/book.curl.php) to transfer publication data to our server, this is the only thing that is required by your server.
+
 = What if I have discovered a bug? =
 If you have discovered a bug or something that you are not happy with, please let us know at support@exxica.com.
 
 = I have authorized, but my settings page is not showing any publishing options, why? =
-Did you remember to press the **Refresh** link? This will sync your server to ours. Enabling your publishing options.
+Did you remember to press the **Refresh** link? This will sync your server to ours and enabling your publishing options.
 
 = Why isn't Social Marketing Scheduler available in my language? =
 We only have capacity to translate this plugin for English and Norwegian users. If you wish to contribute, please feel free to do so by using a gettext translator (www.poedit.net) and sending the files to us (.mo and .po).
+
+= Why can't I delete publications that's been published? =
+You cannot delete them after their time has expired (and they are published) because we think you should have a record of what you have published at any time. There may be a feature in the future to give you an option. But generally we recommend keeping all publications on record, that way you can duplicate old publications, and see how often you've posted them before and with what text or image. You can, of course, remove publications before they publish.
 
 == Screenshots ==
 1. User administration page - with authentication buttons for various social media platforms and the ability to remove unwanted publishing accounts.
@@ -77,6 +85,10 @@ We only have capacity to translate this plugin for English and Norwegian users. 
 6. Where to find the settings page.
 
 == Changelog ==
+= 1.1.8.1 =
+- Added check for PHP cURL.
+- Updated FAQ.
+
 = 1.1.8 =
 - Updated for WP 4.2.
 
@@ -139,6 +151,9 @@ We only have capacity to translate this plugin for English and Norwegian users. 
 - Initial release.
 
 == Upgrade Notice ==
+= 1.1.8.1 =
+Added requirement. Update recommended.
+
 = 1.1.8 =
 Minor patch. Update recommended.
 
