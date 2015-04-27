@@ -12,6 +12,10 @@
  * @subpackage Exxica_Social_Marketing/partials
  */
  ?>
+<?php if(!function_exists('curl_version')) : ?>
+	<h1 style="color:red;">WARNING: PHP cURL is disabled on your server.</h1>
+	<p>Exxica Social Marketing Scheduler requires cURL to work. Please consult your hosting provider to turn on PHP cURL.</p>
+<?php endif; ?>
 <table style="width:100%;background-color:#fff;border:1px solid #ddd;padding:10px;">
 	<tbody>
 		<tr>
