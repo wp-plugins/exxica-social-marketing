@@ -574,6 +574,7 @@ class Exxica_Social_Marketing_Handlers
     {
         header('Content-Type: text/html');
         echo json_encode( $return );
+        die();
     }
 
     public function factory_reset()

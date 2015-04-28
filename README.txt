@@ -42,9 +42,7 @@ Each user is allowed to share on those channels, accounts and pages he/she has a
 
 = Trial version =
 
-This plugin is a free 45 days trial version.
-
-After that it's €9.99/month.
+This plugin has a free 45 days trial, after that it's €9.99/month.
 
 == Installation ==
 = Automatic installation =
@@ -62,7 +60,7 @@ After that it's €9.99/month.
 
 == Frequently Asked Questions ==
 = What is the requirements of my server? =
-Our plugin uses PHP cURL (http://php.net/manual/en/book.curl.php) to transfer publication data to our server, this is the only thing that is required by your server.
+Our plugin uses PHP cURL (http://php.net/manual/en/book.curl.php) to transfer publication data to our server, this is the only thing that is required by your server. If you are unsure if you have it, the plugin will check for it and tell you if you don't.
 
 = What if I have discovered a bug? =
 If you have discovered a bug or something that you are not happy with, please let us know at support@exxica.com.
@@ -85,6 +83,9 @@ You cannot delete them after their time has expired (and they are published) bec
 6. Where to find the settings page.
 
 == Changelog ==
+= 1.1.8.3 =
+- Fixed a bug that caused the plugin not to load authorization URLs.
+
 = 1.1.8.2 =
 - Hotfix for bug in cURL.
 
@@ -154,6 +155,9 @@ You cannot delete them after their time has expired (and they are published) bec
 - Initial release.
 
 == Upgrade Notice ==
+= 1.1.8.3 =
+If you had problems authenticating or re-authenticating, please update.
+
 = 1.1.8.2 =
 Hotfix for bug in cURL. Update recommended.
 

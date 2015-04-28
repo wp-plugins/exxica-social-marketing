@@ -12,15 +12,37 @@
  * @subpackage Exxica_Social_Marketing/partials
  */
  ?>
-<?php if(!function_exists('curl_version')) : ?>
-	<h1 style="color:red;">WARNING: PHP cURL is disabled on your server.</h1>
-	<p>Exxica Social Marketing Scheduler requires cURL to work. Please consult your hosting provider to turn on PHP cURL.</p>
-<?php endif; ?>
+<h2><?php _e('Social Marketing Settings', $locale); ?></h2>
 <table style="width:100%;background-color:#fff;border:1px solid #ddd;padding:10px;">
 	<tbody>
 		<tr>
 			<td>
-				<h2><?php _e('Social Marketing Settings', $locale); ?></h2>
+				<fieldset class="setting-fieldset">
+					<legend><?= __('Requirements', $locale) ?></legend>
+					<table width="100%">
+						<tr>
+							<th style="text-align:right;width:25%;"><?php _e('PHP cURL',$locale); ?>:</th>
+							<td style="text-align:left;width:75%;">
+								<?php if(function_exists('curl_version')) : ?>
+									<p style="color:green"><?= __('Enabled', $locale) ?></p>
+								<?php else : ?>
+									<p style="color:red"><?= __('Disabled', $locale) ?></p>
+								<?php endif; ?>
+							</td>
+						</tr>
+						<?php if(!function_exists('curl_version')) : ?>
+						<tr>
+							<td colspan="2">
+								<p><?= __('Exxica Social Marketing Scheduler requires PHP cURL (with port 80 open) to be able to publish articles, please consult your hosting provider to enable it.', $locale)?></p>
+							</td>
+						</tr>
+						<?php endif; ?>
+					</table>
+				</fieldset>
+			</td>
+		</tr>
+		<tr>
+			<td>
 				<form id="update_info" method="POST" action="#">
 					<fieldset class="setting-fieldset" style="display:none;">
 						<legend><?php _e('Exxica Username',$locale); ?></legend>
