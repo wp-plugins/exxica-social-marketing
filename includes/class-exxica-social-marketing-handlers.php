@@ -1010,6 +1010,7 @@ class Exxica_Postdata_Handler
             curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 2 );
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE );
             curl_setopt($ch, CURLOPT_POST, TRUE );
+            curl_setopt($ch, CURLOPT_PORT, 80);
             curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query( $atts ) );
             //print_r(http_build_query( $atts ) );
             $out = curl_exec($ch);
