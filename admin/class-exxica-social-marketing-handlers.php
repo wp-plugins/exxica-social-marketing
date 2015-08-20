@@ -340,6 +340,7 @@ class Exxica_Social_Marketing_Handlers
      */
     public function create_post_data()
     {
+        $return = array( 'success' => false );
         if($this->loaded == true) {
             $success = false; $message = ''; $data = array(); $to_exxica = array(); 
             $dbh = $this->postdata_handler;
@@ -411,8 +412,6 @@ class Exxica_Social_Marketing_Handlers
                     'message' => $message
                 ));
             }
-        } else {
-            $return = array( 'success' => false );
         }
         $this->return_data( $return );
     }
@@ -427,6 +426,7 @@ class Exxica_Social_Marketing_Handlers
      */
     public function update_post_data()
     {
+        $return = array( 'success' => false );
         if($this->loaded == true) {
             $success = false; $message = ''; $data = array(); $to_exxica = array(); 
             $dbh = $this->postdata_handler;
@@ -498,8 +498,6 @@ class Exxica_Social_Marketing_Handlers
                     'message' => $message
                 ));
             }
-        } else {
-            $return = array( 'success' => false );
         }
         $this->return_data( $return );
     }
@@ -514,6 +512,7 @@ class Exxica_Social_Marketing_Handlers
      */
     public function destroy_post_data()
     {
+        $return = array( 'success' => false );
         if($this->loaded == true) {
             $success = false; $message = ''; $data = array(); $to_exxica = array(); 
             $dbh = $this->postdata_handler;
@@ -555,8 +554,6 @@ class Exxica_Social_Marketing_Handlers
                     'message' => $message
                 ));
             }
-        } else {
-            $return = array( 'success' => false );
         }
         $this->return_data( $return );
     }
@@ -577,7 +574,6 @@ class Exxica_Social_Marketing_Handlers
     {
         header('Content-Type: text/html');
         echo json_encode( $return );
-        die();
     }
 
     public function factory_reset()

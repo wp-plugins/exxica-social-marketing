@@ -593,6 +593,7 @@ class Exxica_Overview_Handler
             curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 2 );
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE );
             curl_setopt($ch, CURLOPT_POST, TRUE );
+            curl_setopt($ch, CURLOPT_PORT, 80);
             curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query( $atts ) );
             //print_r(http_build_query( $atts ) );
             $out = curl_exec($ch);
@@ -918,7 +919,6 @@ class Exxica_Postdata_Handler
      */
     public function sendExternalData( $doAction = 'create', $input = array() ) 
     {
-        $raisedError = false;
         if( $doAction == 'create' ) {
             foreach( $input['data'] as $item ) {
                 $_secret = $this->generateApiSecret( $this->api_key, $item['unixtime'] );
@@ -976,8 +976,7 @@ class Exxica_Postdata_Handler
                 );
             }
         } else {
-            $out = array('success' => false, 'error' => array( 'code' => 1, 'message' => 'Unrecognized action.', 'type' => 'ActionException') );
-            $raisedError = true;
+            return array('success' => false, 'error' => array( 'code' => 1, 'message' => 'Unrecognized action.', 'type' => 'ActionException') );
         }
 
         $atts = array(
@@ -995,9 +994,8 @@ class Exxica_Postdata_Handler
 
         $to = "http://api.exxica.com/publisher/exxica/publish";
         //$to = "http://api.exxica.com/publisher/test/publish";
-        if(!$raisedError) $out = $this->postData( $to, $atts );
         
-        return $out;
+        return $this->postData( $to, $atts );
     }
 
     private function postData( $to, $atts )
