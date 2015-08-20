@@ -3,7 +3,7 @@ Contributors: exxica
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4NMH2H3HF3EGU
 Tags: social marketing, marketing, teasing, increase traffic, generate traffic, facebook, twitter, social marketing scheduler, scheduler, social marketing planning, planning, sharing, publicating, sharings, publications, social marketing plan, marketing plan, marketing schedule, timing
 Requires at least: 3.5.1
-Tested up to: 4.2
+Tested up to: 4.3
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -83,8 +83,8 @@ You cannot delete them after their time has expired (and they are published) bec
 6. Where to find the settings page.
 
 == Changelog ==
-= 1.1.8.3 =
-- Fixed a bug that caused the plugin not to load authorization URLs.
+= 1.1.9 =
+- Updated for WP 4.3.
 
 = 1.1.8.2 =
 - Hotfix for bug in cURL.
@@ -155,8 +155,8 @@ You cannot delete them after their time has expired (and they are published) bec
 - Initial release.
 
 == Upgrade Notice ==
-= 1.1.8.3 =
-If you had problems authenticating or re-authenticating, please update.
+= 1.1.9 =
+Minor patch. Update recommended.
 
 = 1.1.8.2 =
 Hotfix for bug in cURL. Update recommended.
