@@ -11,6 +11,10 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 A tool that helps you schedule posts and pages on Facebook and Twitter and other social platforms.
 
 == Description ==
+
+**This plugin has a free 45 days trial, after that it's €9.99/month.**
+
+= About =
 Timing is all, if you want to maximize the effect of sharing your articles in social media.
 
 To share an editorial
@@ -40,10 +44,6 @@ Nevertheless, you are of course in charge. You can reorganize your plan whenever
 
 Each user is allowed to share on those channels, accounts and pages he/she has access to from before. Numerous contributors might also be able to share on a common Twitter account or Facebook page. The users are allowed to publish on his/hers personal account or page.
 
-= Trial version =
-
-This plugin has a free 45 days trial, after that it's €9.99/month.
-
 == Installation ==
 = Automatic installation =
 1. Press **Install** to install this plugin to your WordPress.
@@ -59,6 +59,9 @@ This plugin has a free 45 days trial, after that it's €9.99/month.
 5. Optionally set up global variables in **Settings** => **Social marketing**.
 
 == Frequently Asked Questions ==
+= Does this plugin have a paid service? =
+Our plugin comes with a 45 day trial period, so you are free to use all premium features for 45 days. If you wish to keep using it after that, it's €9.99/month.
+
 = What is the requirements of my server? =
 Our plugin uses PHP cURL (http://php.net/manual/en/book.curl.php) to transfer publication data to our server, this is the only thing that is required by your server. If you are unsure if you have it, the plugin will check for it and tell you if you don't.
 
@@ -85,6 +88,7 @@ You cannot delete them after their time has expired (and they are published) bec
 == Changelog ==
 = 1.1.9 =
 - Updated for WP 4.3.
+- Updated README.
 
 = 1.1.8.2 =
 - Hotfix for bug in cURL.
