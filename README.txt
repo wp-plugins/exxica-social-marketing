@@ -14,6 +14,8 @@ A tool that helps you schedule posts and pages on Facebook and Twitter and other
 
 **This plugin has a free 45 days trial, after that it's €9.99/month.**
 
+[youtube https://www.youtube.com/watch?v=TeGBFgUp6_Q]
+
 Timing is all, if you want to maximize the effect of sharing your articles in social media.
 
 To share an editorial
